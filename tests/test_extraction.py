@@ -13,7 +13,7 @@ from access_intake.validation import load_schema
 
 REQUESTS = Path(__file__).resolve().parent.parent / "materials" / "requests"
 IT001 = load_export(REQUESTS / "IT-001.json")
-FAKE_KEY = "dapi0123456789abcdef0123456789abcdef"
+FAKE_KEY = "test-key-not-a-real-credential-00000"
 
 GOOD = {
     "request_id": "IT-001", "request_date": "2026-10-22", "kind": "new", "requester": "Maya Chen",

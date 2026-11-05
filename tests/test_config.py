@@ -5,7 +5,7 @@ import pytest
 from access_intake.config import DEFAULT_MODEL, ConfigError, load_settings
 from access_intake.redaction import REDACTED, RedactingFormatter, redact, redact_headers
 
-FAKE_KEY = "dapi0123456789abcdef0123456789abcdef"
+FAKE_KEY = "test-key-not-a-real-credential-00000"
 
 
 def test_defaults_use_mock_provider():

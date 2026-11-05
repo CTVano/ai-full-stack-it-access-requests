@@ -14,10 +14,10 @@ FIXTURES = ROOT / "fixtures" / "responses"
 
 
 def test_evidence_request_is_the_real_request_and_is_redacted(monkeypatch):
-    monkeypatch.setenv("API_KEY", "dapi0123456789abcdef0123456789abcdef")
+    monkeypatch.setenv("API_KEY", "test-key-not-a-real-credential-00000")
     ev = build_evidence(DOC, FIXTURES)
     text = json.dumps(ev)
-    assert "dapi0123456789abcdef" not in text
+    assert "test-key-not-a-real-credential" not in text
     assert ev["request"]["headers"]["Authorization"] == "[REDACTED]"
     assert ev["request"]["url"] == f"{HOST_PLACEHOLDER}/serving-endpoints/chat/completions"
     live = load_settings({"INTAKE_PROVIDER": "databricks", "DATABRICKS_HOST": HOST_PLACEHOLDER})
