@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":\"2026-10-27\",\"system\":\"Ledger\",\"business_purpose\":\"Compare daily reconciliation report to entries seen by operations to explain totals that have been hard to explain at hand-over\",\"request_date\":\"2026-10-22\",\"permission\":\"read\",\"requester\":\"Ben Carter\",\"issues\":[\"missing end_date: no end date stated\"],\"end_date\":null,\"manager\":\"Elena Park\",\"environment\":\"production\",\"team\":\"Operations\",\"supporting_quotes\":[\"I'm Ben Carter in Operations\",\"This is a new access request (IT-010)\",\"date of submission is 2026-10-22\",\"read access to Ledger (production)\",\"starting 2026-10-27\",\"My manager is Elena Park\",\"compare the daily reconciliation report to the entries that the operations folks see as some of the totals have been hard to explain at the hand-over\",\"Haven't quite fixed on the end date\"],\"request_id\":\"IT-010\",\"kind\":\"new\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908026,
+    "id": "msg_bdrk_011CgkMiGSuTunFMX65V9KPx",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 417,
+      "prompt_tokens": 1805,
+      "total_tokens": 2222
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:47:06+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}

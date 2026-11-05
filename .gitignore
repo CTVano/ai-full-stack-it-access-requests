@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+# Local operational state and logs (deliverables/ IS committed)
+state/
+*.log
+.env

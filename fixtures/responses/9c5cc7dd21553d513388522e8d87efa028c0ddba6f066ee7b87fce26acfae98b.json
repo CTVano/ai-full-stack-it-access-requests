@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":null,\"system\":null,\"business_purpose\":\"Project has been cancelled\",\"request_date\":\"2026-10-22\",\"permission\":null,\"requester\":\"Ava Brooks\",\"issues\":[\"missing system: no system stated\",\"missing environment: no environment stated\",\"missing permission: no permission stated\",\"missing start_date: no start date stated\",\"missing end_date: no end date stated\"],\"end_date\":null,\"manager\":\"Elena Park\",\"environment\":null,\"team\":\"Design\",\"supporting_quotes\":[\"Could you please withdraw IT-005?\",\"Date: 2026-10-22\",\"My name is Ava Brooks\",\"Design\",\"The project that triggered my request has been cancelled\",\"My boss is Elena Park\",\"Please record the request as withdrawn\"],\"request_id\":\"IT-005\",\"kind\":\"withdrawal\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908021,
+    "id": "msg_bdrk_011CgkMht9ivcNaRY2gf1xyU",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 384,
+      "prompt_tokens": 1743,
+      "total_tokens": 2127
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:47:01+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}

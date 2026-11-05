@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":\"2026-10-26\",\"system\":\"Forge\",\"business_purpose\":\"Looking at example pipeline runs to figure out why the starter project takes longer to build some of the time; comparing run timestamps to template versions to share with people managing the examples\",\"request_date\":\"2026-10-22\",\"permission\":\"read\",\"requester\":\"Alex Turner\",\"issues\":[],\"end_date\":\"2026-10-28\",\"manager\":\"Nia Patel\",\"environment\":\"staging\",\"team\":\"Platform\",\"supporting_quotes\":[\"Alex Turner from Platform\",\"request IT-061 for 2026-10-22\",\"new read access to Forge (staging)\",\"2026-10-26 through 2026-10-28\",\"Nia Patel is my manager\",\"looking at the example pipeline runs to figure out why the starter project takes longer to build some of the time\",\"look at the run timestamps and compare to the template versions\"],\"request_id\":\"IT-061\",\"kind\":\"new\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908032,
+    "id": "msg_bdrk_011CgkMihRprNk7Gwm1JyUhV",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 418,
+      "prompt_tokens": 1765,
+      "total_tokens": 2183
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:47:12+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}

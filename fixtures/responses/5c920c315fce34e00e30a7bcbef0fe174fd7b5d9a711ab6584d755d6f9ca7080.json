@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":\"2026-10-27\",\"system\":\"Atlas\",\"business_purpose\":\"Reviewing sample dataset for weekly analyst workshop to find source of discrepancy between sample totals and handout, update example queries if needed, and provide description to workshop facilitator\",\"request_date\":\"2026-10-22\",\"permission\":\"read\",\"requester\":\"Daniel Wright\",\"issues\":[],\"end_date\":\"2026-11-03\",\"manager\":\"Priya Shah\",\"environment\":\"staging\",\"team\":\"Data Engineering\",\"supporting_quotes\":[\"IT-018, submitted on 2026-10-22\",\"Daniel Wright in Data Engineering\",\"new read access to Atlas in staging\",\"for the dates 2026-10-27 through 2026-11-03\",\"My manager is Priya Shah\",\"reviewing our sample dataset we use during our weekly analyst workshop\",\"people noticed a discrepancy between the totals of the sample and what is in the handout\"],\"request_id\":\"IT-018\",\"kind\":\"new\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908036,
+    "id": "msg_bdrk_011CgkMiykLs9FCEPyjpUFaH",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 419,
+      "prompt_tokens": 1847,
+      "total_tokens": 2266
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:47:16+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}

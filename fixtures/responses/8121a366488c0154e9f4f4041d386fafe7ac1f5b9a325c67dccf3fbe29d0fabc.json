@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":\"2026-10-29\",\"system\":\"Beacon\",\"business_purpose\":\"To verify sample conversations in examples for Support onboarding workshop match the exercise handout before printing\",\"request_date\":\"2026-10-22\",\"permission\":\"read\",\"requester\":\"Mia Davis\",\"issues\":[\"correction applied to start_date and end_date: originally 2026-10-24 - 2026-10-26, corrected to 2026-10-29 - 2026-10-31\"],\"end_date\":\"2026-10-31\",\"manager\":\"Elena Park\",\"environment\":\"staging\",\"team\":\"Learning\",\"supporting_quotes\":[\"IT-015 2026-10-22\",\"Mia Davis - Learning\",\"new read access to Beacon in staging\",\"for the dates 2026-10-24 - 2026-10-26\",\"My manager is Elena Park\",\"Correction: substitute the access dates in the above with 2026-10-29 - 2026-10-31\",\"I need to make sure that the sample conversations in the examples I'm building match up to the exercise handout for the Support onboarding workshop\",\"I'd like to get the examples verified before we print the handout\"],\"request_id\":\"IT-015\",\"kind\":\"new\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908032,
+    "id": "msg_bdrk_011CgkMie3RpqpxVrUQLub6B",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 489,
+      "prompt_tokens": 1812,
+      "total_tokens": 2301
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:47:12+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}

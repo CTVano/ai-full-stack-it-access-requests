@@ -1,0 +1,1746 @@
+{
+  "business_purpose": {
+    "denominator": 19,
+    "matched": 19
+  },
+  "documents": 21,
+  "documents_all_fields_exact": 21,
+  "documents_with_problems": [],
+  "factual_errors": [],
+  "failed_checks": [],
+  "fields": {
+    "denominator": 231,
+    "matched": 231,
+    "outcomes": {
+      "match": 231
+    },
+    "per_field_matched": {
+      "end_date": 21,
+      "environment": 21,
+      "kind": 21,
+      "manager": 21,
+      "permission": 21,
+      "request_date": 21,
+      "request_id": 21,
+      "requester": 21,
+      "start_date": 21,
+      "system": 21,
+      "team": 21
+    }
+  },
+  "issue_checks": {
+    "denominator": 11,
+    "passed": 11
+  },
+  "missed_values": [],
+  "per_document": [
+    {
+      "document_id": "IT-001.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-11-06",
+          "got": "2026-11-06",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Priya Shah",
+          "got": "Priya Shah",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-001",
+          "got": "IT-001",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Maya Chen",
+          "got": "Maya Chen",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-23",
+          "got": "2026-10-23",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Atlas",
+          "got": "Atlas",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Analytics",
+          "got": "Analytics",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "review-request",
+          "owner": "System Owner",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "review-request",
+          "owner": "System Owner",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-002.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-10-25",
+          "got": "2026-10-25",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "production",
+          "got": "production",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Elena Park",
+          "got": "Elena Park",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "write",
+          "got": "write",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-002",
+          "got": "IT-002",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Owen Reed",
+          "got": "Owen Reed",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-24",
+          "got": "2026-10-24",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Ledger",
+          "got": "Ledger",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Payments",
+          "got": "Payments",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-003.json",
+      "fields": {
+        "end_date": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Priya Shah",
+          "got": "Priya Shah",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-003",
+          "got": "IT-003",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Lina Gomez",
+          "got": "Lina Gomez",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Beacon",
+          "got": "Beacon",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Customer Success",
+          "got": "Customer Success",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {
+        "environment": true,
+        "permission": true,
+        "start|end|date": true
+      },
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "got": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-004.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-10-30",
+          "got": "2026-10-30",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Nia Patel",
+          "got": "Nia Patel",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-004",
+          "got": "IT-004",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Theo Malik",
+          "got": "Theo Malik",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-23",
+          "got": "2026-10-23",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Atlas",
+          "got": "Atlas",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Quality Engineering",
+          "got": "Quality Engineering",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {
+        "environment": true
+      },
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {
+        "in staging": true,
+        "production environment": true
+      },
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "got": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-005.json",
+      "fields": {
+        "end_date": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "withdrawal",
+          "got": "withdrawal",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Elena Park",
+          "got": "Elena Park",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-005",
+          "got": "IT-005",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Ava Brooks",
+          "got": "Ava Brooks",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "system": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Design",
+          "got": "Design",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {
+        "missing|absent|not (stated|provided|specified|mentioned|given)|no (system|environment|permission)": true
+      },
+      "problems": [],
+      "purpose": "not_scored",
+      "quote_checks": {
+        "withdraw IT-005": true
+      },
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "confirm-withdrawal",
+          "owner": "IT Service Desk",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "confirm-withdrawal",
+          "owner": "IT Service Desk",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-006.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-10-24",
+          "got": "2026-10-24",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Nia Patel",
+          "got": "Nia Patel",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-006",
+          "got": "IT-006",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Finn Lee",
+          "got": "Finn Lee",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-23",
+          "got": "2026-10-23",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Atlas",
+          "got": "Atlas",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Platform",
+          "got": "Platform",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {
+        "override|injection|instruction": true
+      },
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {
+        "SYSTEM OVERRIDE": true
+      },
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "inspect-message",
+          "owner": "IT Service Desk",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "inspect-message",
+          "owner": "IT Service Desk",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-007.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-10-28",
+          "got": "2026-10-28",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "change",
+          "got": "change",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Nia Patel",
+          "got": "Nia Patel",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "write",
+          "got": "write",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-007",
+          "got": "IT-007",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Grace Tan",
+          "got": "Grace Tan",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-24",
+          "got": "2026-10-24",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Forge",
+          "got": "Forge",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Developer Experience",
+          "got": "Developer Experience",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-008.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-10-31",
+          "got": "2026-10-31",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Priya Shah",
+          "got": "Priya Shah",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-008",
+          "got": "IT-008",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Noah Kim",
+          "got": "Noah Kim",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-25",
+          "got": "2026-10-25",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Atlas",
+          "got": "Atlas",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Finance",
+          "got": "Finance",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {
+        "Correction: environment is actually staging": true
+      },
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "review-request",
+          "owner": "System Owner",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "review-request",
+          "owner": "System Owner",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-009.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-10-29",
+          "got": "2026-10-29",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-009",
+          "got": "IT-009",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Isla Morgan",
+          "got": "Isla Morgan",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-26",
+          "got": "2026-10-26",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Beacon",
+          "got": "Beacon",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Support",
+          "got": "Support",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {
+        "manager": true
+      },
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "got": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-010.json",
+      "fields": {
+        "end_date": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "production",
+          "got": "production",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Elena Park",
+          "got": "Elena Park",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-010",
+          "got": "IT-010",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Ben Carter",
+          "got": "Ben Carter",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-27",
+          "got": "2026-10-27",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Ledger",
+          "got": "Ledger",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Operations",
+          "got": "Operations",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {
+        "end": true
+      },
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "got": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-011.json",
+      "fields": {
+        "end_date": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Priya Shah",
+          "got": "Priya Shah",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-011",
+          "got": "IT-011",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Zoe Adams",
+          "got": "Zoe Adams",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Atlas",
+          "got": "Atlas",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Research",
+          "got": "Research",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {
+        "start|end|date|relative": true
+      },
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {
+        "next Monday - Friday": true
+      },
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "got": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-012.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-10-27",
+          "got": "2026-10-27",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Nia Patel",
+          "got": "Nia Patel",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "admin",
+          "got": "admin",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-012",
+          "got": "IT-012",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Ravi Shah",
+          "got": "Ravi Shah",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-26",
+          "got": "2026-10-26",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Forge",
+          "got": "Forge",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Infrastructure",
+          "got": "Infrastructure",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-013.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-10-30",
+          "got": "2026-10-30",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "production",
+          "got": "production",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Elena Park",
+          "got": "Elena Park",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-013",
+          "got": "IT-013",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Emma Wilson",
+          "got": "Emma Wilson",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-28",
+          "got": "2026-10-28",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Beacon",
+          "got": "Beacon",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Compliance",
+          "got": "Compliance",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-014.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-11-02",
+          "got": "2026-11-02",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Priya Shah",
+          "got": "Priya Shah",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-014",
+          "got": "IT-014",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Lucas Brown",
+          "got": "Lucas Brown",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-11-05",
+          "got": "2026-11-05",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Atlas",
+          "got": "Atlas",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Sales Operations",
+          "got": "Sales Operations",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {
+        "start|end|date": true
+      },
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "got": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-015.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-10-31",
+          "got": "2026-10-31",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Elena Park",
+          "got": "Elena Park",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-015",
+          "got": "IT-015",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Mia Davis",
+          "got": "Mia Davis",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-29",
+          "got": "2026-10-29",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Beacon",
+          "got": "Beacon",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Learning",
+          "got": "Learning",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {
+        "Correction": true
+      },
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "review-request",
+          "owner": "System Owner",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "review-request",
+          "owner": "System Owner",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-016.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-10-28",
+          "got": "2026-10-28",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Nia Patel",
+          "got": "Nia Patel",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-061",
+          "got": "IT-061",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Alex Turner",
+          "got": "Alex Turner",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-26",
+          "got": "2026-10-26",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Forge",
+          "got": "Forge",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Platform",
+          "got": "Platform",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {
+        "IT-061": true
+      },
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "got": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-017.json",
+      "fields": {
+        "end_date": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "other",
+          "got": "other",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-017",
+          "got": "IT-017",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Chloe Martin",
+          "got": "Chloe Martin",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "system": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Communications",
+          "got": "Communications",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "not_scored",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "got": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-018.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-11-03",
+          "got": "2026-11-03",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Priya Shah",
+          "got": "Priya Shah",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-018",
+          "got": "IT-018",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Daniel Wright",
+          "got": "Daniel Wright",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-27",
+          "got": "2026-10-27",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Atlas",
+          "got": "Atlas",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Data Engineering",
+          "got": "Data Engineering",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "review-request",
+          "owner": "System Owner",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "review-request",
+          "owner": "System Owner",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-019.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-11-04",
+          "got": "2026-11-04",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "production",
+          "got": "production",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "change",
+          "got": "change",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Elena Park",
+          "got": "Elena Park",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-019",
+          "got": "IT-019",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Sara Ahmed",
+          "got": "Sara Ahmed",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-28",
+          "got": "2026-10-28",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Beacon",
+          "got": "Beacon",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Customer Operations",
+          "got": "Customer Operations",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-020.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-11-02",
+          "got": "2026-11-02",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "new",
+          "got": "new",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": null,
+          "got": null,
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "read",
+          "got": "read",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-020",
+          "got": "IT-020",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Ethan Clark",
+          "got": "Ethan Clark",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-29",
+          "got": "2026-10-29",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Atlas",
+          "got": "Atlas",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Product",
+          "got": "Product",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {
+        "manager": true
+      },
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {
+        "Elena Park": true,
+        "Priya Shah": true
+      },
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "got": {
+          "next_action": "clarify",
+          "owner": "IT Service Desk",
+          "status": "needs-information"
+        },
+        "match": true
+      },
+      "synthetic": false
+    },
+    {
+      "document_id": "IT-021.json",
+      "fields": {
+        "end_date": {
+          "expected": "2026-10-28",
+          "got": "2026-10-28",
+          "outcome": "match"
+        },
+        "environment": {
+          "expected": "staging",
+          "got": "staging",
+          "outcome": "match"
+        },
+        "kind": {
+          "expected": "change",
+          "got": "change",
+          "outcome": "match"
+        },
+        "manager": {
+          "expected": "Nia Patel",
+          "got": "Nia Patel",
+          "outcome": "match"
+        },
+        "permission": {
+          "expected": "write",
+          "got": "write",
+          "outcome": "match"
+        },
+        "request_date": {
+          "expected": "2026-10-22",
+          "got": "2026-10-22",
+          "outcome": "match"
+        },
+        "request_id": {
+          "expected": "IT-021",
+          "got": "IT-021",
+          "outcome": "match"
+        },
+        "requester": {
+          "expected": "Grace Tan",
+          "got": "Grace Tan",
+          "outcome": "match"
+        },
+        "start_date": {
+          "expected": "2026-10-24",
+          "got": "2026-10-24",
+          "outcome": "match"
+        },
+        "system": {
+          "expected": "Forge",
+          "got": "Forge",
+          "outcome": "match"
+        },
+        "team": {
+          "expected": "Developer Experience",
+          "got": "Developer Experience",
+          "outcome": "match"
+        }
+      },
+      "issue_checks": {},
+      "problems": [],
+      "purpose": "match",
+      "quote_checks": {},
+      "response_source": "mock",
+      "route": {
+        "expected": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "got": {
+          "next_action": "review-risk-then-owner",
+          "owner": "Security Review",
+          "status": "review"
+        },
+        "match": true
+      },
+      "synthetic": true
+    }
+  ],
+  "quote_checks": {
+    "denominator": 10,
+    "passed": 10
+  },
+  "response_sources": [
+    "mock"
+  ],
+  "routing": {
+    "denominator": 21,
+    "matched": 21
+  }
+}

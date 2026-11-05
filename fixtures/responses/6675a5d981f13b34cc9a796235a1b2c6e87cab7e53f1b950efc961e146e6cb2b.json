@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":null,\"system\":\"Beacon\",\"business_purpose\":\"Working on customer renewal review; gathering account notes before team meeting\",\"request_date\":\"2026-10-22\",\"permission\":null,\"requester\":\"Lina Gomez\",\"issues\":[\"missing environment: requester states they didn't note what environment\",\"missing permission: requester states they didn't note what the permission is named\",\"missing start_date: no start date stated\",\"missing end_date: no end date stated\"],\"end_date\":null,\"manager\":\"Priya Shah\",\"environment\":null,\"team\":\"Customer Success\",\"supporting_quotes\":[\"I'm opening up IT-003 on 2026-10-22\",\"I need new access to Beacon\",\"from Customer Success\",\"working on the customer renewal review next week\",\"I'm trying to get the account notes together before we meet as a team\",\"My manager is Priya Shah\",\"I didn't note what environment he was on or what the permission is named\"],\"request_id\":\"IT-003\",\"kind\":\"new\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908017,
+    "id": "msg_bdrk_011CgkMhZxb6rkAbRftdgeyE",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 431,
+      "prompt_tokens": 1773,
+      "total_tokens": 2204
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:46:57+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}

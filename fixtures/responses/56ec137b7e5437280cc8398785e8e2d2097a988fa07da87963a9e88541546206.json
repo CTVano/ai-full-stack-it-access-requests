@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":null,\"system\":null,\"business_purpose\":\"Asking about the access request form URL and who is responsible for onboarding documentation\",\"request_date\":\"2026-10-22\",\"permission\":null,\"requester\":\"Chloe Martin\",\"issues\":[\"not an access request: message is asking questions about the form URL and onboarding responsibility\",\"missing system: no system stated\",\"missing environment: no environment stated\",\"missing permission: no permission stated\",\"missing start_date: no start date stated\",\"missing end_date: no end date stated\",\"missing manager: no manager stated\"],\"end_date\":null,\"manager\":null,\"environment\":null,\"team\":\"Communications\",\"supporting_quotes\":[\"IT-017 was submitted by Chloe Martin from Communications on 2026-10-22\",\"Where can we find the access request form?\",\"I'm wondering if you can let me know the form URL\",\"And who is responsible for that bit of onboarding?\"],\"request_id\":\"IT-017\",\"kind\":\"other\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908034,
+    "id": "msg_bdrk_011CgkMiqaxcrhXJYuhTwzxL",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 429,
+      "prompt_tokens": 1754,
+      "total_tokens": 2183
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:47:14+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}

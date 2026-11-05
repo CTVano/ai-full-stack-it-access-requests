@@ -1,0 +1,7 @@
+{
+  "export_version": "1.0",
+  "exported_at": "2026-10-22T17:30:00Z",
+  "source_channel": "chat",
+  "subject": "Template edits on Forge",
+  "message": "Ticket IT-021, raised 22 Oct 2026. Developer Experience here - Grace Tan. Right now Forge staging only lets me read. For the window 2026-10-24 through 2026-10-28 I'd like that raised to write, so I can commit fixes to the starter project templates and re-run the sample pipelines afterwards. Nia Patel manages me. When I'm finished I'll circulate a list of the templates that changed ahead of the next onboarding session."
+}

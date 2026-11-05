@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":null,\"system\":\"Atlas\",\"business_purpose\":\"Looking at sample experiment records to prepare for team walkthrough on how experiment records relate to charts; finding confusing examples before the walkthrough\",\"request_date\":\"2026-10-22\",\"permission\":\"read\",\"requester\":\"Zoe Adams\",\"issues\":[\"missing start_date: relative date 'next Monday' cannot be calculated\",\"missing end_date: relative date 'Friday' cannot be calculated\"],\"end_date\":null,\"manager\":\"Priya Shah\",\"environment\":\"staging\",\"team\":\"Research\",\"supporting_quotes\":[\"IT-011, 2026-10-22\",\"Research (Zoe Adams)\",\"I need new read access\",\"Atlas\",\"staging\",\"next Monday - Friday\",\"Priya Shah is my boss\",\"I'm looking at sample experiment records to get ready for our team walkthrough\"],\"request_id\":\"IT-011\",\"kind\":\"new\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908027,
+    "id": "msg_bdrk_011CgkMiJC5pG9Sx1K4pNUZR",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 403,
+      "prompt_tokens": 1728,
+      "total_tokens": 2131
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:47:07+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}

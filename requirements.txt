@@ -1,0 +1,4 @@
+# Runtime dependencies: none.
+# The application uses only the Python 3.12 standard library (urllib, json,
+# hashlib, sqlite3/json state files), so there is nothing to lock at runtime.
+# Dev/test dependencies are pinned with hashes in requirements-dev.txt.

@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":\"2026-10-23\",\"system\":\"Atlas\",\"business_purpose\":\"Checking the weekly conversion dashboard with the new event definition changes before next reporting cycle; verifying sample records against spreadsheet and identifying discrepancies\",\"request_date\":\"2026-10-22\",\"permission\":\"read\",\"requester\":\"Maya Chen\",\"issues\":[],\"end_date\":\"2026-11-06\",\"manager\":\"Priya Shah\",\"environment\":\"staging\",\"team\":\"Analytics\",\"supporting_quotes\":[\"Maya Chen from Analytics here\",\"request IT-001 dated 2026-10-22\",\"new read access on Atlas in staging\",\"from 2026-10-23 to 2026-11-06\",\"My manager is Priya Shah\",\"checking the weekly conversion dashboard with the new event definition changes (before next reporting cycle)\",\"check the totals against our spreadsheet\"],\"request_id\":\"IT-001\",\"kind\":\"new\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908017,
+    "id": "msg_bdrk_011CgkMhZs8awQiPX7ehCh7Q",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 402,
+      "prompt_tokens": 1760,
+      "total_tokens": 2162
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:46:57+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}

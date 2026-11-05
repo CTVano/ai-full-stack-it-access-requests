@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":\"2026-10-25\",\"system\":\"Atlas\",\"business_purpose\":\"check the sample billing total vs forecasting workbook before month end rehearsal\",\"request_date\":\"2026-10-22\",\"permission\":\"read\",\"requester\":\"Noah Kim\",\"issues\":[\"correction applied to environment: initially stated 'production', corrected to 'staging'\"],\"end_date\":\"2026-10-31\",\"manager\":\"Priya Shah\",\"environment\":\"staging\",\"team\":\"Finance\",\"supporting_quotes\":[\"For IT-008, submitted date 2026-10-22\",\"Noah Kim from Finance\",\"new read access\",\"Atlas in production\",\"from 2026-10-25 to 2026-10-31\",\"Priya Shah is my manager\",\"check the sample billing total vs forecasting workbook before month end rehearsal\",\"Correction: environment is actually staging. Previous entry used production.\",\"Our rehearsal uses sample billing dataset in staging.\"],\"request_id\":\"IT-008\",\"kind\":\"new\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908022,
+    "id": "msg_bdrk_011CgkMhwrDo153Jq1m2xWhT",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 423,
+      "prompt_tokens": 1789,
+      "total_tokens": 2212
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:47:02+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}

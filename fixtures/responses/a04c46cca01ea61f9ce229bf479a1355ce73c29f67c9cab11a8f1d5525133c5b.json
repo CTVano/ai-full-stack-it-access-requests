@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":\"2026-10-28\",\"system\":\"Beacon\",\"business_purpose\":\"Transitioning from updating accounts to reviewing daily exception report; needs to view records and explain unusual entries during handover\",\"request_date\":\"2026-10-22\",\"permission\":\"read\",\"requester\":\"Sara Ahmed\",\"issues\":[],\"end_date\":\"2026-11-04\",\"manager\":\"Elena Park\",\"environment\":\"production\",\"team\":\"Customer Operations\",\"supporting_quotes\":[\"Sara Ahmed, Customer Operations\",\"IT-019, submitted 2026-10-22\",\"change my current Beacon access in production from write to read\",\"from 2026-10-28 to 2026-11-04\",\"My manager is Elena Park\",\"I am transitioning from updating accounts to reviewing the daily exception report\",\"I need to view the records that make up the exception report and to explain any unusual entries when I hand it over\"],\"request_id\":\"IT-019\",\"kind\":\"change\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908037,
+    "id": "msg_bdrk_011CgkMj3EhEbb6StjAuoRqm",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 410,
+      "prompt_tokens": 1781,
+      "total_tokens": 2191
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:47:17+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}

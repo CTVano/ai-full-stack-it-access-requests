@@ -1,0 +1,30 @@
+{
+  "body": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"start_date\":\"2026-10-23\",\"system\":\"Atlas\",\"business_purpose\":\"Investigate discrepancies between nightly quality report counts and release checklist, examine records for failed run, and send summary to responsible engineers\",\"request_date\":\"2026-10-22\",\"permission\":\"read\",\"requester\":\"Theo Malik\",\"issues\":[\"conflict in environment: message states both 'staging' and 'production'\"],\"end_date\":\"2026-10-30\",\"manager\":\"Nia Patel\",\"environment\":null,\"team\":\"Quality Engineering\",\"supporting_quotes\":[\"Please grant me new read access in staging to Atlas\",\"This request is for the production environment\"],\"request_id\":\"IT-004\",\"kind\":\"new\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1793908017,
+    "id": "msg_bdrk_011CgkMha1KFLAkS8NZke8V8",
+    "model": "databricks-claude-sonnet-4-5",
+    "object": "chat.completion",
+    "usage": {
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "completion_tokens": 357,
+      "prompt_tokens": 1777,
+      "total_tokens": 2134
+    }
+  },
+  "prompt_sha256": "c14dc3988e05f975ddc76de4f228bc48451d02e8fa8c9f5945ab5239d717ab86",
+  "recorded_at": "2026-11-05T19:46:57+00:00",
+  "recorded_from": "databricks:databricks-claude-sonnet-4-5",
+  "reported_model": "databricks-claude-sonnet-4-5",
+  "status": 200
+}
