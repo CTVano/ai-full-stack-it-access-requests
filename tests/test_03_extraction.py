@@ -67,3 +67,11 @@ class ExtractionContract(OfflineCase):
         self.assertTrue(failed.get('_retryable'),'HTTP retry classification was lost at the adapter boundary')
         self.assertEqual(failed['_retry_after'],2)
         self.assertNotIn('dummy-token',failed['error'])
+
+        from io import BytesIO
+        from unittest.mock import patch
+        # Fake the HTTP response itself to check real-adapter provenance without network or API_KEY reads.
+        with patch('urllib.request.urlopen',return_value=BytesIO(json.dumps(self.wire).encode())):
+            producer=LiveProvider({'model':'requested-alias'},credential=lambda:'dummy-token')
+            produced=extract(self.doc,producer)
+        self.assertEqual(produced['response_source'],'openai/'+self.wire['model'])

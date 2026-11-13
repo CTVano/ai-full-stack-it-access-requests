@@ -27,7 +27,8 @@ def worker(database,source,reply,entered,release,output,hook=None):
     provider=MockProvider(MOCKS,{'IT-001.json':[gate if hook is None else reply]})
     hooks={hook:gate} if hook else {}
     try:
-        result=Engine(Store(database),provider,{'requests_per_minute':0},hooks=hooks).submit(source)
+        engine=Engine(Store(database),provider,{'requests_per_minute':0,'workers':1 if Path(source).is_dir() else 4},hooks=hooks)
+        result=engine.intake(source) if Path(source).is_dir() else engine.submit(source)
         Path(output).write_text(json.dumps(result))
     except Exception as exc:Path(output).write_text(json.dumps({'worker_error':str(exc)}))
 
@@ -79,6 +80,19 @@ class WorkerContract(OfflineCase):
                 self.assertEqual(len(engine.provider.calls),0 if point=='after_commit' else 1)
                 # Fresh database/source state for the next interruption boundary.
                 self.store=Store(self.dir/(point+'.sqlite3'))
+
+        # All accepted batch documents must be durable before the first model request.
+        batch=self.dir/'resume-batch';batch.mkdir()
+        for i in [1,2,12]:shutil.copy(ROOT/f'materials/requests/IT-{i:03d}.json',batch)
+        self.store=Store(self.dir/'batch.sqlite3')
+        proc,entered,release,out=self.start('batch',batch,hook='before_response')
+        try:
+            self.assertTrue(wait_file(entered))
+            self.assertEqual({r['document_id'] for r in self.store.work()},{'IT-001.json','IT-002.json','IT-012.json'})
+        finally:proc.terminate();proc.join(2)
+        with self.store.connection() as db:db.execute("UPDATE attempts SET lease_until=0 WHERE state='leased'")
+        Engine(self.store,MockProvider(MOCKS),{'requests_per_minute':0}).resume()
+        self.assertEqual(len(self.store.queue()),3)
 
     def test_T_ISOLATION(self):
         intake=self.dir/'input';intake.mkdir()

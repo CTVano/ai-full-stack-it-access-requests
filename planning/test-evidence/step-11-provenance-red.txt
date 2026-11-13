@@ -1,0 +1,21 @@
+test_T_INTERRUPTED (test_03_extraction.ExtractionContract.test_T_INTERRUPTED) ... ok
+test_T_PROVIDER_ERROR (test_03_extraction.ExtractionContract.test_T_PROVIDER_ERROR) ... ok
+test_T_REFUSAL (test_03_extraction.ExtractionContract.test_T_REFUSAL) ... ok
+test_T_SCHEMA (test_03_extraction.ExtractionContract.test_T_SCHEMA) ... ok
+test_T_TRANSPORT (test_03_extraction.ExtractionContract.test_T_TRANSPORT) ... FAIL
+
+======================================================================
+FAIL: test_T_TRANSPORT (test_03_extraction.ExtractionContract.test_T_TRANSPORT)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_03_extraction.py", line 77, in test_T_TRANSPORT
+    self.assertEqual(produced['response_source'],'openai/'+self.wire['model'])
+AssertionError: 'openai/requested-alias' != 'openai/gpt-4.1-mini'
+- openai/requested-alias
++ openai/gpt-4.1-mini
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.016s
+
+FAILED (failures=1)

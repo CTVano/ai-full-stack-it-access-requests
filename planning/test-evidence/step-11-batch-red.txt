@@ -1,0 +1,18 @@
+test_T_ISOLATION (test_07_workers.WorkerContract.test_T_ISOLATION) ... ok
+test_T_OVERLAP (test_07_workers.WorkerContract.test_T_OVERLAP) ... ok
+test_T_RESUME (test_07_workers.WorkerContract.test_T_RESUME) ... FAIL
+
+======================================================================
+FAIL: test_T_RESUME (test_07_workers.WorkerContract.test_T_RESUME)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_07_workers.py", line 91, in test_T_RESUME
+    self.assertEqual({r['document_id'] for r in self.store.work()},{'IT-001.json','IT-002.json','IT-012.json'})
+AssertionError: Items in the second set but not the first:
+'IT-012.json'
+'IT-002.json'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.459s
+
+FAILED (failures=1)
