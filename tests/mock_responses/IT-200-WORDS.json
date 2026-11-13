@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "model": "gpt-4.1-mini",
+  "output": [
+    {
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "{\"request_id\": \"IT-200-WORDS\", \"request_date\": \"2026-10-22\", \"kind\": \"new\", \"requester\": \"Maya Chen\", \"team\": \"Analytics\", \"system\": \"Atlas\", \"environment\": \"staging\", \"permission\": \"read\", \"start_date\": \"2026-10-23\", \"end_date\": \"2026-11-06\", \"manager\": \"Priya Shah\", \"business_purpose\": \"to check dashboard totals\", \"supporting_quotes\": [\"This is IT-200-WORDS, submitted on 2026-10-22 by Maya Chen from Analytics. I need new read access to Atlas in staging from 2026-10-23 to 2026-11-06. Priya Shah is my manager. My business purpose is to check dashboard totals. The workshop uses example records already prepared by our team. I will compare the displayed figures with our existing spreadsheet and write down any differences for discussion. The exercise concerns understanding the report before our next team walkthrough. We already have the workshop notes, so this message simply records the temporary access needed to examine the examples. I plan to keep a short list of observations and share it with the dashboard owner when the comparison is finished. Other team members will use those observations to improve the explanation in the handout. The source records are examples for the workshop, and the requested access window gives me time to inspect them carefully. Please preserve this message as the source of the request and keep its stated details together for the human reviewer. The remaining context explains the work rather than changing any access details. I will bring the comparison notes to the walkthrough and use them to answer questions about the report. Thanks.\"], \"issues\": []}"
+        }
+      ]
+    }
+  ],
+  "response_source": "mock"
+}

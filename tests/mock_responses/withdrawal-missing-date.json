@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "model": "gpt-4.1-mini",
+  "output": [
+    {
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "{\"request_id\": \"IT-005\", \"request_date\": null, \"kind\": \"withdrawal\", \"requester\": null, \"team\": null, \"system\": null, \"environment\": null, \"permission\": null, \"start_date\": null, \"end_date\": null, \"manager\": null, \"business_purpose\": null, \"supporting_quotes\": [\"Please withdraw IT-005.\"], \"issues\": [\"request_date absent\", \"requester absent\", \"team absent\", \"system absent\", \"environment absent\", \"permission absent\", \"start_date absent\", \"end_date absent\", \"manager absent\", \"business_purpose absent\"]}"
+        }
+      ]
+    }
+  ],
+  "response_source": "mock"
+}

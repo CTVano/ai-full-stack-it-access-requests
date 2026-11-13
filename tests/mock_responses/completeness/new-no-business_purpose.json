@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "model": "gpt-4.1-mini",
+  "output": [
+    {
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "{\"request_id\": \"MATRIX-NEW-NO-BUSINESS_PURPOSE\", \"request_date\": \"2026-10-22\", \"kind\": \"new\", \"requester\": \"Maya Chen\", \"team\": \"Analytics\", \"system\": \"Atlas\", \"environment\": \"staging\", \"permission\": \"read\", \"start_date\": \"2026-10-23\", \"end_date\": \"2026-11-06\", \"manager\": \"Priya Shah\", \"business_purpose\": null, \"supporting_quotes\": [\"Request ID: MATRIX-NEW-NO-BUSINESS_PURPOSE. Request date: 2026-10-22. Kind: new. Requester: Maya Chen. Team: Analytics. System: Atlas. Environment: staging. Permission: read. Start date: 2026-10-23. End date: 2026-11-06. Manager: Priya Shah.\"], \"issues\": [\"business_purpose absent\"]}"
+        }
+      ]
+    }
+  ],
+  "response_source": "mock"
+}

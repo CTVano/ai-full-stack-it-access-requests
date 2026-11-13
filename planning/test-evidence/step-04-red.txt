@@ -1,0 +1,817 @@
+test_T_ADMIN (test_04_policy.PolicyContract.test_T_ADMIN) ... FAIL
+test_T_BAD_DATE (test_04_policy.PolicyContract.test_T_BAD_DATE) ... FAIL
+test_T_BAD_WITHDRAWAL (test_04_policy.PolicyContract.test_T_BAD_WITHDRAWAL) ... FAIL
+test_T_CHANGE_DOWN (test_04_policy.PolicyContract.test_T_CHANGE_DOWN) ... FAIL
+test_T_CHANGE_UP (test_04_policy.PolicyContract.test_T_CHANGE_UP) ... FAIL
+test_T_COMPLETE (test_04_policy.PolicyContract.test_T_COMPLETE) ... FAIL
+test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) ... 
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='request_id') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='request_date') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='requester') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='team') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='system') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='environment') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='permission') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='business_purpose') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='start_date') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='end_date') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='manager') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='request_id') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='request_date') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='requester') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='team') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='system') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='environment') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='permission') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='business_purpose') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='start_date') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='end_date') ... FAIL
+  test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='manager') ... FAIL
+test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) ... FAIL
+test_T_CONFLICT (test_04_policy.PolicyContract.test_T_CONFLICT) ... FAIL
+test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) ... 
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=1) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=2) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=3) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=4) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=5) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=6) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=7) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=8) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=9) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=10) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=11) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=12) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=13) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=14) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=15) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=16) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=17) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=18) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=19) ... FAIL
+  test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=20) ... FAIL
+test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) ... FAIL
+test_T_CORRECT_DATES (test_04_policy.PolicyContract.test_T_CORRECT_DATES) ... FAIL
+test_T_CORRECT_ENV (test_04_policy.PolicyContract.test_T_CORRECT_ENV) ... FAIL
+test_T_INSTRUCTIONS (test_04_policy.PolicyContract.test_T_INSTRUCTIONS) ... FAIL
+test_T_MANAGER_CONFLICT (test_04_policy.PolicyContract.test_T_MANAGER_CONFLICT) ... FAIL
+test_T_MISMATCH (test_04_policy.PolicyContract.test_T_MISMATCH) ... FAIL
+test_T_MISSING_ACCESS (test_04_policy.PolicyContract.test_T_MISSING_ACCESS) ... FAIL
+test_T_MISSING_DATES (test_04_policy.PolicyContract.test_T_MISSING_DATES) ... FAIL
+test_T_MISSING_MANAGER (test_04_policy.PolicyContract.test_T_MISSING_MANAGER) ... FAIL
+test_T_OTHER (test_04_policy.PolicyContract.test_T_OTHER) ... FAIL
+test_T_PARAPHRASE (test_04_policy.PolicyContract.test_T_PARAPHRASE) ... FAIL
+test_T_PRIORITY (test_04_policy.PolicyContract.test_T_PRIORITY) ... FAIL
+test_T_PRODUCTION_READ (test_04_policy.PolicyContract.test_T_PRODUCTION_READ) ... FAIL
+test_T_PRODUCTION_WRITE (test_04_policy.PolicyContract.test_T_PRODUCTION_WRITE) ... FAIL
+test_T_PURPOSE_READ (test_04_policy.PolicyContract.test_T_PURPOSE_READ) ... FAIL
+test_T_RELATIVE_DATES (test_04_policy.PolicyContract.test_T_RELATIVE_DATES) ... FAIL
+test_T_REVERSED_DATES (test_04_policy.PolicyContract.test_T_REVERSED_DATES) ... FAIL
+test_T_WITHDRAWAL (test_04_policy.PolicyContract.test_T_WITHDRAWAL) ... FAIL
+
+======================================================================
+FAIL: test_T_ADMIN (test_04_policy.PolicyContract.test_T_ADMIN)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_BAD_DATE (test_04_policy.PolicyContract.test_T_BAD_DATE)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 64, in test_T_BAD_DATE
+    self.assertEqual(result.get('status'),'error');self.assertIn('2026-02-30',result['error'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != 'error'
+
+======================================================================
+FAIL: test_T_BAD_WITHDRAWAL (test_04_policy.PolicyContract.test_T_BAD_WITHDRAWAL)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 59, in test_T_BAD_WITHDRAWAL
+    self.assertEqual(result.get('status'),'error');self.assertIsNone(result['extraction']);self.assertIn(field,result['error'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != 'error'
+
+======================================================================
+FAIL: test_T_CHANGE_DOWN (test_04_policy.PolicyContract.test_T_CHANGE_DOWN)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CHANGE_UP (test_04_policy.PolicyContract.test_T_CHANGE_UP)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_COMPLETE (test_04_policy.PolicyContract.test_T_COMPLETE)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='request_id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='request_date')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='requester')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='team')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='system')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='environment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='permission')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='business_purpose')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='start_date')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='end_date')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='new', missing='manager')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='request_id')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='request_date')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='requester')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='team')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='system')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='environment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='permission')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='business_purpose')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='start_date')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='end_date')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) (kind='change', missing='manager')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 46, in test_T_COMPLETENESS
+    with self.subTest(kind=kind,missing=key):self.run_case(f'completeness/{kind}-no-{key}.json')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 47, in test_T_COMPLETENESS
+    self.run_case('kind-null-router.json')
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_CONFLICT (test_04_policy.PolicyContract.test_T_CONFLICT)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=6)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=7)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=8)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=9)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=10)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=11)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=12)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=13)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=14)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=15)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=16)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=17)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=18)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=19)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) (document=20)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 38, in test_T_CORPUS
+    with self.subTest(document=i):self.run_case(f'IT-{i:03d}.json')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 40, in test_T_CORPUS
+    self.run_case('IT-001.json',f'tests/fixtures/{variant}/IT-001.json')
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORRECT_DATES (test_04_policy.PolicyContract.test_T_CORRECT_DATES)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_CORRECT_ENV (test_04_policy.PolicyContract.test_T_CORRECT_ENV)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_INSTRUCTIONS (test_04_policy.PolicyContract.test_T_INSTRUCTIONS)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_MANAGER_CONFLICT (test_04_policy.PolicyContract.test_T_MANAGER_CONFLICT)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_MISMATCH (test_04_policy.PolicyContract.test_T_MISMATCH)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_MISSING_ACCESS (test_04_policy.PolicyContract.test_T_MISSING_ACCESS)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_MISSING_DATES (test_04_policy.PolicyContract.test_T_MISSING_DATES)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_MISSING_MANAGER (test_04_policy.PolicyContract.test_T_MISSING_MANAGER)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_OTHER (test_04_policy.PolicyContract.test_T_OTHER)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_PARAPHRASE (test_04_policy.PolicyContract.test_T_PARAPHRASE)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_PRIORITY (test_04_policy.PolicyContract.test_T_PRIORITY)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 50, in test_T_PRIORITY
+    self.run_case('priority-override.json');self.run_case('priority-conflict.json');self.run_case('IT-010.json')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_PRODUCTION_READ (test_04_policy.PolicyContract.test_T_PRODUCTION_READ)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_PRODUCTION_WRITE (test_04_policy.PolicyContract.test_T_PRODUCTION_WRITE)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_PURPOSE_READ (test_04_policy.PolicyContract.test_T_PURPOSE_READ)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+======================================================================
+FAIL: test_T_RELATIVE_DATES (test_04_policy.PolicyContract.test_T_RELATIVE_DATES)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_REVERSED_DATES (test_04_policy.PolicyContract.test_T_REVERSED_DATES)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'needs-information'
+
+======================================================================
+FAIL: test_T_WITHDRAWAL (test_04_policy.PolicyContract.test_T_WITHDRAWAL)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 69, in test
+    def test(self):return self.run_case(name)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_04_policy.py", line 24, in run_case
+    self.assertEqual(result.get('status'),oracle['status'])
+AssertionError: None != 'review'
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.052s
+
+FAILED (failures=68)

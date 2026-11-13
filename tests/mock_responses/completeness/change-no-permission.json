@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "model": "gpt-4.1-mini",
+  "output": [
+    {
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "{\"request_id\": \"MATRIX-CHANGE-NO-PERMISSION\", \"request_date\": \"2026-10-22\", \"kind\": \"change\", \"requester\": \"Maya Chen\", \"team\": \"Analytics\", \"system\": \"Atlas\", \"environment\": \"staging\", \"permission\": null, \"start_date\": \"2026-10-23\", \"end_date\": \"2026-11-06\", \"manager\": \"Priya Shah\", \"business_purpose\": \"Check dashboard totals.\", \"supporting_quotes\": [\"Request ID: MATRIX-CHANGE-NO-PERMISSION. Request date: 2026-10-22. Kind: change. Requester: Maya Chen. Team: Analytics. System: Atlas. Environment: staging. Business purpose: Check dashboard totals. Start date: 2026-10-23. End date: 2026-11-06. Manager: Priya Shah.\"], \"issues\": [\"permission absent\"]}"
+        }
+      ]
+    }
+  ],
+  "response_source": "mock"
+}

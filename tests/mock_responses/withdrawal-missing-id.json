@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "model": "gpt-4.1-mini",
+  "output": [
+    {
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "{\"request_id\": null, \"request_date\": \"2026-10-22\", \"kind\": \"withdrawal\", \"requester\": null, \"team\": null, \"system\": null, \"environment\": null, \"permission\": null, \"start_date\": null, \"end_date\": null, \"manager\": null, \"business_purpose\": null, \"supporting_quotes\": [\"Please withdraw my access request. Date: 2026-10-22.\"], \"issues\": [\"request_id absent\", \"requester absent\", \"team absent\", \"system absent\", \"environment absent\", \"permission absent\", \"start_date absent\", \"end_date absent\", \"manager absent\", \"business_purpose absent\"]}"
+        }
+      ]
+    }
+  ],
+  "response_source": "mock"
+}
