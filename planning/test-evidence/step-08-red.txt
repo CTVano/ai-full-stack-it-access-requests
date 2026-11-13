@@ -1,0 +1,14 @@
+test_T_CLI (test_08_cli.CLIContract.test_T_CLI) ... FAIL
+
+======================================================================
+FAIL: test_T_CLI (test_08_cli.CLIContract.test_T_CLI)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_08_cli.py", line 24, in test_T_CLI
+    self.assertIn('results',data)
+AssertionError: 'results' not found in {'error': 'CLI not implemented'}
+
+----------------------------------------------------------------------
+Ran 1 test in 0.030s
+
+FAILED (failures=1)
