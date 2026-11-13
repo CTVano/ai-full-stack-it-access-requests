@@ -1,5 +1,7 @@
 """Source revision, effective configuration, reuse and saved-source retry service."""
 from copy import deepcopy
+from concurrent.futures import ThreadPoolExecutor
+import time
 import hashlib
 from pathlib import Path
 from .inputs import read_export, discover
@@ -16,7 +18,11 @@ ALLOWED=set(DEFAULTS)|{'prompt_path','schema_path'}
 def effective(settings=None):
     unknown=set(settings or {})-ALLOWED
     if unknown:raise ValueError(f'unsupported configuration keys: {sorted(unknown)}')
-    return deepcopy(DEFAULTS)|deepcopy(settings or {})
+    result=deepcopy(DEFAULTS)|deepcopy(settings or {})
+    for key in ['timeout','workers','max_attempts','lease_seconds']:
+        if not isinstance(result[key],(int,float)) or result[key]<=0:raise ValueError(f'{key} must be positive')
+    if result['requests_per_minute']<0 or result['retry_delay']<0:raise ValueError('rate and delay must be nonnegative')
+    return result
 
 
 def fingerprints(settings,policy_version):
@@ -31,6 +37,8 @@ class Engine:
     def __init__(self,store,provider,settings=None,policy_version=None,**runtime):
         self.store=store;self.provider=provider;self.settings=effective(settings)
         self.policy_version=policy_version or hashlib.sha256((ROOT/'materials/office-policy.md').read_bytes()).hexdigest()
+        self.hooks=runtime.get('hooks',{})
+        self.clock=runtime.get('clock',time.time);self.sleep=runtime.get('sleep',time.sleep)
 
     def submit(self,path):
         try:
@@ -49,7 +57,11 @@ class Engine:
         same_extraction=bool(same_source and previous['extraction_fingerprint']==extraction_fp)
         if not force and same_extraction and previous['routing_fingerprint']==routing_fp:
             return previous
-        ident=self.store.start(document,settings,extraction_fp,routing_fp,policy_version)
+        ident=self.store.start(document,settings,extraction_fp,routing_fp,policy_version,force=force)
+        token=self.store.claim(ident,settings['lease_seconds'])
+        if token is None:
+            attempt=self.store.attempt(ident)
+            return attempt['result'] or {'attempt_id':ident,'document_id':document['document_id'],'state':attempt['state']}
         if not force and same_extraction and previous['extraction'] is not None:
             result=deepcopy(previous)
             try:
@@ -58,12 +70,55 @@ class Engine:
             except ValueError as exc:
                 result=failure(document,str(exc),previous['response_source'])
         else:
-            result=process(document,self.provider)
-        return self.store.finish(ident,result)
+            self._hook('before_response')
+            result=self._request(document,settings)
+        self._hook('before_commit')
+        record=self.store.finish(ident,result,token)
+        self._hook('after_commit')
+        return record
 
     def retry(self,attempt_id):
         attempt=self.store.attempt(attempt_id)
         return self._submit(attempt['document'],force=True,settings=attempt['settings'],policy_version=attempt['policy_version'])
 
     def intake(self,path):
-        return [self.submit(file) for file in discover(path)]
+        with ThreadPoolExecutor(max_workers=int(self.settings['workers'])) as pool:
+            return list(pool.map(self.submit,discover(path)))
+
+    def _hook(self,name):
+        hook=self.hooks.get(name)
+        if hook:hook()
+
+    def _request(self,document,settings):
+        from .providers import LiveProvider
+        provider=self.provider
+        if isinstance(provider,LiveProvider):
+            provider=LiveProvider(settings,transport=provider.transport,credential=provider.credential)
+        deadline=self.clock()+settings['timeout']*settings['max_attempts']
+        for attempt in range(int(settings['max_attempts'])):
+            now=self.clock();slot=self.store.reserve_slot(settings['requests_per_minute'],now)
+            wait=slot-now
+            if slot>=deadline:
+                return failure(document,'rate-limit wait would exceed attempt deadline',provider.response_source)
+            if wait>0:self.sleep(wait)
+            result=process(document,provider)
+            retryable=result.pop('_retryable',False);retry_after=result.pop('_retry_after',0)
+            if not retryable or attempt+1>=settings['max_attempts']:
+                return result
+            delay=max(settings['retry_delay']*(2**attempt),retry_after)
+            if self.clock()+delay>=deadline:
+                return failure(document,'retry delay would exceed attempt deadline',provider.response_source)
+            if delay:self.sleep(delay)
+        return result
+
+    def resume(self):
+        results=[]
+        for ident in self.store.recoverable():
+            attempt=self.store.attempt(ident);settings=attempt['settings']
+            token=self.store.claim(ident,settings['lease_seconds'])
+            if token is None:continue
+            result=self._request(attempt['document'],settings)
+            self._hook('before_commit')
+            results.append(self.store.finish(ident,result,token))
+            self._hook('after_commit')
+        return results

@@ -50,4 +50,13 @@ def extract(document, provider):
             'extraction': extraction, 'error': None, 'response_source': source}
     except Exception as exc:
         redact = getattr(provider, 'redact', str)
-        return failure(document, redact(str(exc)), source)
+        result = failure(document, redact(str(exc)), source)
+        from .providers import TransientError
+        from urllib.error import HTTPError
+        if isinstance(exc, (TransientError, TimeoutError)) or (isinstance(exc, HTTPError) and exc.code in [429,500,502,503,504]):
+            result['_retryable'] = True
+            try:
+                result['_retry_after'] = float(getattr(exc, 'retry_after', 0) or (exc.headers.get('Retry-After',0) if isinstance(exc,HTTPError) else 0))
+            except (TypeError,ValueError):
+                result['_retry_after'] = 0
+        return result

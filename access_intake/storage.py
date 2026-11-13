@@ -32,6 +32,7 @@ class Store:
                   extraction_fp TEXT NOT NULL,routing_fp TEXT NOT NULL,policy_version TEXT NOT NULL,
                   state TEXT NOT NULL,result TEXT,created REAL NOT NULL,token TEXT,lease_until REAL,tries INTEGER NOT NULL DEFAULT 0);
                 CREATE TABLE IF NOT EXISTS current(document_id TEXT PRIMARY KEY,attempt_id TEXT NOT NULL REFERENCES attempts(id));
+                CREATE TABLE IF NOT EXISTS throttle(id INTEGER PRIMARY KEY CHECK(id=1),next_at REAL NOT NULL);
             ''')
 
     @contextmanager
@@ -61,7 +62,9 @@ class Store:
                     extraction_fingerprint=attempt['extraction_fp'],routing_fingerprint=attempt['routing_fp'],policy_version=attempt['policy_version'])
         record['document_id']=attempt['document_id'];record['source_sha256']=attempt['sha256']
         db.execute('UPDATE attempts SET state=\'completed\',result=?,token=NULL,lease_until=NULL WHERE id=?',(canonical(record),ident))
-        db.execute('INSERT INTO current(document_id,attempt_id) VALUES(?,?) ON CONFLICT(document_id) DO UPDATE SET attempt_id=excluded.attempt_id',(record['document_id'],ident))
+        latest=db.execute('SELECT MAX(a.sequence) FROM attempts a JOIN sources s ON s.id=a.source_id WHERE s.document_id=?',(record['document_id'],)).fetchone()[0]
+        if attempt['sequence']==latest:
+            db.execute('INSERT INTO current(document_id,attempt_id) VALUES(?,?) ON CONFLICT(document_id) DO UPDATE SET attempt_id=excluded.attempt_id',(record['document_id'],ident))
         return record
 
     def save(self,document,result,settings=None,hook=None):
@@ -87,16 +90,23 @@ class Store:
             row=db.execute('SELECT a.result FROM current c JOIN attempts a ON a.id=c.attempt_id WHERE c.document_id=?',(document_id,)).fetchone()
             return json.loads(row[0]) if row else None
 
-    def start(self,doc,settings,extraction_fp,routing_fp,policy_version):
+    def start(self,doc,settings,extraction_fp,routing_fp,policy_version,force=False):
         with self.connection() as db:
             db.execute('BEGIN IMMEDIATE')
             last=db.execute('SELECT id,sha256 FROM sources WHERE document_id=? ORDER BY id DESC LIMIT 1',(doc['document_id'],)).fetchone()
             source=last['id'] if last and last['sha256']==doc['source_sha256'] else self._source(db,doc)
+            if not force:
+                busy=db.execute("SELECT id FROM attempts WHERE source_id=? AND extraction_fp=? AND routing_fp=? AND state!='completed' ORDER BY sequence DESC LIMIT 1",(source,extraction_fp,routing_fp)).fetchone()
+                if busy:return busy['id']
             return self._attempt(db,source,settings,extraction_fp=extraction_fp,routing_fp=routing_fp,policy_version=policy_version)
 
-    def finish(self,ident,result):
+    def finish(self,ident,result,token=None):
         with self.connection() as db:
             db.execute('BEGIN IMMEDIATE')
+            if token is not None:
+                owned=db.execute("SELECT token,state FROM attempts WHERE id=?",(ident,)).fetchone()
+                if owned is None or owned['token']!=token or owned['state']!='leased':
+                    return None
             return self._finish(db,ident,result)
 
     def attempt(self,ident):
@@ -106,3 +116,27 @@ class Store:
             item=dict(row);item['settings']=json.loads(item['settings']);item['result']=json.loads(item['result']) if item['result'] else None
             item['document']={'document_id':item['document_id'],'source_sha256':item['sha256'],'raw':item['raw'],'message':item['message'],'metadata':json.loads(item['metadata'])}
             return item
+
+    def claim(self,ident,lease_seconds=120):
+        token=uuid.uuid4().hex;now=time.time()
+        with self.connection() as db:
+            db.execute('BEGIN IMMEDIATE')
+            changed=db.execute("UPDATE attempts SET state='leased',token=?,lease_until=?,tries=tries+1 WHERE id=? AND (state='pending' OR (state='leased' AND lease_until<?))",
+                (token,now+lease_seconds,ident,now)).rowcount
+            return token if changed else None
+
+    def work(self):
+        with self.connection() as db:
+            return [dict(r) for r in db.execute("SELECT a.id AS attempt_id,s.document_id,s.sha256 AS source_sha256,a.state,a.lease_until FROM attempts a JOIN sources s ON s.id=a.source_id WHERE a.state!='completed' ORDER BY a.sequence")]
+
+    def recoverable(self):
+        return [row['attempt_id'] for row in self.work() if row['state']=='pending' or (row['state']=='leased' and row['lease_until']<time.time())]
+
+    def reserve_slot(self,rate,now):
+        if not rate:return now
+        with self.connection() as db:
+            db.execute('BEGIN IMMEDIATE')
+            row=db.execute('SELECT next_at FROM throttle WHERE id=1').fetchone()
+            slot=max(now,row[0] if row else now)
+            db.execute('INSERT INTO throttle(id,next_at) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET next_at=excluded.next_at',(slot+60/rate,))
+            return slot

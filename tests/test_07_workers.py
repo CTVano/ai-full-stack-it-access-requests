@@ -67,6 +67,7 @@ class WorkerContract(OfflineCase):
     def test_T_RESUME(self):
         for point in ['before_response','before_commit','after_commit']:
             with self.subTest(point=point):
+                preserved=Engine(self.store,MockProvider(MOCKS),{'requests_per_minute':0}).submit(ROOT/'materials/requests/IT-002.json')
                 proc,entered,release,out=self.start(point,ROOT/'materials/requests/IT-001.json',hook=point)
                 self.assertTrue(wait_file(entered),'worker did not expose the requested interruption boundary')
                 proc.terminate();proc.join(2)
@@ -74,6 +75,7 @@ class WorkerContract(OfflineCase):
                 engine=Engine(self.store,MockProvider(MOCKS),{'requests_per_minute':0})
                 completed=engine.resume()
                 self.assertEqual(self.store.queue()[0]['next_action'],'review-request')
+                self.assertEqual(self.store.current('IT-002.json')['attempt_id'],preserved['attempt_id'])
                 self.assertEqual(len(engine.provider.calls),0 if point=='after_commit' else 1)
                 # Fresh database/source state for the next interruption boundary.
                 self.store=Store(self.dir/(point+'.sqlite3'))
