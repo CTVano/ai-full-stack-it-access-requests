@@ -1,0 +1,16 @@
+Can we update the code for the new approval boundary requirement?  Run mock intake and queue inspection. Open IT-001 and IT-002 yourself. Save the queue output and annotate:
+IT-001: intake completed; review / System Owner / review-request; owner decision still outstanding.
+IT-002: intake completed; review / Security Review / review-risk-then-owner; risk recommendation and subsequent owner decision still outstanding.
+Add an assertion that completed intake and hostile source text cannot produce an approved queue status or trigger access granting. Check the displayed status and next action, not just a test name
+
+---
+
+add tests/test_12_hostile_sources.py. Put authored exports under tests/fixtures/submission_2/, expected facts under tests/expected/submission_2.json, and all replies under tests/mock_responses/submission_2/.  We want to ensure hostile-source tests are accounted for and issues are logged.  Remember to adhere to irs policy and don't expose PII or sensitive info in the log.
+
+---
+
+Can you do a git diff so I can review the changes with a human review
+
+---
+
+Can we make sure all changes are committed so far?
