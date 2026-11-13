@@ -52,8 +52,8 @@ def route(extraction, document):
     return 'review','System Owner','review-request'
 
 
-def process(document, provider):
-    result = extract(document,provider)
+def process(document, provider, schema_path=None):
+    result = extract(document,provider,schema_path)
     if result['error']:
         return result
     try:

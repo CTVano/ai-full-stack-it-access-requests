@@ -58,8 +58,16 @@ class LiveProvider:
     def extract(self, message, document_id):
         import os
         import urllib.request
-        from .extraction import ROOT
-        schema=json.loads(Path(self.settings.get('schema_path',ROOT/'snapshot.schema.json')).read_text())
+        from .extraction import load_schema
+        schema = load_schema()
+        if self.settings.get('schema_path') is not None:
+            load_schema(self.settings['schema_path'])
+        options = self.settings.get('model_options',{})
+        if not isinstance(options, dict):
+            raise ValueError('model_options must be an object')
+        protected = {'model','instructions','input','text','store'} & options.keys()
+        if protected:
+            raise ValueError(f'model_options cannot override protected request fields: {sorted(protected)}')
         if self.credential is not None:
             token = self.credential()
         else:
@@ -69,7 +77,7 @@ class LiveProvider:
                 'instructions': Path(self.settings.get('prompt_path',Path(__file__).with_name('prompt.txt'))).read_text(),
                 'input': [{'role': 'user', 'content': message}],
                 'text': {'format': {'type':'json_schema','name':'access_request','strict':True,'schema':schema}},
-                'store':False, **self.settings.get('model_options',{})}
+                'store':False, **options}
         request = urllib.request.Request(self.settings.get('endpoint','https://api.openai.com/v1/responses'),
             data=json.dumps(body).encode(),headers={'Authorization':f'Bearer {token}','Content-Type':'application/json'},method='POST')
         self._evidence = {'endpoint':request.full_url,'method':'POST','headers':{'Authorization':'Bearer [REDACTED]','Content-Type':'application/json'},'body':body}

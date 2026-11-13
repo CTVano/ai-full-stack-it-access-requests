@@ -27,10 +27,14 @@ def effective(settings=None):
 
 
 def fingerprints(settings,policy_version):
+    from .extraction import SCHEMA_PATH
     prompt=Path(settings.get('prompt_path',ROOT/'access_intake/prompt.txt')).read_bytes()
-    schema=Path(settings.get('schema_path',ROOT/'snapshot.schema.json')).read_bytes()
+    schema=SCHEMA_PATH.read_bytes()
     relevant={k:settings[k] for k in ['provider','model','endpoint','model_options']}
     relevant['prompt_sha256']=hashlib.sha256(prompt).hexdigest();relevant['schema_sha256']=hashlib.sha256(schema).hexdigest()
+    if settings.get('schema_path') is not None:
+        relevant['custom_schema_sha256']=hashlib.sha256(Path(settings['schema_path']).read_bytes()).hexdigest()
+    relevant['validation_sha256']=hashlib.sha256(Path(__file__).with_name('extraction.py').read_bytes()).hexdigest()
     return fingerprint(relevant),fingerprint({'policy':policy_version,'router':Path(__file__).with_name('policy.py').read_text()})
 
 
@@ -112,7 +116,7 @@ class Engine:
             if slot>=deadline:
                 return failure(document,'rate-limit wait would exceed attempt deadline',provider.response_source)
             if wait>0:self.sleep(wait)
-            result=process(document,provider)
+            result=process(document,provider,settings.get('schema_path'))
             retryable=result.pop('_retryable',False);retry_after=result.pop('_retry_after',0)
             if not retryable or attempt+1>=settings['max_attempts']:
                 return result

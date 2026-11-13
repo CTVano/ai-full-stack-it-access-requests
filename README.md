@@ -48,6 +48,8 @@ Retry uses the saved source bytes/settings/policy version and bypasses reuse, cr
 
 New exports use a flat directory with unique filenames and a string `message`. Facts come from that message; metadata is display context. SHA-256 covers the original JSON bytes. Model output must complete and validate against `snapshot.schema.json`; refusals, malformed/invalid/interrupted replies and provider failures produce an actionable error with null extraction. Invalid absolute dates and withdrawals missing ID/date fail clearly, as clarified by the user; valid reversed dates clarify under policy rule 3.
 
+The supplied schema is mandatory for both live and mock responses: all required fields, types, enums and array items are validated, and extra properties are rejected. Custom `schema_path` settings add local constraints and cannot relax this contract. Live requests always send the supplied schema with strict JSON Schema output enabled; `model_options` cannot override the model, instructions, input, output format or storage setting. Duplicate JSON fields, non-JSON numeric constants and malformed or multiple extraction messages are rejected before routing.
+
 The mock adapter loads a fixture matching the document filename from `tests/mock_responses`. For a new document, author its expected source facts first, then its saved provider envelope. `--scenario FILE` supplies reproducible development errors, delays or alternate saved replies. Examples are exercised by the tests; the source message never selects a scenario or executes an instruction.
 
 ## Provider and configuration
@@ -68,6 +70,8 @@ Tests guard socket access and every `API_KEY` read, including test subprocesses.
 | MAX_ATTEMPTS | 3 total transient-error attempts |
 
 CLI flags override non-secret environment defaults. Effective settings and prompt/schema hashes are recorded. The Python service also accepts `model_options`, `prompt_path`, `schema_path`, `retry_delay` and `lease_seconds`; no credential-bearing settings are accepted. An extraction-affecting fingerprint change triggers a new extraction. A routing-policy/code change can reuse an already validated extraction but produces a new versioned routing result. Retrying an old attempt uses its saved configuration fingerprint and policy version as provenance; if the saved prompt/schema/policy assets have changed, retry/resume refuses with a clear diagnostic; restore those assets or run intake to refresh with current settings (see operating limits).
+
+The extraction fingerprint includes the supplied schema, any additional custom schema and the response-validation code. Updating these checks refreshes previously cached results on the next intake; retry/resume of attempts with older validation assets requires restoring those assets or starting a new intake.
 
 ## State, output and limits
 

@@ -1,0 +1,7 @@
+{
+  "id": "mock-IT-001.json",
+  "status": "completed",
+  "model": "gpt-4.1",
+  "output": {},
+  "response_source": "mock"
+}

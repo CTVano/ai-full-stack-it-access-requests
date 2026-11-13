@@ -1,0 +1,18 @@
+{
+  "id": "mock-IT-001.json",
+  "status": "completed",
+  "model": "gpt-4.1",
+  "output": [
+    {
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "text": 42
+        }
+      ]
+    }
+  ],
+  "response_source": "mock"
+}
