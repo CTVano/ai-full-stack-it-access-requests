@@ -75,3 +75,14 @@ class ExtractionContract(OfflineCase):
             producer=LiveProvider({'model':'requested-alias'},credential=lambda:'dummy-token')
             produced=extract(self.doc,producer)
         self.assertEqual(produced['response_source'],'openai/'+self.wire['model'])
+
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            prompt=Path(tmp)/'prompt.txt';prompt.write_text('Versioned instructions from a saved configuration.')
+            schema=Path(tmp)/'schema.json';contract=json.loads((ROOT/'snapshot.schema.json').read_text())
+            contract['properties']['permission']={'enum':['write',None]};schema.write_text(json.dumps(contract))
+            configured=LiveProvider({'model':'configured-model','prompt_path':str(prompt),'schema_path':str(schema)},transport=transport,credential=lambda:'dummy-token')
+            configured.extract(self.doc['message'],self.doc['document_id'])
+            self.assertEqual(json.loads(calls[-1][0].data)['instructions'],prompt.read_text())
+            rejected=extract(self.doc,configured)
+            self.assertEqual(rejected['status'],'error');self.assertIn('schema',rejected['error'])
