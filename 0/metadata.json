@@ -1,0 +1,50 @@
+{
+  "cli_version": "0.13.3",
+  "checkpoint_id": "01M7AS0YXS0RNKKRM73MKA7NFB",
+  "session_id": "01a1d555-9eff-7ac0-9630-c61ca8374630",
+  "strategy": "manual-commit",
+  "created_at": "2026-11-13T15:39:39.448355451Z",
+  "branch": "main",
+  "checkpoints_count": 4,
+  "save_step_count": 2,
+  "files_touched": [
+    "planning/plan.md"
+  ],
+  "agent": "Codex",
+  "model": "gpt-6.1-sol",
+  "turn_id": "a6b4c13ead48",
+  "checkpoint_transcript_start": 165,
+  "transcript_lines_at_start": 165,
+  "compact_transcript_start": 41,
+  "token_usage": {
+    "input_tokens": 67764,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 3521536,
+    "output_tokens": 43383,
+    "api_call_count": 29
+  },
+  "session_token_usage": {
+    "input_tokens": 125401,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 4237952,
+    "output_tokens": 53112,
+    "api_call_count": 48
+  },
+  "redaction": {
+    "replacements": 7,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 8,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 6
+  }
+}

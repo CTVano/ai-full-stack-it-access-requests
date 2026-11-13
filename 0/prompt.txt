@@ -1,0 +1,75 @@
+Please use the plan-from-spec skill to read the spec and create a plan.  It should have the following 4 sections:
+
+1. **Choices.** The runtime, the interface (a CLI, a service or a web application), the test
+   command, and how the model provider is called. One line each, with its reason.
+2. **Steps, in build order.** A numbered list. Each step names the spec lines it meets
+   (`R-03, R-07`), the test from the test plan that is written first and seen to fail, and what is
+   true when the step is done. The first step builds the mock provider the tests use. Each test
+   belongs to one step only, so every step has a test that fails until that step's code exists.
+3. **Test plan.** A table, one row per case:
+
+   | Case | Input | Mock response | Expected facts | Source of the expected facts | Spec lines |
+   |---|---|---|---|---|---|
+
+   - One row for each case in `docs/requirements.md` § Verification: a complete request, missing
+     dates, conflicting details, embedded instructions, provider failure, an unchanged rerun and
+     changed source content; then the paraphrased synthetic request, a refusal or interrupted
+     response, and a failed retry after a prior success.
+   - **Input** names the export file (or the new message you author) that shows the case. Find it by
+     reading the messages.
+   - **Mock response** says what the mock provider returns for that case: a reply saved under
+     `tests/mock_responses/`, an error, or a cut-off reply. No test calls the real provider.
+   - **Expected facts** are the field values, status, owner and next action the case must produce.
+     Write them from the message text and the office policy, never from running the code.
+   - **Source of the expected facts** quotes the words of the message and the policy rule they
+     come from.
+4. **Coverage.** Every spec line, each with the step that builds it and the test or check that
+   shows it. A spec line with no step or no test is listed under "Not yet covered", with the reason.
+
+---
+
+<send_user_message_question_reply>
+[{"answer":"Overlapping CLI processes on one host, using SQLite (recommended)","question":"The spec leaves the shared-operation environment undefined. Which scope should the plan target? I’ll record the other unresolved policy questions explicitly rather than invent rules.","questionItemId":"[\"request_user_input_async\",\"call_e6d5b409e3854c64ac725efb3c5c1aec\",0]"}]
+</send_user_message_question_reply>
+
+---
+
+<send_user_message_question_reply>
+[{"answer":"If a withdrawal is missing a request ID or date we should fail gracefully and present an error message clearly explaining.  An impossible date should also fail gracefully with a clear error message clearly presented.","question":"Two policy cases remain undefined: how to route a withdrawal missing its request ID or date, and how to handle an impossible absolute date such as 2026-02-30. What behavior should the plan specify? I can finish the plan with these cases explicitly unresolved.","questionItemId":"[\"request_user_input_async\",\"call_1ea82bb9c19c47eb89a75aee26cc32f6\",0]"}]
+</send_user_message_question_reply>
+
+---
+
+What are you working on?
+
+---
+
+Please do the following to ensure the plan is in alignment:
+
+Read `planning/plan.md` and correct it, with Codex or by hand, until each of these holds:
+   - Every spec line appears in § Coverage with a step that builds it and a test or check that shows
+     it. A spec line Codex left out goes back in.
+   - The test plan has its own row for each case of `docs/requirements.md` § Verification: a
+     complete request, missing dates, conflicting details, embedded instructions, provider failure,
+     an unchanged rerun, changed source content. Then the paraphrased request you author, a refusal
+     or interrupted response, and a failed retry after a prior success.
+   - Each row's input is a real export in `materials/requests/` (or the message you wrote), and you
+     opened it and read the message.
+   - Each expected fact quotes the message words and the policy rule it comes from. Work one row out
+     yourself, from the message and the policy, before you accept Codex's version.
+   - Each row's mock response is named: a saved reply under `tests/mock_responses/`, an error, or a
+     cut-off reply. No test calls the real model, and none needs `API_KEY`.
+   - The steps put the mock provider first, and each later step names the test written before it
+
+---
+
+The criteria for success is as follows, can you check against it?
+
+- Count the spec's lines and the Coverage lines: the numbers match, or each missing line is under
+  "Not yet covered" with its reason.
+- Pick one test-plan row and check its expected facts against the message and the policy yourself.
+  Every value has a quote beside it.
+
+---
+
+Please commit the the plan
