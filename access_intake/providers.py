@@ -25,10 +25,10 @@ class MockProvider:
             action = action()
         if isinstance(action, dict):
             return deepcopy(action)
-        filename = Path(action)
-        if filename.name != str(filename):
-            raise ValueError('mock reply must be a filename')
-        return json.loads((self.mock_dir / filename).read_text(encoding='utf-8'))
+        filename = (self.mock_dir / str(action)).resolve()
+        if not filename.is_relative_to(self.mock_dir.resolve()):
+            raise ValueError('mock reply must remain inside the mock directory')
+        return json.loads(filename.read_text(encoding='utf-8'))
 
 
 class LiveProvider:

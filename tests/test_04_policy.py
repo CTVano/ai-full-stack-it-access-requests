@@ -66,7 +66,8 @@ class PolicyContract(OfflineCase):
 
 
 def case_test(name):
-    def test(self):return self.run_case(name)
+    def test(self):
+        self.run_case(name)
     return test
 
 for test,name in CASES.items():setattr(PolicyContract,'test_'+test,case_test(name))
