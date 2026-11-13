@@ -1,0 +1,14 @@
+test_T_DOCS (test_11_docs.DocumentationContract.test_T_DOCS) ... FAIL
+
+======================================================================
+FAIL: test_T_DOCS (test_11_docs.DocumentationContract.test_T_DOCS)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_11_docs.py", line 13, in test_T_DOCS
+    self.assertIn('--require-hashes',readme)
+AssertionError: '--require-hashes' not found in '# AI Full Stack Challenge — IT Access Requests\n\nThe task is in CHALLENGE.md. Replace this file with your own README, as CHALLENGE.md asks.\n\nIn class, start with `docs/00-prerequisites.md` and follow the files in `docs/` in order.\n'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

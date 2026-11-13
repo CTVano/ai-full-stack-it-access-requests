@@ -1,0 +1,53 @@
+import importlib.metadata
+import json
+from pathlib import Path
+import re
+import tempfile
+from support import OfflineCase,ROOT,MOCKS,expected
+from test_08_cli import cli
+
+
+class DocumentationContract(OfflineCase):
+    def test_T_DOCS(self):
+        readme=(ROOT/'README.md').read_text()
+        self.assertIn('--require-hashes',readme)
+        for word in ['intake','queue','history','resume','retry','export','accuracy','API_KEY','MAX_WORKERS','unittest','mock']:
+            self.assertIn(word,readme)
+        lock=(ROOT/'requirements.lock').read_text()
+        for name,version in re.findall(r'^([a-zA-Z0-9_-]+)==([^\s]+)',lock,re.M):
+            self.assertEqual(importlib.metadata.version(name),version)
+        for name in ['extractions.jsonl','queue.json','accuracy.md','request-evidence.json','verification.md']:
+            self.assertTrue((ROOT/'deliverables'/name).is_file(),name)
+        records=[json.loads(line) for line in (ROOT/'deliverables/extractions.jsonl').read_text().splitlines()]
+        self.assertEqual(len(records),20);self.assertNotIn('IT-021.json',[r['document_id'] for r in records])
+        queue=json.loads((ROOT/'deliverables/queue.json').read_text())
+        for record in records:
+            e=expected(record['document_id'])
+            self.assertEqual((record['status'],record['owner'],record['next_action']),(e['status'],e['owner'],e['next_action']))
+            linked=next(q for q in queue['entries'] if q['document_id']==record['document_id'])
+            self.assertEqual(linked['attempt_id'],record['attempt_id']);self.assertEqual(linked['source_sha256'],record['source_sha256'])
+        evidence=json.loads((ROOT/'deliverables/request-evidence.json').read_text())
+        self.assertEqual(evidence['request']['body']['model'],evidence['model_id'])
+        self.assertIn('[REDACTED]',evidence['request']['headers']['Authorization'])
+        self.assertNotIn('documentation-dummy-token',json.dumps(evidence))
+        for branch in ['completed','schema','refusal','incomplete','error']:
+            self.assertIn(branch,json.dumps(evidence['response_handling']))
+        verification=(ROOT/'deliverables/verification.md').read_text()
+        for text in ['C-CAPTURE','C-COMMIT','C-PUSH','C-SUBMIT','2,000','SQLite','Observed','Limits','API_KEY']:
+            self.assertIn(text,verification)
+        commands=json.loads((ROOT/'docs/commands.json').read_text())
+        self.assertEqual(set(commands),{'intake','queue','history','resume','retry','export','accuracy'})
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp=Path(tmp);values={'inputs':str(ROOT/'materials/requests'),'db':str(tmp/'state.sqlite3'),'mocks':str(MOCKS),
+                'synthetic':str(ROOT/'tests/fixtures/requests/IT-021.json'),'expected':str(ROOT/'tests/expected/source-facts.json'),
+                'out':str(tmp/'deliverables'),'accuracy_report':str(tmp/'accuracy.md'),'attempt_id':''}
+            for name in ['intake','queue','history','resume','retry','export','accuracy']:
+                result=cli(*[word.format(**values) for word in commands[name]])
+                self.assertEqual(result.returncode,0,(name,result.stderr))
+                payload=json.loads(result.stdout)
+                if name=='intake':
+                    self.assertEqual(len(payload['results']),20);values['attempt_id']=payload['results'][0]['attempt_id']
+                if name=='queue':self.assertEqual(len(payload['results']),20)
+                if name=='accuracy':self.assertEqual(payload['denominator'],252)
+            self.assertTrue((tmp/'accuracy.md').exists())
+            self.assertEqual(len((tmp/'deliverables/extractions.jsonl').read_text().splitlines()),20)
