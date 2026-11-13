@@ -36,11 +36,12 @@ def mock_provider(directory,scenario=None):
 def parser():
     root=argparse.ArgumentParser(description='Prepare access requests for human review. Security Review assesses risk and forwards its recommendation to the system owner for a human decision; a manager is a contact.')
     commands=root.add_subparsers(dest='command',required=True)
-    for command in ['intake','queue','history','resume','retry']:
+    for command in ['intake','queue','history','resume','retry','export']:
         p=commands.add_parser(command)
         if command=='intake':p.add_argument('inputs')
         if command=='history':p.add_argument('document_id')
         if command=='retry':p.add_argument('--attempt',required=True)
+        if command=='export':p.add_argument('--out',default='deliverables')
         p.add_argument('--db',default='.state/intake.sqlite3')
         p.add_argument('--provider',choices=['mock','openai'])
         p.add_argument('--mock-dir',default='tests/mock_responses')
@@ -69,6 +70,9 @@ def main(argv=None):
     args=parser().parse_args(argv)
     try:
         store=Store(args.db)
+        if args.command=='export':
+            from .exports import publish
+            print(json.dumps(publish(store,args.out),indent=2));return 0
         if args.command=='queue':records=store.queue()
         elif args.command=='history':records=store.history(args.document_id)
         else:
