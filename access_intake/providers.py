@@ -32,8 +32,52 @@ class MockProvider:
 
 
 class LiveProvider:
+    """The real adapter reads credentials only at an explicitly requested live call.
+
+    Injected transports require an explicit credential supplier, never environment access.
+    """
     def __init__(self, settings, transport=None, credential=None):
-        pass
+        self.settings = dict(settings)
+        self.transport = transport
+        if transport is not None and credential is None:
+            raise ValueError('injected transport requires an explicit credential supplier')
+        self.credential = credential
+        self.response_source = 'mock' if transport else f"openai/{settings.get('model','gpt-4.1-mini')}"
+        self._secrets = []
+        self._evidence = None
+
+    def redact(self, value):
+        text = str(value)
+        for secret in self._secrets:
+            if secret:
+                text = text.replace(secret, '[REDACTED]')
+        return text
 
     def extract(self, message, document_id):
-        return None
+        import os
+        import urllib.request
+        from .extraction import SCHEMA
+        if self.credential is not None:
+            token = self.credential()
+        else:
+            token = os.environ['API_KEY']
+        self._secrets.append(token)
+        body = {'model': self.settings.get('model','gpt-4.1-mini'),
+                'instructions': Path(__file__).with_name('prompt.txt').read_text(),
+                'input': [{'role': 'user', 'content': message}],
+                'text': {'format': {'type':'json_schema','name':'access_request','strict':True,'schema':SCHEMA}},
+                'store':False, **self.settings.get('model_options',{})}
+        request = urllib.request.Request(self.settings.get('endpoint','https://api.openai.com/v1/responses'),
+            data=json.dumps(body).encode(),headers={'Authorization':f'Bearer {token}','Content-Type':'application/json'},method='POST')
+        self._evidence = {'endpoint':request.full_url,'method':'POST','headers':{'Authorization':'Bearer [REDACTED]','Content-Type':'application/json'},'body':body}
+        timeout = self.settings.get('timeout',30)
+        try:
+            if self.transport:
+                return self.transport(request, timeout)
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return json.load(response)
+        except Exception as exc:
+            raise RuntimeError(self.redact(str(exc))) from None
+
+    def request_evidence(self):
+        return deepcopy(self._evidence)
