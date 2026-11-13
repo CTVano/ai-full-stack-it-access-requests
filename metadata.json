@@ -1,0 +1,63 @@
+{
+  "cli_version": "0.13.3",
+  "checkpoint_id": "01M7AVTSNBT6BCP06Q969YHSPY",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    ".gitignore",
+    "README.md",
+    "access_intake/engine.py",
+    "access_intake/extraction.py",
+    "access_intake/providers.py",
+    "access_intake/storage.py",
+    "deliverables/.generations/3eeaffdc68fe44419e23ea3c4460b384/extractions.jsonl",
+    "deliverables/.generations/3eeaffdc68fe44419e23ea3c4460b384/manifest.json",
+    "deliverables/.generations/3eeaffdc68fe44419e23ea3c4460b384/queue.json",
+    "deliverables/accuracy.md",
+    "deliverables/current",
+    "deliverables/extractions.jsonl",
+    "deliverables/manifest.json",
+    "deliverables/queue.json",
+    "deliverables/request-evidence.json",
+    "deliverables/verification.md",
+    "docs/commands.json",
+    "planning/test-evidence/sample-accuracy.json",
+    "planning/test-evidence/sample-export.json",
+    "planning/test-evidence/sample-intake.json",
+    "planning/test-evidence/setup-locked.txt",
+    "planning/test-evidence/step-11-green.txt",
+    "planning/test-run.txt",
+    "tests/test_starter.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 2047,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 1117184,
+    "output_tokens": 4552,
+    "api_call_count": 4
+  },
+  "redaction": {
+    "replacements": 7,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 8,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
