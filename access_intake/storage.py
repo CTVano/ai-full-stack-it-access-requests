@@ -81,3 +81,28 @@ class Store:
         with self.connection() as db:
             return [json.loads(r[0]) for r in db.execute('''SELECT a.result FROM attempts a JOIN sources s ON s.id=a.source_id
                 WHERE s.document_id=? AND a.result IS NOT NULL AND a.id NOT IN(SELECT attempt_id FROM current) ORDER BY a.sequence''',(document_id,))]
+
+    def current(self,document_id):
+        with self.connection() as db:
+            row=db.execute('SELECT a.result FROM current c JOIN attempts a ON a.id=c.attempt_id WHERE c.document_id=?',(document_id,)).fetchone()
+            return json.loads(row[0]) if row else None
+
+    def start(self,doc,settings,extraction_fp,routing_fp,policy_version):
+        with self.connection() as db:
+            db.execute('BEGIN IMMEDIATE')
+            last=db.execute('SELECT id,sha256 FROM sources WHERE document_id=? ORDER BY id DESC LIMIT 1',(doc['document_id'],)).fetchone()
+            source=last['id'] if last and last['sha256']==doc['source_sha256'] else self._source(db,doc)
+            return self._attempt(db,source,settings,extraction_fp=extraction_fp,routing_fp=routing_fp,policy_version=policy_version)
+
+    def finish(self,ident,result):
+        with self.connection() as db:
+            db.execute('BEGIN IMMEDIATE')
+            return self._finish(db,ident,result)
+
+    def attempt(self,ident):
+        with self.connection() as db:
+            row=db.execute('SELECT a.*,s.document_id,s.sha256,s.raw,s.message,s.metadata FROM attempts a JOIN sources s ON s.id=a.source_id WHERE a.id=?',(ident,)).fetchone()
+            if row is None:raise ValueError(f'unknown attempt {ident}')
+            item=dict(row);item['settings']=json.loads(item['settings']);item['result']=json.loads(item['result']) if item['result'] else None
+            item['document']={'document_id':item['document_id'],'source_sha256':item['sha256'],'raw':item['raw'],'message':item['message'],'metadata':json.loads(item['metadata'])}
+            return item
