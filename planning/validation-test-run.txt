@@ -1,0 +1,54 @@
+test_T_MOCK (test_01_mock.MockContract.test_T_MOCK) ... ok
+test_T_INPUT (test_02_input.InputContract.test_T_INPUT) ... ok
+test_T_INTERRUPTED (test_03_extraction.ExtractionContract.test_T_INTERRUPTED) ... ok
+test_T_PROVIDER_ERROR (test_03_extraction.ExtractionContract.test_T_PROVIDER_ERROR) ... ok
+test_T_REFUSAL (test_03_extraction.ExtractionContract.test_T_REFUSAL) ... ok
+test_T_SCHEMA (test_03_extraction.ExtractionContract.test_T_SCHEMA) ... ok
+test_T_TRANSPORT (test_03_extraction.ExtractionContract.test_T_TRANSPORT) ... ok
+test_T_ADMIN (test_04_policy.PolicyContract.test_T_ADMIN) ... ok
+test_T_BAD_DATE (test_04_policy.PolicyContract.test_T_BAD_DATE) ... ok
+test_T_BAD_WITHDRAWAL (test_04_policy.PolicyContract.test_T_BAD_WITHDRAWAL) ... ok
+test_T_CHANGE_DOWN (test_04_policy.PolicyContract.test_T_CHANGE_DOWN) ... ok
+test_T_CHANGE_UP (test_04_policy.PolicyContract.test_T_CHANGE_UP) ... ok
+test_T_COMPLETE (test_04_policy.PolicyContract.test_T_COMPLETE) ... ok
+test_T_COMPLETENESS (test_04_policy.PolicyContract.test_T_COMPLETENESS) ... ok
+test_T_CONFLICT (test_04_policy.PolicyContract.test_T_CONFLICT) ... ok
+test_T_CORPUS (test_04_policy.PolicyContract.test_T_CORPUS) ... ok
+test_T_CORRECT_DATES (test_04_policy.PolicyContract.test_T_CORRECT_DATES) ... ok
+test_T_CORRECT_ENV (test_04_policy.PolicyContract.test_T_CORRECT_ENV) ... ok
+test_T_INSTRUCTIONS (test_04_policy.PolicyContract.test_T_INSTRUCTIONS) ... ok
+test_T_MANAGER_CONFLICT (test_04_policy.PolicyContract.test_T_MANAGER_CONFLICT) ... ok
+test_T_MISMATCH (test_04_policy.PolicyContract.test_T_MISMATCH) ... ok
+test_T_MISSING_ACCESS (test_04_policy.PolicyContract.test_T_MISSING_ACCESS) ... ok
+test_T_MISSING_DATES (test_04_policy.PolicyContract.test_T_MISSING_DATES) ... ok
+test_T_MISSING_MANAGER (test_04_policy.PolicyContract.test_T_MISSING_MANAGER) ... ok
+test_T_OTHER (test_04_policy.PolicyContract.test_T_OTHER) ... ok
+test_T_PARAPHRASE (test_04_policy.PolicyContract.test_T_PARAPHRASE) ... ok
+test_T_PRIORITY (test_04_policy.PolicyContract.test_T_PRIORITY) ... ok
+test_T_PRODUCTION_READ (test_04_policy.PolicyContract.test_T_PRODUCTION_READ) ... ok
+test_T_PRODUCTION_WRITE (test_04_policy.PolicyContract.test_T_PRODUCTION_WRITE) ... ok
+test_T_PURPOSE_READ (test_04_policy.PolicyContract.test_T_PURPOSE_READ) ... ok
+test_T_RELATIVE_DATES (test_04_policy.PolicyContract.test_T_RELATIVE_DATES) ... ok
+test_T_REVERSED_DATES (test_04_policy.PolicyContract.test_T_REVERSED_DATES) ... ok
+test_T_WITHDRAWAL (test_04_policy.PolicyContract.test_T_WITHDRAWAL) ... ok
+test_T_STORE (test_05_storage.StorageContract.test_T_STORE) ... ok
+test_T_BATCH (test_06_versions.VersionContract.test_T_BATCH) ... ok
+test_T_CHANGED (test_06_versions.VersionContract.test_T_CHANGED) ... ok
+test_T_FAILED_RETRY (test_06_versions.VersionContract.test_T_FAILED_RETRY) ... ok
+test_T_RERUN (test_06_versions.VersionContract.test_T_RERUN) ... ok
+test_T_SETTINGS (test_06_versions.VersionContract.test_T_SETTINGS) ... ok
+test_T_ISOLATION (test_07_workers.WorkerContract.test_T_ISOLATION) ... ok
+test_T_OVERLAP (test_07_workers.WorkerContract.test_T_OVERLAP) ... ok
+test_T_RESUME (test_07_workers.WorkerContract.test_T_RESUME) ... ok
+test_T_CLI (test_08_cli.CLIContract.test_T_CLI) ... ok
+test_T_EXPORT (test_09_export.ExportContract.test_T_EXPORT) ... ok
+test_T_ACCURACY (test_10_accuracy.AccuracyContract.test_T_ACCURACY) ... ok
+test_T_DOCS (test_11_docs.DocumentationContract.test_T_DOCS) ... ok
+test_a_mock_reply_is_read_with_no_key_and_no_network (test_starter.MockResponse.test_a_mock_reply_is_read_with_no_key_and_no_network) ... ok
+test_each_request_export_has_message_text_and_a_hash (test_starter.SuppliedFiles.test_each_request_export_has_message_text_and_a_hash) ... ok
+test_the_schema_names_the_fields_it_requires (test_starter.SuppliedFiles.test_the_schema_names_the_fields_it_requires) ... ok
+
+----------------------------------------------------------------------
+Ran 49 tests in 9.580s
+
+OK
