@@ -58,3 +58,12 @@ class ExtractionContract(OfflineCase):
         self.assertNotIn('dummy-token',json.dumps(provider.request_evidence()))
         self.assertEqual(parse_response(wire,self.doc['message']),expected()['extraction'])
         self.assertEqual(provider.response_source,'mock')
+
+        from urllib.error import HTTPError
+        def unavailable(request,timeout):
+            raise HTTPError(request.full_url,503,'outage dummy-token',{'Retry-After':'2'},None)
+        broken=LiveProvider({'model':'configured-model'},transport=unavailable,credential=lambda:'dummy-token')
+        failed=extract(self.doc,broken)
+        self.assertTrue(failed.get('_retryable'),'HTTP retry classification was lost at the adapter boundary')
+        self.assertEqual(failed['_retry_after'],2)
+        self.assertNotIn('dummy-token',failed['error'])

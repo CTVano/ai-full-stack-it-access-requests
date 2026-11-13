@@ -1,0 +1,18 @@
+test_T_INTERRUPTED (test_03_extraction.ExtractionContract.test_T_INTERRUPTED) ... ok
+test_T_PROVIDER_ERROR (test_03_extraction.ExtractionContract.test_T_PROVIDER_ERROR) ... ok
+test_T_REFUSAL (test_03_extraction.ExtractionContract.test_T_REFUSAL) ... ok
+test_T_SCHEMA (test_03_extraction.ExtractionContract.test_T_SCHEMA) ... ok
+test_T_TRANSPORT (test_03_extraction.ExtractionContract.test_T_TRANSPORT) ... FAIL
+
+======================================================================
+FAIL: test_T_TRANSPORT (test_03_extraction.ExtractionContract.test_T_TRANSPORT)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_03_extraction.py", line 67, in test_T_TRANSPORT
+    self.assertTrue(failed.get('_retryable'),'HTTP retry classification was lost at the adapter boundary')
+AssertionError: None is not true : HTTP retry classification was lost at the adapter boundary
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.016s
+
+FAILED (failures=1)
