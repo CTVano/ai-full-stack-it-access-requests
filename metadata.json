@@ -1,0 +1,60 @@
+{
+  "cli_version": "0.13.3",
+  "checkpoint_id": "01M7B25KXF84PPS8B40QW1F8K5",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "README.md",
+    "access_intake/engine.py",
+    "access_intake/extraction.py",
+    "access_intake/policy.py",
+    "access_intake/providers.py",
+    "tests/mock_responses/schema-enforcement/duplicate-field.json",
+    "tests/mock_responses/schema-enforcement/extra-field.json",
+    "tests/mock_responses/schema-enforcement/invalid-array-item.json",
+    "tests/mock_responses/schema-enforcement/invalid-content.json",
+    "tests/mock_responses/schema-enforcement/invalid-enum.json",
+    "tests/mock_responses/schema-enforcement/invalid-message.json",
+    "tests/mock_responses/schema-enforcement/invalid-output.json",
+    "tests/mock_responses/schema-enforcement/invalid-part.json",
+    "tests/mock_responses/schema-enforcement/invalid-scalar.json",
+    "tests/mock_responses/schema-enforcement/invalid-text.json",
+    "tests/mock_responses/schema-enforcement/missing-field.json",
+    "tests/mock_responses/schema-enforcement/multiple-messages.json",
+    "tests/mock_responses/schema-enforcement/nonfinite-number.json",
+    "tests/mock_responses/schema-enforcement/null-array.json",
+    "tests/mock_responses/schema-enforcement/wrong-root.json",
+    "tests/test_schema_enforcement.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 23678,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 868736,
+    "output_tokens": 7457,
+    "api_call_count": 16
+  },
+  "redaction": {
+    "replacements": 17,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 22,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}

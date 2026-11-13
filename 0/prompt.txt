@@ -1,0 +1,29 @@
+And now can we push?
+
+---
+
+Can you review feedback/submission_1.txt and create a submission_2_plan to address the feedback to improve my score.  Please provide very actionable tasks that I can do with a brief summary if possible of why.  If you don't understand the feedback don't attempt to provide an explanation and instead please say "Suggestion unavailable"
+
+---
+
+Can you move the feedback folder and files to the project root and can you move the submission_2_plan to be in this folder?
+
+---
+
+Can you review providers.py, extraction.py and other areas where the model is defined and change the model to GPT 4.1 instead of mini?
+
+---
+
+Please commit this change
+
+---
+
+Does the requirements state the snapshot.schema.json should be followed for output or used?
+
+---
+
+Can you ensure the schema is tightly enforced in the code?
+
+---
+
+Commit please
