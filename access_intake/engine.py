@@ -92,6 +92,8 @@ class Engine:
     def _request(self,document,settings):
         from .providers import LiveProvider
         provider=self.provider
+        if (settings['provider']=='openai') != isinstance(provider,LiveProvider):
+            return failure(document,'saved provider differs from selected provider; select its saved provider explicitly',provider.response_source)
         if isinstance(provider,LiveProvider):
             provider=LiveProvider(settings,transport=provider.transport,credential=provider.credential)
         deadline=self.clock()+settings['timeout']*settings['max_attempts']
@@ -115,6 +117,8 @@ class Engine:
         results=[]
         for ident in self.store.recoverable():
             attempt=self.store.attempt(ident);settings=attempt['settings']
+            if settings['provider']!=self.settings['provider']:
+                raise ValueError('unfinished work uses a different saved provider; select that provider explicitly')
             token=self.store.claim(ident,settings['lease_seconds'])
             if token is None:continue
             result=self._request(attempt['document'],settings)

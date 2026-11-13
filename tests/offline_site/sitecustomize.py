@@ -1,6 +1,9 @@
 """Loaded only by test subprocesses through their explicit PYTHONPATH."""
 import os
 import socket
+# Import stdlib socket subclasses before replacing socket construction.
+import ssl
+import urllib.request
 _original_getitem = os._Environ.__getitem__
 def _getitem(env,key):
     if key=='API_KEY':raise AssertionError('test subprocess tried to read API_KEY')

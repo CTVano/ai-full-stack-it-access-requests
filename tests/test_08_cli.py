@@ -20,6 +20,7 @@ class CLIContract(OfflineCase):
             for i in [1,2]:shutil.copy(ROOT/f'materials/requests/IT-{i:03d}.json',inputs)
             scenario=tmp/'scenario.json';scenario.write_text(json.dumps({'IT-002.json':[{'error':'HTTP 503 mock outage'}]}))
             run=cli('intake',inputs,'--db',database,'--provider','mock','--mock-dir',MOCKS,'--scenario',scenario,'--requests-per-minute',0)
+            self.assertTrue(run.stdout,run.stderr)
             data=json.loads(run.stdout)
             self.assertIn('results',data)
             self.assertEqual(run.returncode,1,run.stderr)

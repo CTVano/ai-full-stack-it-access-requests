@@ -77,10 +77,16 @@ class LiveProvider:
             with urllib.request.urlopen(request, timeout=timeout) as response:
                 return json.load(response)
         except Exception as exc:
+            from urllib.error import HTTPError, URLError
+            if isinstance(exc,HTTPError) and exc.code in [429,500,502,503,504]:
+                retry_after=exc.headers.get('Retry-After',0) if exc.headers else 0
+                raise TransientError(self.redact(str(exc)),retry_after) from None
+            if isinstance(exc,(TimeoutError,URLError)) and not isinstance(exc,HTTPError):
+                raise TransientError(self.redact(str(exc))) from None
             raise RuntimeError(self.redact(str(exc))) from None
 
     def request_evidence(self):
-        return deepcopy(self._evidence)
+        return json.loads(self.redact(json.dumps(self._evidence)))
 
 
 class TransientError(RuntimeError):
