@@ -1,5 +1,36 @@
 # Verification and handover
 
+## Current deliverables refresh
+
+Observed against application HEAD `baedb5b` after the last locally recorded push (`origin/main` at `371ff6e`). Four subsequent local commits implement GPT-4.1, mandatory schema validation, synthetic-data restrictions, approval boundaries and hostile-source diagnostics. This refresh updates the current artifacts; it does not rewrite prior observations or imply that the new work has been pushed.
+
+Current configuration: Linux/Python 3.12.3, the existing pinned lockfile, provider `mock`, requested model `gpt-4.1`. Regeneration uses a fresh temporary SQLite database, the 20 reviewed original exports and saved replies; the 21-case comparison adds only the authored IT-021 paraphrase. No real model request or `API_KEY` read occurs.
+
+| Challenge deliverable | Current inclusion and verification |
+|---|---|
+| README.md | Includes setup/runtime, mock commands, configuration variables, live approval requirements, queue inspection, human-decision boundary and privacy limitations. |
+| Source and lockfile | Tracked `access_intake/`, extraction prompt, supplied schema, `requirements.in` and hash-pinned `requirements.lock`; the documentation test compares installed versions with the lockfile. |
+| extractions.jsonl | Regenerated 20 current mock records with current source hashes, schema-conforming facts, GPT-4.1 configuration and outstanding human-decision fields. Earlier immutable generations are retained as history. |
+| queue.json | Regenerated from the same generation; all entries link to the extraction document, attempt and source hash and expose status, owner, next action and approval boundary. IT-001 remains System Owner review; IT-002 remains Security Review with owner decision to follow. |
+| accuracy.md | Regenerated source-derived expectations for the 20 messages plus paraphrase, current GPT-4.1 configuration and 252/252 exact mock scalar comparisons. Quotes/issues and routing are separately checked; no live model-quality claim. |
+| request-evidence.json | Reconstructed through the actual request builder with an injected saved reply and literal dummy credential. Shows GPT-4.1, canonical strict schema and current handling. Authorization, instructions and message content are redacted; instruction/input hashes remain. |
+| verification.md | This current section, exact reproduction commands and regression evidence accompany the explicitly historical initial-build observations below. |
+| Coding-session capture | Local commit trailers and their Entire checkpoint refs are present for all four post-push commits. The latest checkpoint metadata identifies Codex and contains transcript/session files. This checks local capture presence, not remote synchronization or fulfillment of unavailable facilitator instructions. The next commit will need its own capture association. |
+
+The authoritative refresh summary is [deliverables_refresh.json](../planning/submission_2_evidence/deliverables_refresh.json). The strengthened `test_T_DOCS` checks the published artifact values, source hashes, schema, approval fields, request redactions and current model, rather than only file existence. Its pre-refresh failure is [deliverables-refresh-red.txt](../planning/test-evidence/deliverables-refresh-red.txt); the final full-suite output is [deliverables-refresh-green.txt](../planning/test-evidence/deliverables-refresh-green.txt).
+
+Reproduce from the repository root:
+
+```bash
+env -u API_KEY PYTHONPATH=tests/offline_site:. .venv/bin/python planning/refresh_deliverables.py
+env -u API_KEY .venv/bin/python -m unittest discover -s tests -v
+env -u API_KEY PYTHONPATH=tests/offline_site:. .venv/bin/python planning/run_hostile_sources.py
+```
+
+The refresh command rebuilds current output generations, accuracy and request evidence; it retains old immutable generations. It does not rewrite this handover document or historical test/capture evidence. Each rerun creates different attempt/generation IDs. The separate [approval-boundary inspection](../planning/approval-boundary/review.md), [hostile-source inspection](../planning/submission_2_evidence/hostile_review.md), and [privacy review](../docs/privacy.md) document the added behavior and its limits. New runtime processing diagnostics contain only fixed codes/counts, routing and identifiers/hashes; no source or free-form issue text. Diagnostic append follows the database commit, so a crash can leave a committed record without a JSONL event. Real calls remain disabled without a matching unexpired approval record for endpoint, model, prompt and synthetic-training purpose; redirects are blocked.
+
+Release status observed during this check: regenerated artifacts and documentation were working-tree changes pending commit, and four application commits were ahead of the local remote-tracking ref. An authorized release commit/push can follow this observation; confirm remote HEAD and Entire's outgoing checkpoint queue after pushing. This artifact check itself does not claim remote synchronization or Classroom submission.
+
 ## Commands and intended comparisons
 
 Activate the environment as README.md describes. No command below invokes a real model or needs a key.
@@ -33,7 +64,7 @@ env -u API_KEY python3 -m access_intake accuracy --inputs materials/requests --s
 | Snapshot publication | T-EXPORT links every queue entry to the same extraction attempt/hash, injects failure before publication and verifies a reader holding the older generation still sees an immutable coherent pair |
 | Independent comparison | T-ACCURACY changes a candidate permission, expects 251/252, checks twelve mismatches for a failed extraction, and verifies the independent oracle file is unchanged |
 
-## Observed results and repairs
+## Historical initial-build results and repairs
 
 Configuration: Linux, Python 3.12.3, SQLite on local disk, jsonschema 4.23.0 and the hash-pinned dependencies in requirements.lock; provider=mock, requested model=gpt-4.1-mini. No live provider calls or live model-accuracy observations were made.
 
@@ -50,7 +81,7 @@ Repairs: the byte-only source fixture originally had identical formatting and wa
 - Scope: overlapping CLI processes on one host, one local SQLite database, POSIX file locks/symlinks. Cross-host/shared-network filesystems are unsupported. Database writers use short transactions; model calls occur outside them. Claims, lease tokens and attempt sequences fence stale completions. Older attempts remain stored separately from current views.
 - Workload: the company context is 200–400 ordinary messages and roughly 2,000 peak messages. Tests cover the 20 supplied messages, authored boundary cases and small controlled concurrency workloads. No production-scale performance, sustained rate-limit, memory, disk-full or arbitrary-host-crash certification was performed. No throughput SLA is claimed.
 - Recovery: a readable batch is accepted atomically before its first provider request. A stop before that acceptance commits requires rerunning intake; after it commits, resume locates every pending document, including work not yet dispatched. Default leases expire after 120 seconds; tests expire leases explicitly. A response lost before its transaction commits may be requested again; completed commits are reused.
-- Settings: provider/endpoint/model/options and prompt/schema bytes identify extraction production. Policy bytes and router code identify routing versions. Original source bytes and effective settings are retained. A historical retry/resume requires the original processing assets; if prompt/schema/policy files changed, restore them or run a new intake refresh. Historical executable code is not archived inside SQLite. Earlier pending work superseded by a newer accepted attempt is retained as superseded activity and excluded from recoverable work.
+- Settings: provider/endpoint/model/options, prompt bytes, mandatory canonical schema, optional additional schema, validation code, privacy controls and synthetic manifest identify extraction production. Policy bytes and router code identify routing versions. Custom schemas cannot relax the supplied schema. Original reviewed synthetic bytes and effective settings are retained. A historical retry/resume requires the original processing assets; if these assets changed, restore them or run a new intake refresh. Historical executable code is not archived inside SQLite. Earlier pending work superseded by a newer accepted attempt is retained as superseded activity and excluded from recoverable work.
 - Provider behavior: the implemented OpenAI adapter is tested only with injected saved HTTP replies. The real environment credential loader is source-inspected, never invoked by tests. Account/model availability, real service latency, SDK-free HTTP compatibility and live factual accuracy remain unobserved. Numeric Retry-After is honored; HTTP-date Retry-After is not parsed. Rate reservations coordinate this database's processes, not other internal tools.
 - Source interpretation: exact scalar comparisons use the source spans selected in the plan, so a different supported purpose phrasing may score as a mismatch without being false. Quote substring validation cannot prove all semantic facts are correct. Null/issue behavior and routing are checked; no universal override-attack detector is claimed beyond the explicit patterns and tested cases. Multiple requests in one message, nonstandard ID normalization, broader correction wording, partially specified dates and unknown-secret redaction remain policy/design boundaries from the spec's open questions.
 - Current output: CLI queue is authoritative live state; exported files are a snapshot. Resolve deliverables/current once before reading both files. Generation files are flushed before pointer publication, and local publishers are serialized. Independent raw file opens across a generation switch are not a coherent-read contract. Abandoned staged generations can remain; no history-retention deletion is implemented. The submitted accuracy synthetic case stays outside the 20-document queue.

@@ -1,0 +1,194 @@
+{
+  "head_at_generation": "baedb5bf95182c4f1103925725e6a540af9d753f",
+  "provider": "mock",
+  "model": "gpt-4.1",
+  "records": 20,
+  "export": {
+    "generation": "ed6ebd9aa7e9482ab7ca0d906d8a0dd6",
+    "records": 20,
+    "extractions": "extractions.jsonl",
+    "queue": "queue.json"
+  },
+  "accuracy": {
+    "matched": 252,
+    "denominator": 252,
+    "mismatches": [],
+    "evidence_checks": [
+      {
+        "document_id": "IT-001.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-002.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-003.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-004.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-005.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-006.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-007.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-008.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-009.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-010.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-011.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-012.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-013.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-014.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-015.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-016.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-017.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-018.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-019.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-020.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-021.json",
+        "passed": true
+      }
+    ],
+    "routing_checks": [
+      {
+        "document_id": "IT-001.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-002.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-003.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-004.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-005.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-006.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-007.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-008.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-009.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-010.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-011.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-012.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-013.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-014.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-015.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-016.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-017.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-018.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-019.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-020.json",
+        "passed": true
+      },
+      {
+        "document_id": "IT-021.json",
+        "passed": true
+      }
+    ],
+    "unexpected_documents": []
+  },
+  "approval_boundary": {
+    "all_access_decisions_outstanding": true,
+    "no_access_grants": true
+  }
+}

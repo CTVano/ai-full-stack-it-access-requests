@@ -1,6 +1,6 @@
 # Accuracy observations
 
-Response source: `mock`. Configuration: `{"endpoint": "https://api.openai.com/v1/responses", "lease_seconds": 120, "max_attempts": 3, "model": "gpt-4.1-mini", "model_options": {}, "provider": "mock", "requests_per_minute": 60, "retry_delay": 0.1, "timeout": 30, "workers": 4}`.
+Response source: `mock`. Configuration: `{"endpoint": "https://api.openai.com/v1/responses", "lease_seconds": 120, "max_attempts": 3, "model": "gpt-4.1", "model_options": {}, "provider": "mock", "requests_per_minute": 0, "retry_delay": 0.1, "timeout": 30, "workers": 4}`.
 
 Observation type: mock fixture consistency; no live extraction-quality observation.
 

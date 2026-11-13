@@ -1,0 +1,14 @@
+E
+======================================================================
+ERROR: test_T_DOCS (test_11_docs.DocumentationContract.test_T_DOCS)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_11_docs.py", line 27, in test_T_DOCS
+    self.assertIn('does not approve access',queue['approval_boundary'])
+                                            ~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'approval_boundary'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (errors=1)

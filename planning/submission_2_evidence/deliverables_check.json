@@ -1,0 +1,45 @@
+{
+  "checked_head": "baedb5bf95182c4f1103925725e6a540af9d753f",
+  "last_locally_recorded_push": "371ff6e47cd9cd0b5442158f5b3ff47b31a056b5",
+  "commits_since_recorded_push": 4,
+  "required_files_present": [
+    "README.md",
+    "access_intake/prompt.txt",
+    "snapshot.schema.json",
+    "requirements.lock",
+    "deliverables/extractions.jsonl",
+    "deliverables/queue.json",
+    "deliverables/accuracy.md",
+    "deliverables/request-evidence.json",
+    "deliverables/verification.md"
+  ],
+  "local_capture_checks": [
+    {
+      "commit": "baedb5bf95182c4f1103925725e6a540af9d753f",
+      "checkpoint_id": "01M7B3VXBHC68NR65QWQHDD2DW",
+      "local_capture_present": true,
+      "agent": "Codex"
+    },
+    {
+      "commit": "15b8cde9b92efd65ac6dd17e08893e86d7195ce6",
+      "checkpoint_id": "01M7B2XC0T5GGXWM0K4N2X9VDA",
+      "local_capture_present": true,
+      "agent": "Codex"
+    },
+    {
+      "commit": "3e710322632598f9555355323b4ebe597bb9b507",
+      "checkpoint_id": "01M7B25KXF84PPS8B40QW1F8K5",
+      "local_capture_present": true,
+      "agent": "Codex"
+    },
+    {
+      "commit": "972d4609731c4a8b01592618927b899ae30273f1",
+      "checkpoint_id": "01M7B1TZVRVHCQ05Q70BAF81Z8",
+      "local_capture_present": true,
+      "agent": "Codex"
+    }
+  ],
+  "remote_synchronization": "not verified or performed; compare after an authorized release push",
+  "refresh_summary": "planning/submission_2_evidence/deliverables_refresh.json",
+  "full_suite_log": "planning/test-evidence/deliverables-refresh-green.txt"
+}
