@@ -9,11 +9,11 @@ run the same way every time, with no model key and no network.
 """
 import hashlib
 import json
-import os
 import socket
 import unittest
 from pathlib import Path
 from unittest import mock
+from support import OfflineCase
 
 ROOT = Path(__file__).resolve().parents[1]
 MOCKS = ROOT / "tests" / "mock_responses"
@@ -24,7 +24,7 @@ def canned_reply(name: str) -> dict:
     return json.loads((MOCKS / f"{name}.json").read_text(encoding="utf-8"))
 
 
-class SuppliedFiles(unittest.TestCase):
+class SuppliedFiles(OfflineCase):
     def test_each_request_export_has_message_text_and_a_hash(self):
         exports = sorted((ROOT / "materials" / "requests").glob("*.json"))
         self.assertEqual(len(exports), 20)
@@ -38,11 +38,10 @@ class SuppliedFiles(unittest.TestCase):
         self.assertIn("request_id", schema["required"])
 
 
-class MockResponse(unittest.TestCase):
+class MockResponse(OfflineCase):
     def test_a_mock_reply_is_read_with_no_key_and_no_network(self):
         refuse = mock.Mock(side_effect=AssertionError("a test tried to open a network connection"))
-        with mock.patch.dict(os.environ), mock.patch.object(socket, "socket", refuse):
-            os.environ.pop("API_KEY", None)
+        with mock.patch.object(socket, "socket", refuse):
             reply = canned_reply("canned-reply")
         self.assertEqual(reply["response_source"], "mock")
         self.assertTrue(reply["output_text"])

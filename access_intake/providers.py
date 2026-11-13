@@ -56,16 +56,17 @@ class LiveProvider:
     def extract(self, message, document_id):
         import os
         import urllib.request
-        from .extraction import SCHEMA
+        from .extraction import ROOT
+        schema=json.loads(Path(self.settings.get('schema_path',ROOT/'snapshot.schema.json')).read_text())
         if self.credential is not None:
             token = self.credential()
         else:
             token = os.environ['API_KEY']
         self._secrets.append(token)
         body = {'model': self.settings.get('model','gpt-4.1-mini'),
-                'instructions': Path(__file__).with_name('prompt.txt').read_text(),
+                'instructions': Path(self.settings.get('prompt_path',Path(__file__).with_name('prompt.txt'))).read_text(),
                 'input': [{'role': 'user', 'content': message}],
-                'text': {'format': {'type':'json_schema','name':'access_request','strict':True,'schema':SCHEMA}},
+                'text': {'format': {'type':'json_schema','name':'access_request','strict':True,'schema':schema}},
                 'store':False, **self.settings.get('model_options',{})}
         request = urllib.request.Request(self.settings.get('endpoint','https://api.openai.com/v1/responses'),
             data=json.dumps(body).encode(),headers={'Authorization':f'Bearer {token}','Content-Type':'application/json'},method='POST')
@@ -75,7 +76,9 @@ class LiveProvider:
             if self.transport:
                 return self.transport(request, timeout)
             with urllib.request.urlopen(request, timeout=timeout) as response:
-                return json.load(response)
+                wire=json.load(response)
+            self.response_source=f"openai/{wire.get('model',body['model'])}"
+            return wire
         except Exception as exc:
             from urllib.error import HTTPError, URLError
             if isinstance(exc,HTTPError) and exc.code in [429,500,502,503,504]:

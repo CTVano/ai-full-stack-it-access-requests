@@ -90,15 +90,28 @@ class Store:
             row=db.execute('SELECT a.result FROM current c JOIN attempts a ON a.id=c.attempt_id WHERE c.document_id=?',(document_id,)).fetchone()
             return json.loads(row[0]) if row else None
 
+    def _start(self,db,doc,settings,extraction_fp,routing_fp,policy_version,force=False):
+        last=db.execute('SELECT id,sha256 FROM sources WHERE document_id=? ORDER BY id DESC LIMIT 1',(doc['document_id'],)).fetchone()
+        source=last['id'] if last and last['sha256']==doc['source_sha256'] else self._source(db,doc)
+        if not force:
+            busy=db.execute("SELECT id FROM attempts WHERE source_id=? AND extraction_fp=? AND routing_fp=? AND state IN ('pending','leased') ORDER BY sequence DESC LIMIT 1",(source,extraction_fp,routing_fp)).fetchone()
+            if busy:return busy['id']
+        return self._attempt(db,source,settings,extraction_fp=extraction_fp,routing_fp=routing_fp,policy_version=policy_version)
+
     def start(self,doc,settings,extraction_fp,routing_fp,policy_version,force=False):
         with self.connection() as db:
             db.execute('BEGIN IMMEDIATE')
-            last=db.execute('SELECT id,sha256 FROM sources WHERE document_id=? ORDER BY id DESC LIMIT 1',(doc['document_id'],)).fetchone()
-            source=last['id'] if last and last['sha256']==doc['source_sha256'] else self._source(db,doc)
-            if not force:
-                busy=db.execute("SELECT id FROM attempts WHERE source_id=? AND extraction_fp=? AND routing_fp=? AND state!='completed' ORDER BY sequence DESC LIMIT 1",(source,extraction_fp,routing_fp)).fetchone()
-                if busy:return busy['id']
-            return self._attempt(db,source,settings,extraction_fp=extraction_fp,routing_fp=routing_fp,policy_version=policy_version)
+            return self._start(db,doc,settings,extraction_fp,routing_fp,policy_version,force)
+
+    def accept_batch(self,documents,settings,extraction_fp,routing_fp,policy_version):
+        with self.connection() as db:
+            db.execute('BEGIN IMMEDIATE')
+            for doc in documents:
+                previous=db.execute('SELECT a.result FROM current c JOIN attempts a ON a.id=c.attempt_id WHERE c.document_id=?',(doc['document_id'],)).fetchone()
+                previous=json.loads(previous[0]) if previous else None
+                if previous and previous['source_sha256']==doc['source_sha256'] and previous['extraction_fingerprint']==extraction_fp and previous['routing_fingerprint']==routing_fp:
+                    continue
+                self._start(db,doc,settings,extraction_fp,routing_fp,policy_version)
 
     def finish(self,ident,result,token=None):
         with self.connection() as db:
@@ -127,9 +140,14 @@ class Store:
 
     def work(self):
         with self.connection() as db:
-            return [dict(r) for r in db.execute("SELECT a.id AS attempt_id,s.document_id,s.sha256 AS source_sha256,a.state,a.lease_until FROM attempts a JOIN sources s ON s.id=a.source_id WHERE a.state!='completed' ORDER BY a.sequence")]
+            return [dict(r) for r in db.execute("SELECT a.id AS attempt_id,s.document_id,s.sha256 AS source_sha256,a.state,a.lease_until FROM attempts a JOIN sources s ON s.id=a.source_id WHERE a.state IN ('pending','leased') ORDER BY a.sequence")]
 
     def recoverable(self):
+        with self.connection() as db:
+            db.execute("""UPDATE attempts SET state='superseded',token=NULL,lease_until=NULL WHERE
+                (state='pending' OR (state='leased' AND lease_until<?)) AND sequence <
+                (SELECT MAX(newer.sequence) FROM attempts newer JOIN sources ns ON ns.id=newer.source_id
+                 WHERE ns.document_id=(SELECT document_id FROM sources WHERE id=attempts.source_id))""",(time.time(),))
         return [row['attempt_id'] for row in self.work() if row['state']=='pending' or (row['state']=='leased' and row['lease_until']<time.time())]
 
     def reserve_slot(self,rate,now):

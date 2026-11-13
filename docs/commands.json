@@ -1,0 +1,67 @@
+{
+  "intake": [
+    "intake",
+    "{inputs}",
+    "--provider",
+    "mock",
+    "--mock-dir",
+    "{mocks}",
+    "--db",
+    "{db}",
+    "--requests-per-minute",
+    "0"
+  ],
+  "queue": [
+    "queue",
+    "--db",
+    "{db}"
+  ],
+  "history": [
+    "history",
+    "IT-001.json",
+    "--db",
+    "{db}"
+  ],
+  "resume": [
+    "resume",
+    "--provider",
+    "mock",
+    "--mock-dir",
+    "{mocks}",
+    "--db",
+    "{db}"
+  ],
+  "retry": [
+    "retry",
+    "--attempt",
+    "{attempt_id}",
+    "--provider",
+    "mock",
+    "--mock-dir",
+    "{mocks}",
+    "--db",
+    "{db}"
+  ],
+  "export": [
+    "export",
+    "--db",
+    "{db}",
+    "--out",
+    "{out}"
+  ],
+  "accuracy": [
+    "accuracy",
+    "--inputs",
+    "{inputs}",
+    "--synthetic",
+    "{synthetic}",
+    "--expected",
+    "{expected}",
+    "--provider",
+    "mock",
+    "--mock-dir",
+    "{mocks}",
+    "--out",
+    "{accuracy_report}"
+  ]
+}

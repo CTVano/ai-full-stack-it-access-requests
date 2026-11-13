@@ -1,0 +1,178 @@
+{
+  "matched": 252,
+  "denominator": 252,
+  "mismatches": [],
+  "evidence_checks": [
+    {
+      "document_id": "IT-001.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-002.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-003.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-004.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-005.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-006.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-007.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-008.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-009.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-010.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-011.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-012.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-013.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-014.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-015.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-016.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-017.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-018.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-019.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-020.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-021.json",
+      "passed": true
+    }
+  ],
+  "routing_checks": [
+    {
+      "document_id": "IT-001.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-002.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-003.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-004.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-005.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-006.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-007.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-008.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-009.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-010.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-011.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-012.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-013.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-014.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-015.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-016.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-017.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-018.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-019.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-020.json",
+      "passed": true
+    },
+    {
+      "document_id": "IT-021.json",
+      "passed": true
+    }
+  ],
+  "unexpected_documents": []
+}

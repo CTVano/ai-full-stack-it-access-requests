@@ -15,7 +15,7 @@ def failure(document, error, response_source='mock'):
         'response_source': response_source}
 
 
-def parse_response(response, message):
+def parse_response(response, message, schema_path=None):
     if not isinstance(response, dict) or response.get('status') != 'completed':
         raise ValueError('response is not completed (interrupted or failed)')
     texts = []
@@ -34,7 +34,8 @@ def parse_response(response, message):
     except (ValueError, TypeError) as exc:
         raise ValueError('invalid JSON extraction') from exc
     try:
-        VALIDATOR.validate(result)
+        validator=Draft202012Validator(json.loads(Path(schema_path or ROOT/'snapshot.schema.json').read_text()))
+        validator.validate(result)
     except ValidationError as exc:
         raise ValueError(f'schema validation: {exc.message}') from exc
     if any(quote not in message for quote in result['supporting_quotes']):
@@ -45,7 +46,9 @@ def parse_response(response, message):
 def extract(document, provider):
     source = provider.response_source
     try:
-        extraction = parse_response(provider.extract(document['message'], document['document_id']), document['message'])
+        wire=provider.extract(document['message'], document['document_id'])
+        source=provider.response_source
+        extraction = parse_response(wire, document['message'],getattr(provider,'settings',{}).get('schema_path'))
         return {k: document[k] for k in ['document_id','source_sha256']} | {
             'extraction': extraction, 'error': None, 'response_source': source}
     except Exception as exc:

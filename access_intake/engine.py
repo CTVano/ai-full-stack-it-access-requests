@@ -79,11 +79,19 @@ class Engine:
 
     def retry(self,attempt_id):
         attempt=self.store.attempt(attempt_id)
+        self._validate_assets(attempt)
         return self._submit(attempt['document'],force=True,settings=attempt['settings'],policy_version=attempt['policy_version'])
 
     def intake(self,path):
+        documents=[];errors=[]
+        for file in discover(path):
+            try:documents.append(read_export(file))
+            except (ValueError,OSError):errors.append(self.submit(file))
+        extraction_fp,routing_fp=fingerprints(self.settings,self.policy_version)
+        # A batch is accepted atomically before workers make the first provider request.
+        self.store.accept_batch(documents,self.settings,extraction_fp,routing_fp,self.policy_version)
         with ThreadPoolExecutor(max_workers=int(self.settings['workers'])) as pool:
-            return list(pool.map(self.submit,discover(path)))
+            return list(pool.map(self._submit,documents))+errors
 
     def _hook(self,name):
         hook=self.hooks.get(name)
@@ -117,6 +125,7 @@ class Engine:
         results=[]
         for ident in self.store.recoverable():
             attempt=self.store.attempt(ident);settings=attempt['settings']
+            self._validate_assets(attempt)
             if settings['provider']!=self.settings['provider']:
                 raise ValueError('unfinished work uses a different saved provider; select that provider explicitly')
             token=self.store.claim(ident,settings['lease_seconds'])
@@ -126,3 +135,8 @@ class Engine:
             results.append(self.store.finish(ident,result,token))
             self._hook('after_commit')
         return results
+
+    def _validate_assets(self,attempt):
+        actual=fingerprints(attempt['settings'],attempt['policy_version'])
+        if actual!=(attempt['extraction_fp'],attempt['routing_fp']) or attempt['policy_version']!=self.policy_version:
+            raise ValueError('historical processing assets changed; restore the saved prompt/schema/policy or run intake to refresh with current settings')
