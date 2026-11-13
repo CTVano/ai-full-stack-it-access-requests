@@ -28,7 +28,7 @@ def fingerprints(settings,policy_version):
 
 
 class Engine:
-    def __init__(self,store,provider,settings=None,policy_version=None):
+    def __init__(self,store,provider,settings=None,policy_version=None,**runtime):
         self.store=store;self.provider=provider;self.settings=effective(settings)
         self.policy_version=policy_version or hashlib.sha256((ROOT/'materials/office-policy.md').read_bytes()).hexdigest()
 

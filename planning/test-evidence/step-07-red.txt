@@ -1,0 +1,51 @@
+test_T_ISOLATION (test_07_workers.WorkerContract.test_T_ISOLATION) ... FAIL
+test_T_OVERLAP (test_07_workers.WorkerContract.test_T_OVERLAP) ... FAIL
+test_T_RESUME (test_07_workers.WorkerContract.test_T_RESUME) ... 
+  test_T_RESUME (test_07_workers.WorkerContract.test_T_RESUME) (point='before_response') ... FAIL
+  test_T_RESUME (test_07_workers.WorkerContract.test_T_RESUME) (point='before_commit') ... FAIL
+  test_T_RESUME (test_07_workers.WorkerContract.test_T_RESUME) (point='after_commit') ... FAIL
+
+======================================================================
+FAIL: test_T_ISOLATION (test_07_workers.WorkerContract.test_T_ISOLATION)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_07_workers.py", line 97, in test_T_ISOLATION
+    self.assertIn('IT-012.json',ready,'slow first message blocked other work')
+AssertionError: 'IT-012.json' not found in {} : slow first message blocked other work
+
+======================================================================
+FAIL: test_T_OVERLAP (test_07_workers.WorkerContract.test_T_OVERLAP)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_07_workers.py", line 57, in test_T_OVERLAP
+    self.assertFalse(entered2.exists(),'overlapping operators called the provider twice for identical pending work')
+AssertionError: True is not false : overlapping operators called the provider twice for identical pending work
+
+======================================================================
+FAIL: test_T_RESUME (test_07_workers.WorkerContract.test_T_RESUME) (point='before_response')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_07_workers.py", line 71, in test_T_RESUME
+    self.assertTrue(wait_file(entered),'worker did not expose the requested interruption boundary')
+AssertionError: False is not true : worker did not expose the requested interruption boundary
+
+======================================================================
+FAIL: test_T_RESUME (test_07_workers.WorkerContract.test_T_RESUME) (point='before_commit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_07_workers.py", line 71, in test_T_RESUME
+    self.assertTrue(wait_file(entered),'worker did not expose the requested interruption boundary')
+AssertionError: False is not true : worker did not expose the requested interruption boundary
+
+======================================================================
+FAIL: test_T_RESUME (test_07_workers.WorkerContract.test_T_RESUME) (point='after_commit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_07_workers.py", line 71, in test_T_RESUME
+    self.assertTrue(wait_file(entered),'worker did not expose the requested interruption boundary')
+AssertionError: False is not true : worker did not expose the requested interruption boundary
+
+----------------------------------------------------------------------
+Ran 3 tests in 10.639s
+
+FAILED (failures=5)
