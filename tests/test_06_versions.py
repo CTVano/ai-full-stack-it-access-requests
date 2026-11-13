@@ -55,6 +55,10 @@ class VersionContract(OfflineCase):
         engine.submit(self.path);before=len(self.provider.calls);prompt.write_text('Explicit facts, exact supporting quotes.')
         engine.submit(self.path);self.assertEqual(len(self.provider.calls),before+1)
         self.assertEqual(original['extraction']['permission'],'read')
+        saved=engine.submit(self.path)
+        prompt.write_text('A genuinely changed historical prompt.')
+        with self.assertRaisesRegex(ValueError,'historical processing assets'):
+            engine.retry(saved['attempt_id'])
 
     def test_T_BATCH(self):
         self.engine.submit(self.path);self.engine.submit(ROOT/'materials/requests/IT-002.json')
