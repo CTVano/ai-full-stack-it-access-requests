@@ -36,12 +36,15 @@ def mock_provider(directory,scenario=None):
 def parser():
     root=argparse.ArgumentParser(description='Prepare access requests for human review. Security Review assesses risk and forwards its recommendation to the system owner for a human decision; a manager is a contact.')
     commands=root.add_subparsers(dest='command',required=True)
-    for command in ['intake','queue','history','resume','retry','export']:
+    for command in ['intake','queue','history','resume','retry','export','accuracy']:
         p=commands.add_parser(command)
         if command=='intake':p.add_argument('inputs')
         if command=='history':p.add_argument('document_id')
         if command=='retry':p.add_argument('--attempt',required=True)
         if command=='export':p.add_argument('--out',default='deliverables')
+        if command=='accuracy':
+            p.add_argument('--inputs',required=True);p.add_argument('--synthetic',required=True)
+            p.add_argument('--expected',required=True);p.add_argument('--out',required=True)
         p.add_argument('--db',default='.state/intake.sqlite3')
         p.add_argument('--provider',choices=['mock','openai'])
         p.add_argument('--mock-dir',default='tests/mock_responses')
@@ -69,6 +72,13 @@ def render(records,store,args):
 def main(argv=None):
     args=parser().parse_args(argv)
     try:
+        if args.command=='accuracy':
+            from .accuracy import run_accuracy
+            if (args.provider or os.getenv('MODEL_PROVIDER','mock'))!='mock':
+                raise ValueError('this reproducible accuracy command uses mock replies; use an independently labelled provider experiment for live observations')
+            settings={'provider':'mock','model':args.model}
+            result=run_accuracy(args.inputs,args.synthetic,args.expected,mock_provider(args.mock_dir,args.scenario),args.out,settings)
+            print(json.dumps(result,indent=2));return 0
         store=Store(args.db)
         if args.command=='export':
             from .exports import publish
