@@ -11,6 +11,7 @@ from .engine import Engine, DEFAULTS
 from .storage import Store
 from .providers import MockProvider, LiveProvider, TransientError
 from .privacy import safe_error
+from .review import APPROVAL_BOUNDARY, review_record
 
 
 def mock_provider(directory,scenario=None):
@@ -35,7 +36,7 @@ def mock_provider(directory,scenario=None):
 
 
 def parser():
-    root=argparse.ArgumentParser(description='Prepare access requests for human review. Security Review assesses risk and forwards its recommendation to the system owner for a human decision; a manager is a contact.')
+    root=argparse.ArgumentParser(description=APPROVAL_BOUNDARY+' All successful intake outputs await human review.')
     commands=root.add_subparsers(dest='command',required=True)
     for command in ['intake','queue','history','resume','retry','export','accuracy']:
         p=commands.add_parser(command)
@@ -64,11 +65,11 @@ def render(records,store,args):
     results=[]
     for record in records:
         if record is None:continue
-        record=dict(record)
+        record=review_record(record)
         if record.get('status')=='error':
             record['retry_command']=shlex.join(['python3','-m','access_intake','retry','--attempt',record['attempt_id'],'--provider',record['settings'].get('provider','mock'),'--db',str(args.db),'--mock-dir',str(args.mock_dir)])
         results.append(record)
-    return {'results':results,'work':store.work()}
+    return {'approval_boundary':APPROVAL_BOUNDARY,'results':results,'work':store.work()}
 
 
 def main(argv=None):

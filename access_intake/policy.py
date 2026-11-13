@@ -4,10 +4,17 @@ from pathlib import Path
 import re
 from .extraction import extract, failure
 from .privacy import SafeError, safe_error
+from .review import review_record
 
 REQUIRED = ('request_id','request_date','requester','team','system','environment','permission',
             'business_purpose','start_date','end_date','manager')
-OVERRIDE = re.compile(r'SYSTEM\s+OVERRIDE|highest-priority\s+system\s+instruction|bypass\s+approval\s+rules',re.I)
+OVERRIDE = re.compile(
+    r'\bSYSTEM\s+OVERRIDE\b|highest-priority\s+system\s+instruction|'
+    r'\bignore\s+(?:all\s+)?(?:previous|prior|earlier)\s+(?:instructions|rules)\b|'
+    r'\b(?:developer|system)\s+(?:instruction|message)\s*:\s*(?:skip|ignore|bypass|override|approve|grant|mark)\b|'
+    r'\b(?:print|show|display|reveal|expose|return)\s+(?:the\s+)?(?:api[\s_-]*key|credentials?|secrets?)\b|'
+    r'\b(?:bypass|skip|ignore)\s+(?:the\s+)?(?:review\s+queue|approval\s+(?:rules|checks|process)|policy)\b|'
+    r'\b(?:mark|set)\s+(?:this\s+)?(?:request|status)\s+(?:as\s+|to\s+)?approved\b', re.I)
 
 
 def route(extraction, document):
@@ -41,7 +48,9 @@ def route(extraction, document):
     if OVERRIDE.search(document['message']):
         issue('instruction-override attempt')
         if not any(OVERRIDE.search(q) for q in facts['supporting_quotes']):
-            facts['supporting_quotes'].append(document['message'])
+            for paragraph in re.split(r'\n\s*\n',document['message']):
+                if OVERRIDE.search(paragraph):
+                    facts['supporting_quotes'].append(paragraph)
         return 'review','IT Service Desk','inspect-message'
     if facts['kind']=='withdrawal':
         return 'review','IT Service Desk','confirm-withdrawal'
@@ -56,9 +65,9 @@ def route(extraction, document):
 def process(document, provider, schema_path=None):
     result = extract(document,provider,schema_path)
     if result['error']:
-        return result
+        return review_record(result)
     try:
         status,owner,action = route(result['extraction'],document)
-        return result | {'status':status,'owner':owner,'next_action':action}
+        return review_record(result | {'status':status,'owner':owner,'next_action':action})
     except ValueError as exc:
-        return failure(document,safe_error(exc),provider.response_source)
+        return review_record(failure(document,safe_error(exc),provider.response_source))

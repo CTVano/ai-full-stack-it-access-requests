@@ -1,0 +1,5 @@
+{
+  "classification": "synthetic-training-only",
+  "export_version": "1.0",
+  "message": "Request S2-008 dated 2026-11-13. Synthetic Requester Alpha in Synthetic Training requests new read access to TrainingAtlas in staging. Manager: Synthetic Manager Beta. Business purpose: Check invented training totals. Access dates will be confirmed later."
+}

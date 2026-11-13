@@ -1,6 +1,6 @@
 # Northstar access-request intake
 
-A CLI turns UTF-8 JSON message exports into validated request facts and a queue for human review. It implements `materials/office-policy.md`; it never grants access. Security Review assesses risk and forwards its recommendation to the system owner for a human decision. A named manager is a contact.
+A CLI turns UTF-8 JSON message exports into validated request facts and a queue for human review. It implements `materials/office-policy.md`. Intake completion does not approve access. This application prepares a review queue. A named manager is a contact. The System Owner makes the access decision; Security Review first assesses risk and forwards its recommendation when the policy requires it.
 
 This repository is for **reviewed synthetic training data only**. Do not place real PII, taxpayer information, credentials or other restricted information in its inputs, fixtures, logs or commits. [Privacy controls and limitations](docs/privacy.md) explain the enforced data boundary and the separate approval required for live model use.
 
@@ -40,6 +40,8 @@ env -u API_KEY python3 -m access_intake accuracy --inputs materials/requests --s
 
 The queue prints `results` and `work`: completed records are available while another intake runs. Every result shows status, owner, next_action, attempt ID, source hash, configuration and policy version. `work` shows accepted pending/leased documents. Successful normal reruns reuse results; omission from a later batch preserves earlier documents.
 
+Intake and queue output also display the approval boundary and each record's `intake_status`, `access_decision`, `decision_owner`, `access_granted` and `review_note`. For IT-001, completed intake remains `review / System Owner / review-request`, with the owner decision outstanding. IT-002 remains `review / Security Review / review-risk-then-owner`, with risk recommendation and subsequent owner decision outstanding. `access_granted` is always false; these fields describe pending human work, not a recorded approval. Storage rejects approval statuses, provisioning actions and granted-access flags. The application has no access-provisioning integration. Fresh exports carry the same boundary and review fields; older immutable exports remain historical observations.
+
 A failed record includes a copyable `retry_command`. To retry a saved version explicitly, replace `ATTEMPT_ID` with the ID printed by the queue:
 
 ```bash
@@ -53,6 +55,8 @@ Reviewed synthetic exports use a flat directory with unique filenames and a stri
 The supplied schema is mandatory for both live and mock responses: all required fields, types, enums and array items are validated, and extra properties are rejected. Custom `schema_path` settings add local constraints and cannot relax this contract. Live requests always send the supplied schema with strict JSON Schema output enabled; `model_options` cannot override the model, instructions, input, output format or storage setting. Duplicate JSON fields, non-JSON numeric constants and malformed or multiple extraction messages are rejected before routing.
 
 The mock adapter loads a fixture matching the document filename from `tests/mock_responses`. For a new document, author its expected source facts first, then its saved provider envelope. `--scenario FILE` supplies reproducible development errors, delays or alternate saved replies. Examples are exercised by the tests; the source message never selects a scenario or executes an instruction.
+
+Submission 2's invented hostile-source cases are in `tests/fixtures/submission_2`, with independent expected facts in `tests/expected/submission_2.json` and replies in `tests/mock_responses/submission_2`. `tests/test_12_hostile_sources.py` checks alternate override wording, role spoofing, credential demands, normal/correction controls and schema failure. Completed writes append private diagnostic events to `<database>.audit.jsonl`: only opaque or fixed-format synthetic IDs, source hashes, routing, issue counts and fixed issue codes are logged. Messages, supporting quotes, extracted values, free-form issues and raw errors are omitted. [Hostile-source evidence](planning/submission_2_evidence/hostile_review.md) records the checks and their limits.
 
 ## Provider and configuration
 

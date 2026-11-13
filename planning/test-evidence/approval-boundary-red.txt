@@ -1,0 +1,42 @@
+EEFF
+======================================================================
+ERROR: test_completed_and_hostile_intake_never_calls_provisioning_channels (test_approval_boundary.ApprovalBoundary.test_completed_and_hostile_intake_never_calls_provisioning_channels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_approval_boundary.py", line 74, in test_completed_and_hostile_intake_never_calls_provisioning_channels
+    self.assertIs(record['access_granted'],False)
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'access_granted'
+
+======================================================================
+ERROR: test_completed_intake_displays_pending_human_decisions (test_approval_boundary.ApprovalBoundary.test_completed_intake_displays_pending_human_decisions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_approval_boundary.py", line 42, in test_completed_intake_displays_pending_human_decisions
+    self.assertIn('Intake completion does not approve access.',displayed['approval_boundary'])
+                                                               ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'approval_boundary'
+
+======================================================================
+FAIL: test_storage_rejects_approval_or_access_grant_outcomes (test_approval_boundary.ApprovalBoundary.test_storage_rejects_approval_or_access_grant_outcomes) (override={'status': 'approved'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_approval_boundary.py", line 88, in test_storage_rejects_approval_or_access_grant_outcomes
+    with self.subTest(override=override),self.assertRaisesRegex(ValueError,'approval boundary'):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_storage_rejects_approval_or_access_grant_outcomes (test_approval_boundary.ApprovalBoundary.test_storage_rejects_approval_or_access_grant_outcomes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_approval_boundary.py", line 90, in test_storage_rejects_approval_or_access_grant_outcomes
+    self.assertEqual(store.current('IT-001.json')['attempt_id'],original['attempt_id'])
+AssertionError: 'd2219a2a38064079a84870a4c48c4544' != 'a55b1f9459c149acab5ebc3846ac3371'
+- d2219a2a38064079a84870a4c48c4544
++ a55b1f9459c149acab5ebc3846ac3371
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.446s
+
+FAILED (failures=2, errors=2)

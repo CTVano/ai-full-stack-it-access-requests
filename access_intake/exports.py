@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import uuid
 from .privacy import private_open, private_directory
+from .review import APPROVAL_BOUNDARY, review_record
 
 
 def _write(path,text):
@@ -26,12 +27,14 @@ def publish(store,out,hook=None):
     out=private_directory(out)
     with private_open(out/'.export.lock') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX)
-        records=store.queue()  # One SQLite read statement fixes a consistent source/attempt snapshot.
+        records=[review_record(record) for record in store.queue()]  # One read fixes the snapshot.
         generation=uuid.uuid4().hex
         directory=private_directory(out/'.generations'/generation)
         manifest={'generation':generation,'records':len(records),'extractions':'extractions.jsonl','queue':'queue.json'}
-        fields=['document_id','source_sha256','attempt_id','status','owner','next_action','error']
-        queue={'generation':generation,'entries':[{k:r[k] for k in fields} for r in records]}
+        fields=['document_id','source_sha256','attempt_id','status','owner','next_action','error',
+                'intake_status','access_decision','decision_owner','access_granted','review_note']
+        queue={'generation':generation,'approval_boundary':APPROVAL_BOUNDARY,
+               'entries':[{k:r[k] for k in fields} for r in records]}
         _write(directory/'extractions.jsonl',''.join(json.dumps(r,sort_keys=True)+'\n' for r in records))
         _write(directory/'queue.json',json.dumps(queue,indent=2)+'\n')
         _write(directory/'manifest.json',json.dumps(manifest,indent=2)+'\n')

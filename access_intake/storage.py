@@ -7,6 +7,8 @@ import sqlite3
 import time
 import uuid
 from .privacy import private_open, require_synthetic_document, is_blocked_document
+from .review import review_record
+from .audit import append_result
 
 
 def canonical(value):
@@ -67,6 +69,7 @@ class Store:
         return ident
 
     def _finish(self,db,ident,result):
+        result=review_record(result)
         attempt=db.execute('SELECT a.*,s.document_id,s.sha256 FROM attempts a JOIN sources s ON s.id=a.source_id WHERE a.id=?',(ident,)).fetchone()
         record=dict(result,attempt_id=ident,source_revision=attempt['source_id'],settings=json.loads(attempt['settings']),
                     extraction_fingerprint=attempt['extraction_fp'],routing_fingerprint=attempt['routing_fp'],policy_version=attempt['policy_version'])
@@ -84,7 +87,8 @@ class Store:
             ident=self._attempt(db,source,settings or {})
             record=self._finish(db,ident,result)
             if hook:hook()
-            return record
+        append_result(self.path,record)
+        return record
 
     def queue(self):
         with self.connection() as db:
@@ -130,7 +134,9 @@ class Store:
                 owned=db.execute("SELECT token,state FROM attempts WHERE id=?",(ident,)).fetchone()
                 if owned is None or owned['token']!=token or owned['state']!='leased':
                     return None
-            return self._finish(db,ident,result)
+            record=self._finish(db,ident,result)
+        append_result(self.path,record)
+        return record
 
     def attempt(self,ident):
         with self.connection() as db:

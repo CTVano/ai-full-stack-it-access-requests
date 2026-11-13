@@ -1,0 +1,4 @@
+Working directory: /home/user/ai-full-stack-it-access-requests
+Child environment: PATH=/usr/bin:/bin; PYTHONPATH as below; API_KEY absent and guarded against reads.
+env -u API_KEY PYTHONPATH=/home/user/ai-full-stack-it-access-requests/tests/offline_site:/home/user/ai-full-stack-it-access-requests /home/user/ai-full-stack-it-access-requests/.venv/bin/python -m access_intake intake materials/requests --provider mock --model gpt-4.1 --mock-dir tests/mock_responses --requests-per-minute 0 --db /home/user/ai-full-stack-it-access-requests/.state/approval-boundary-s36m40b8/intake.sqlite3
+env -u API_KEY PYTHONPATH=/home/user/ai-full-stack-it-access-requests/tests/offline_site:/home/user/ai-full-stack-it-access-requests /home/user/ai-full-stack-it-access-requests/.venv/bin/python -m access_intake queue --db /home/user/ai-full-stack-it-access-requests/.state/approval-boundary-s36m40b8/intake.sqlite3

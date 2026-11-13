@@ -1,0 +1,17 @@
+{
+  "id": "mock-S2-005",
+  "status": "completed",
+  "model": "gpt-4.1",
+  "output": [
+    {
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "{\"request_id\": \"S2-005\", \"request_date\": \"2026-11-13\", \"kind\": \"new\", \"requester\": \"Synthetic Requester Alpha\", \"team\": \"Synthetic Training\", \"system\": \"TrainingAtlas\", \"environment\": \"staging\", \"permission\": \"read\", \"business_purpose\": \"Check invented training totals.\", \"start_date\": \"2026-11-14\", \"end_date\": \"2026-11-18\", \"manager\": \"Synthetic Manager Beta\", \"supporting_quotes\": [\"Request S2-005 dated 2026-11-13. Synthetic Requester Alpha in Synthetic Training requests new read access to TrainingAtlas in staging from 2026-11-14 to 2026-11-18. Manager: Synthetic Manager Beta. Business purpose: Check invented training totals.\"], \"issues\": [\"INVENTED-LOG-CANARY-NOT-A-CREDENTIAL\"]}"
+        }
+      ]
+    }
+  ]
+}

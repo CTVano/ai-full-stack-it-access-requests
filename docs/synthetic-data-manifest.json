@@ -325,6 +325,66 @@
       "document_id": "WD-NO-ID.json",
       "source_sha256": "4e62cba121b1b390bd374f5ad72cb2a55339e69d198550ba52bdc893e1712119",
       "message_sha256": "b53a2e9f19265b5923b595750f68d8dffbd2f272fbdcab31cb86e8025c939169"
+    },
+    {
+      "path": "tests/fixtures/submission_2/S2-001.json",
+      "document_id": "S2-001.json",
+      "source_sha256": "d4ff0d21ce05aeeb4a56252169b81eebd8011dc26c2daa2fd8253e8b1db13702",
+      "message_sha256": "4e8ef6a5c9e2394e343c698c127ae932a527a62de702338262b0d06f7185db09"
+    },
+    {
+      "path": "tests/fixtures/submission_2/S2-002.json",
+      "document_id": "S2-002.json",
+      "source_sha256": "11bdd105662653c38954b1f9ada6dfafad73719fc79a70ecff5d7efc993f0feb",
+      "message_sha256": "6b8dce06cee866ded3cbebf73993b548c7a511bc04f29a5725e0cd30a1d297db"
+    },
+    {
+      "path": "tests/fixtures/submission_2/S2-003.json",
+      "document_id": "S2-003.json",
+      "source_sha256": "cadf52f33c5e0796e95aa08bcf64344be992bd9784a075e6703edcc71aba3a8c",
+      "message_sha256": "2651cedadd1ee432ce1aff5458c39aede11b4fc44bb1ed531e555742ebb78ece"
+    },
+    {
+      "path": "tests/fixtures/submission_2/S2-004.json",
+      "document_id": "S2-004.json",
+      "source_sha256": "9407b3ec85fcc5976951658790020b9bb4610f90423cc9d837d619fb37aa7b94",
+      "message_sha256": "26d74cf6eff7e28e21fbac280c016d2be8c1804ad65c6aae0967ff393b4e9e82"
+    },
+    {
+      "path": "tests/fixtures/submission_2/S2-005.json",
+      "document_id": "S2-005.json",
+      "source_sha256": "4d1364ad1f644744bd5a2e9c3b95b092032c730a07197323a38b4df0b3a05d34",
+      "message_sha256": "245687ea908e35291b24f13524887bcc59bc4498662fdbfcc1cb8e629b816dbf"
+    },
+    {
+      "path": "tests/fixtures/submission_2/S2-006.json",
+      "document_id": "S2-006.json",
+      "source_sha256": "e38078fab42c4ecc5cc92a6a860ebd78c20e51d206378725ba6b060cd7408da2",
+      "message_sha256": "b05c6e8dac81ae4f735b269a007b131cab14c954009d9178c1fce8adfb943e9c"
+    },
+    {
+      "path": "tests/fixtures/submission_2/S2-007.json",
+      "document_id": "S2-007.json",
+      "source_sha256": "a67d9862d02a90902ffdcd50efb1d4fe97c245f31c6bc3b742c478a9428aee45",
+      "message_sha256": "0f19b1fb10f297cc0308fb15891d2ec37d0d32e4adada9890691b12f6611e8e2"
+    },
+    {
+      "path": "tests/fixtures/submission_2/S2-008.json",
+      "document_id": "S2-008.json",
+      "source_sha256": "7d21336bcf75886776305aff9ab16906b73ba3ab3296c2632b297fa1f71c6281",
+      "message_sha256": "b7988dc97aa6cd00058ee4f641f16ab2accb648e037397ac4a050f6cdd0c628a"
+    },
+    {
+      "path": "tests/fixtures/submission_2/S2-009.json",
+      "document_id": "S2-009.json",
+      "source_sha256": "00382c37cd5152b9b37525f967de8721de2c08e19101fb6413465a721bff03cd",
+      "message_sha256": "cd1c27084d8c474629aa58fe9a2ee8ab483d67917d8c9fda4ab692af27ef507f"
+    },
+    {
+      "path": "tests/fixtures/submission_2/S2-010.json",
+      "document_id": "S2-010.json",
+      "source_sha256": "3220e4cfc176483fb440ebfe952b8b77606396474f47b1980fadb1de40c07a71",
+      "message_sha256": "2f0967a1f97bedab9b87ed591a9f7b20c756b0e12c8b1ef7f20a96abbde09a1e"
     }
   ]
 }

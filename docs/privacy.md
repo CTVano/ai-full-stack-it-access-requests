@@ -41,6 +41,10 @@ The example is deliberately expired and is not an approval. Use the endpoint, mo
 
 ## Limits and operational responsibilities
 
+Completed result writes append a private processing diagnostic to `<database>.audit.jsonl`. The event has a fixed set of fields: event name, synthetic/opaque document ID, source hash, routing, response-source category, issue count, fixed issue codes and error category. Free-form issue text, message text, supporting quotes, extracted business facts, prompt text and raw provider errors are excluded. The hostile-source tests include wholly invented canaries to check those exclusions. Unknown document-name formats are replaced by a digest identifier. These diagnostics do not replace the application records, which deliberately preserve reviewed synthetic evidence.
+
+Diagnostic appends occur after the SQLite commit; rolled-back writes produce no success event. A crash or filesystem error between commit and append can leave a committed attempt without a JSONL diagnostic. SQLite remains the authoritative processing history, and an append error is surfaced rather than silently ignored. This is a training diagnostic log, not a complete transactional or sensitive-data access audit.
+
 - This remains a training application. It is not an approved IRS service, a production compliance certification or a system for PII, FTI, SBU, CUI or other restricted information. Do not put that information in the repository, agent workspace, fixtures, prompts, terminal output or session capture.
 - No automatic redaction or pattern detector can establish that a taxpayer record is safe. Both a reviewed dataset and authorization of the tool/use matter. Anyone able to edit the code or manifest can change this application's controls; enforce repository review and isolate the workspace from real data and unnecessary network/credentials.
 - Successful extraction records deliberately retain business facts and exact supporting quotes, as required by this assignment. They are application results for fictional data, not operational logs. Review all outputs before sharing or acting on them. There is no automatic approval action.
