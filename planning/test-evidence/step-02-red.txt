@@ -1,0 +1,14 @@
+test_T_INPUT (test_02_input.InputContract.test_T_INPUT) ... FAIL
+
+======================================================================
+FAIL: test_T_INPUT (test_02_input.InputContract.test_T_INPUT)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_02_input.py", line 13, in test_T_INPUT
+    self.assertEqual(doc.get('message'), expected('IT-007.json')['source_message'])
+AssertionError: None != "IT-007 2026-10-22 - Grace Tan / Develope[519 chars]ion)"
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

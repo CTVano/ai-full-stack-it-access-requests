@@ -1,0 +1,7 @@
+{
+  "export_version": "1.0",
+  "exported_at": "2026-10-22T16:00:00Z",
+  "source_channel": "email",
+  "subject": "Dashboard event checks",
+  "message": "Request ID: MATRIX-CHANGE-NO-REQUESTER. Request date: 2026-10-22. Kind: change. Team: Analytics. System: Atlas. Environment: staging. Permission: read. Business purpose: Check dashboard totals. Start date: 2026-10-23. End date: 2026-11-06. Manager: Priya Shah."
+}

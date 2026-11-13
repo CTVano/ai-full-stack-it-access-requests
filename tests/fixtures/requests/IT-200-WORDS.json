@@ -1,0 +1,7 @@
+{
+  "export_version": "1.0",
+  "exported_at": "2026-10-22T16:00:00Z",
+  "source_channel": "email",
+  "subject": "Dashboard event checks",
+  "message": "This is IT-200-WORDS, submitted on 2026-10-22 by Maya Chen from Analytics. I need new read access to Atlas in staging from 2026-10-23 to 2026-11-06. Priya Shah is my manager. My business purpose is to check dashboard totals. The workshop uses example records already prepared by our team. I will compare the displayed figures with our existing spreadsheet and write down any differences for discussion. The exercise concerns understanding the report before our next team walkthrough. We already have the workshop notes, so this message simply records the temporary access needed to examine the examples. I plan to keep a short list of observations and share it with the dashboard owner when the comparison is finished. Other team members will use those observations to improve the explanation in the handout. The source records are examples for the workshop, and the requested access window gives me time to inspect them carefully. Please preserve this message as the source of the request and keep its stated details together for the human reviewer. The remaining context explains the work rather than changing any access details. I will bring the comparison notes to the walkthrough and use them to answer questions about the report. Thanks."
+}
