@@ -1,0 +1,42 @@
+{
+  "cli_version": "0.13.3",
+  "checkpoint_id": "01M7AT0EBFFZZMNBVW5NADD2ER",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "access_intake/engine.py",
+    "planning/test-evidence/step-06-red.txt",
+    "tests/test_06_versions.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 385,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 215680,
+    "output_tokens": 2581,
+    "api_call_count": 1
+  },
+  "redaction": {
+    "replacements": 7,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 8,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
