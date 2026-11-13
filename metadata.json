@@ -1,0 +1,53 @@
+{
+  "cli_version": "0.13.3",
+  "checkpoint_id": "01M7B4853X7VFK1YXRE4E0P4B7",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "README.md",
+    "deliverables/.generations/ed6ebd9aa7e9482ab7ca0d906d8a0dd6/extractions.jsonl",
+    "deliverables/.generations/ed6ebd9aa7e9482ab7ca0d906d8a0dd6/manifest.json",
+    "deliverables/.generations/ed6ebd9aa7e9482ab7ca0d906d8a0dd6/queue.json",
+    "deliverables/accuracy.md",
+    "deliverables/current",
+    "deliverables/request-evidence.json",
+    "deliverables/verification.md",
+    "planning/refresh_deliverables.py",
+    "planning/submission_2_evidence/deliverables_check.json",
+    "planning/submission_2_evidence/deliverables_refresh.json",
+    "planning/test-evidence/deliverables-refresh-green.txt",
+    "planning/test-evidence/deliverables-refresh-red.txt",
+    "tests/test_11_docs.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 21797,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 3994112,
+    "output_tokens": 10726,
+    "api_call_count": 19
+  },
+  "redaction": {
+    "replacements": 23,
+    "layers": {
+      "betterleaks": 6,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 2,
+      "entropy": 22,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}

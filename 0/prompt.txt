@@ -1,0 +1,9 @@
+Can you verify all deliverables in challenge.md have been included and updated if we changed them recently since last push?
+
+---
+
+And we can confirm that entire.io has been logging all these interactions and commits?
+
+---
+
+Let's push
