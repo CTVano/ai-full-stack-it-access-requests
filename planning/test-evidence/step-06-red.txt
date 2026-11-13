@@ -1,0 +1,50 @@
+test_T_BATCH (test_06_versions.VersionContract.test_T_BATCH) ... FAIL
+test_T_CHANGED (test_06_versions.VersionContract.test_T_CHANGED) ... FAIL
+test_T_FAILED_RETRY (test_06_versions.VersionContract.test_T_FAILED_RETRY) ... FAIL
+test_T_RERUN (test_06_versions.VersionContract.test_T_RERUN) ... FAIL
+test_T_SETTINGS (test_06_versions.VersionContract.test_T_SETTINGS) ... FAIL
+
+======================================================================
+FAIL: test_T_BATCH (test_06_versions.VersionContract.test_T_BATCH)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_06_versions.py", line 62, in test_T_BATCH
+    self.assertEqual(len(self.store.queue()),2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_T_CHANGED (test_06_versions.VersionContract.test_T_CHANGED)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_06_versions.py", line 25, in test_T_CHANGED
+    self.assertIsInstance(two,dict)
+AssertionError: None is not an instance of <class 'dict'>
+
+======================================================================
+FAIL: test_T_FAILED_RETRY (test_06_versions.VersionContract.test_T_FAILED_RETRY)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_06_versions.py", line 35, in test_T_FAILED_RETRY
+    self.assertIsInstance(one,dict)
+AssertionError: None is not an instance of <class 'dict'>
+
+======================================================================
+FAIL: test_T_RERUN (test_06_versions.VersionContract.test_T_RERUN)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_06_versions.py", line 18, in test_T_RERUN
+    self.assertEqual(len(self.provider.calls),1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_T_SETTINGS (test_06_versions.VersionContract.test_T_SETTINGS)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_06_versions.py", line 47, in test_T_SETTINGS
+    self.assertEqual(len(self.provider.calls),2)
+AssertionError: 0 != 2
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.067s
+
+FAILED (failures=5)
