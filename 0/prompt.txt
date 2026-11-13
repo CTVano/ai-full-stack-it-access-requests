@@ -1,0 +1,5 @@
+Read the following files: challenge.md, docs/requirements.md, materials/office-policy.md, snapshot.schema.json, materials/requests and create a planning/spec.md file.  The spec must have one numbered requirement per line in the sequence R-01, R-02, etc. Each requirement should be a single sentence and be a testable unit.  The requirement should indicate which file and section it came from with the exact words quoted.  Each requirement should also include how it should be checked such as which file to inspect, which test to run, or which command to run.  Do not add anything not already in the files and do not create any code.
+
+---
+
+Can you review the spec.md and find any requirements that are vague and could be read in multiple ways or where a term might not be clearly defined.  Create a section called '## Open Questions' to the bottom of the spec and add each question that includes what you found and what is vague about it.
