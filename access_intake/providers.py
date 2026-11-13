@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 from threading import Lock
 
+DEFAULT_MODEL = 'gpt-4.1'
+
 
 class MockProvider:
     response_source = 'mock'
@@ -42,7 +44,7 @@ class LiveProvider:
         if transport is not None and credential is None:
             raise ValueError('injected transport requires an explicit credential supplier')
         self.credential = credential
-        self.response_source = 'mock' if transport else f"openai/{settings.get('model','gpt-4.1-mini')}"
+        self.response_source = 'mock' if transport else f"openai/{settings.get('model',DEFAULT_MODEL)}"
         self._secrets = []
         self._evidence = None
 
@@ -63,7 +65,7 @@ class LiveProvider:
         else:
             token = os.environ['API_KEY']
         self._secrets.append(token)
-        body = {'model': self.settings.get('model','gpt-4.1-mini'),
+        body = {'model': self.settings.get('model',DEFAULT_MODEL),
                 'instructions': Path(self.settings.get('prompt_path',Path(__file__).with_name('prompt.txt'))).read_text(),
                 'input': [{'role': 'user', 'content': message}],
                 'text': {'format': {'type':'json_schema','name':'access_request','strict':True,'schema':schema}},

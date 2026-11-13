@@ -4,7 +4,7 @@ A CLI turns UTF-8 JSON message exports into validated request facts and a queue 
 
 ## Setup
 
-Supported runtime: Python 3.11 or later on a POSIX host with SQLite and symlinks. Verified here on Linux/Python 3.12.3. Python 3.11 and other operating systems have not been exercised. The real provider adapter uses OpenAI's Responses API and configurable `gpt-4.1-mini`; all included examples and tests use saved mocks.
+Supported runtime: Python 3.11 or later on a POSIX host with SQLite and symlinks. Verified here on Linux/Python 3.12.3. Python 3.11 and other operating systems have not been exercised. The real provider adapter uses OpenAI's Responses API and configurable `gpt-4.1`; all included examples and tests use saved mocks.
 
 ```bash
 python3 -m venv .venv
@@ -60,7 +60,7 @@ Tests guard socket access and every `API_KEY` read, including test subprocesses.
 |---|---|
 | API_KEY | No default; read only by an explicitly selected live request |
 | MODEL_PROVIDER | mock; choose mock or openai |
-| MODEL_ID | gpt-4.1-mini |
+| MODEL_ID | gpt-4.1 |
 | MODEL_BASE_URL | https://api.openai.com/v1/responses |
 | MODEL_TIMEOUT_SECONDS | 30 seconds per provider request |
 | MAX_WORKERS | 4 worker threads per intake process |

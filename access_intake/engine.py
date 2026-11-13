@@ -8,8 +8,9 @@ from .inputs import read_export, discover
 from .extraction import ROOT, failure
 from .policy import process, route
 from .storage import fingerprint
+from .providers import DEFAULT_MODEL
 
-DEFAULTS={'provider':'mock','model':'gpt-4.1-mini','endpoint':'https://api.openai.com/v1/responses',
+DEFAULTS={'provider':'mock','model':DEFAULT_MODEL,'endpoint':'https://api.openai.com/v1/responses',
           'timeout':30,'workers':4,'requests_per_minute':60,'max_attempts':3,'retry_delay':0.1,
           'lease_seconds':120,'model_options':{}}
 ALLOWED=set(DEFAULTS)|{'prompt_path','schema_path'}

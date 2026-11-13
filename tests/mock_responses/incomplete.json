@@ -1,7 +1,7 @@
 {
   "id": "mock-IT-001.json",
   "status": "incomplete",
-  "model": "gpt-4.1-mini",
+  "model": "gpt-4.1",
   "output": [
     {
       "type": "message",

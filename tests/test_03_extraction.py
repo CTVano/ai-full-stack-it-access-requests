@@ -48,6 +48,16 @@ class ExtractionContract(OfflineCase):
         def transport(request,timeout):
             calls.append((request,timeout))
             return json.loads((MOCKS/'IT-001.json').read_text())
+        from access_intake.engine import effective
+        from access_intake.__main__ import parser
+        from unittest.mock import patch
+        with patch('access_intake.__main__.os.getenv',side_effect=lambda name,default=None:default):
+            self.assertEqual(parser().parse_args(['intake','materials/requests']).model,'gpt-4.1')
+        self.assertEqual(effective()['model'],'gpt-4.1')
+        default_provider=LiveProvider({},transport=transport,credential=lambda:'dummy-token')
+        default_provider.extract(self.doc['message'],self.doc['document_id'])
+        self.assertEqual(json.loads(calls.pop()[0].data)['model'],'gpt-4.1')
+        self.assertEqual(LiveProvider({}).response_source,'openai/gpt-4.1')
         provider=LiveProvider({'model':'configured-model','endpoint':'https://example.invalid/v1/responses','timeout':7},transport=transport,credential=lambda:'dummy-token')
         wire=provider.extract(self.doc['message'],self.doc['document_id'])
         self.assertEqual(wire,self.wire)
