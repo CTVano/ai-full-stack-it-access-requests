@@ -2,6 +2,8 @@
 
 A CLI turns UTF-8 JSON message exports into validated request facts and a queue for human review. It implements `materials/office-policy.md`; it never grants access. Security Review assesses risk and forwards its recommendation to the system owner for a human decision. A named manager is a contact.
 
+This repository is for **reviewed synthetic training data only**. Do not place real PII, taxpayer information, credentials or other restricted information in its inputs, fixtures, logs or commits. [Privacy controls and limitations](docs/privacy.md) explain the enforced data boundary and the separate approval required for live model use.
+
 ## Setup
 
 Supported runtime: Python 3.11 or later on a POSIX host with SQLite and symlinks. Verified here on Linux/Python 3.12.3. Python 3.11 and other operating systems have not been exercised. The real provider adapter uses OpenAI's Responses API and configurable `gpt-4.1`; all included examples and tests use saved mocks.
@@ -46,7 +48,7 @@ env -u API_KEY python3 -m access_intake retry --attempt ATTEMPT_ID --provider mo
 
 Retry uses the saved source bytes/settings/policy version and bypasses reuse, creating a new attempt. It does not silently read the file's newer contents; run intake again to accept changed input. Current errors replace older successful results in the queue, while history retains the original success and hash. Normal unchanged intake leaves a failed result visible until explicit retry; resume finishes pending work and reclaims expired worker leases. Default leases expire after 120 seconds. Committed results survive interruptions; a provider reply lost before commit can be requested again.
 
-New exports use a flat directory with unique filenames and a string `message`. Facts come from that message; metadata is display context. SHA-256 covers the original JSON bytes. Model output must complete and validate against `snapshot.schema.json`; refusals, malformed/invalid/interrupted replies and provider failures produce an actionable error with null extraction. Invalid absolute dates and withdrawals missing ID/date fail clearly, as clarified by the user; valid reversed dates clarify under policy rule 3.
+Reviewed synthetic exports use a flat directory with unique filenames and a string `message`. Facts come from that message; metadata is display context. SHA-256 covers the original JSON bytes. The filename and exact bytes must be listed in `docs/synthetic-data-manifest.json`; new or changed synthetic exports require review and a manifest update before intake. Rejected inputs retain only an opaque digest identifier and a safe error, with no message, original filename, raw bytes or metadata. Model output must complete and validate against `snapshot.schema.json`; refusals, malformed/invalid/interrupted replies and provider failures produce an actionable error with null extraction. Invalid absolute dates and withdrawals missing ID/date fail clearly, as clarified by the user; valid reversed dates clarify under policy rule 3. Diagnostics name the invalid field without echoing its value.
 
 The supplied schema is mandatory for both live and mock responses: all required fields, types, enums and array items are validated, and extra properties are rejected. Custom `schema_path` settings add local constraints and cannot relax this contract. Live requests always send the supplied schema with strict JSON Schema output enabled; `model_options` cannot override the model, instructions, input, output format or storage setting. Duplicate JSON fields, non-JSON numeric constants and malformed or multiple extraction messages are rejected before routing.
 
@@ -54,7 +56,7 @@ The mock adapter loads a fixture matching the document filename from `tests/mock
 
 ## Provider and configuration
 
-Live intake requires explicit `--provider openai` (or `MODEL_PROVIDER=openai`). The operator supplies `API_KEY` in the environment. The live adapter reads it only at request time and uses HTTPS POST to the configured `/v1/responses` endpoint with the extraction instructions, decoded message and JSON Schema output format. The producing response's model ID is recorded in `response_source`. This submission contains no live observations.
+Live intake requires explicit `--provider openai` (or `MODEL_PROVIDER=openai`) and an unexpired approval record supplied with `--approval-file` or `MODEL_APPROVAL_FILE`, matching the exact HTTPS endpoint, model and synthetic-training purpose. No live approval is supplied by this repository. An approval record documents an actual external decision; creating a file does not grant authorization. The operator supplies `API_KEY` in the environment. The live adapter checks data and approval before reading credentials, blocks redirects, and uses HTTPS POST to the configured `/v1/responses` endpoint with the extraction instructions, decoded message and JSON Schema output format. The producing response's model ID is recorded in `response_source`. This submission contains no live observations.
 
 Tests guard socket access and every `API_KEY` read, including test subprocesses. Provider tests inject a literal dummy-token supplier and HTTP replies saved under `tests/mock_responses`; they never read even a dummy environment key. The environment credential loader is inspected in source, not invoked by tests. Credentials are excluded from stored settings and redacted from request evidence and error diagnostics. Keep operational diagnostics free of credential values.
 
@@ -63,15 +65,18 @@ Tests guard socket access and every `API_KEY` read, including test subprocesses.
 | API_KEY | No default; read only by an explicitly selected live request |
 | MODEL_PROVIDER | mock; choose mock or openai |
 | MODEL_ID | gpt-4.1 |
+| MODEL_APPROVAL_FILE | No default; required for real network calls, matching endpoint/model/purpose and expiry |
 | MODEL_BASE_URL | https://api.openai.com/v1/responses |
 | MODEL_TIMEOUT_SECONDS | 30 seconds per provider request |
 | MAX_WORKERS | 4 worker threads per intake process |
 | REQUESTS_PER_MINUTE | 60 shared intake reservations per minute; 0 disables for offline examples |
 | MAX_ATTEMPTS | 3 total transient-error attempts |
 
-CLI flags override non-secret environment defaults. Effective settings and prompt/schema hashes are recorded. The Python service also accepts `model_options`, `prompt_path`, `schema_path`, `retry_delay` and `lease_seconds`; no credential-bearing settings are accepted. An extraction-affecting fingerprint change triggers a new extraction. A routing-policy/code change can reuse an already validated extraction but produces a new versioned routing result. Retrying an old attempt uses its saved configuration fingerprint and policy version as provenance; if the saved prompt/schema/policy assets have changed, retry/resume refuses with a clear diagnostic; restore those assets or run intake to refresh with current settings (see operating limits).
+CLI flags override non-secret environment defaults. Effective settings and prompt/schema hashes are recorded. The Python service also accepts `model_options` (numeric `temperature`, `top_p`, `max_output_tokens` only), `prompt_path`, `schema_path`, `approval_path`, `retry_delay` and `lease_seconds`; no credential-bearing settings are accepted. An extraction-affecting fingerprint change triggers a new extraction. A routing-policy/code change can reuse an already validated extraction but produces a new versioned routing result. Retrying an old attempt uses its saved configuration fingerprint and policy version as provenance; if the saved prompt/schema/policy assets have changed, retry/resume refuses with a clear diagnostic; restore those assets or run intake to refresh with current settings (see operating limits).
 
 The extraction fingerprint includes the supplied schema, any additional custom schema and the response-validation code. Updating these checks refreshes previously cached results on the next intake; retry/resume of attempts with older validation assets requires restoring those assets or starting a new intake.
+
+The privacy controls and synthetic manifest also affect the extraction fingerprint. After this update, run a new intake for reviewed source files to refresh earlier attempts. New runtime directories use mode `0700`; database, sidecars, reports and exported files use `0600`. Request evidence replaces message text and instructions with redacted placeholders and hashes. Existing historical deliverables contain fictional examples and are retained as historical observations.
 
 ## State, output and limits
 

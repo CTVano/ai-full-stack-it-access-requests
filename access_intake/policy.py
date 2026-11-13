@@ -3,6 +3,7 @@ from datetime import date
 from pathlib import Path
 import re
 from .extraction import extract, failure
+from .privacy import SafeError, safe_error
 
 REQUIRED = ('request_id','request_date','requester','team','system','environment','permission',
             'business_purpose','start_date','end_date','manager')
@@ -23,14 +24,14 @@ def route(extraction, document):
                     raise ValueError('use YYYY-MM-DD')
                 date.fromisoformat(value)
             except ValueError as exc:
-                raise ValueError(f'invalid calendar date {field}={value}') from exc
+                raise SafeError(f'invalid calendar date for {field}; use a real YYYY-MM-DD date') from exc
     for field,value in facts.items():
         if value is None and field not in ' '.join(issues):
             issue(f'{field} missing or unresolved')
     if facts['kind']=='withdrawal':
         for field in ['request_id','request_date']:
             if not facts[field]:
-                raise ValueError(f'withdrawal missing {field}')
+                raise SafeError(f'withdrawal missing {field}')
     mismatch = bool(facts['request_id'] and facts['request_id'] != Path(document['document_id']).stem)
     if mismatch:
         issue('identifier mismatch: filename and stated request_id differ')
@@ -60,4 +61,4 @@ def process(document, provider, schema_path=None):
         status,owner,action = route(result['extraction'],document)
         return result | {'status':status,'owner':owner,'next_action':action}
     except ValueError as exc:
-        return failure(document,str(exc),provider.response_source)
+        return failure(document,safe_error(exc),provider.response_source)

@@ -9,17 +9,20 @@ from .extraction import ROOT, failure
 from .policy import process, route
 from .storage import fingerprint
 from .providers import DEFAULT_MODEL
+from .privacy import blocked_document, safe_error, MANIFEST, validate_endpoint, validate_model
 
 DEFAULTS={'provider':'mock','model':DEFAULT_MODEL,'endpoint':'https://api.openai.com/v1/responses',
           'timeout':30,'workers':4,'requests_per_minute':60,'max_attempts':3,'retry_delay':0.1,
           'lease_seconds':120,'model_options':{}}
-ALLOWED=set(DEFAULTS)|{'prompt_path','schema_path'}
+ALLOWED=set(DEFAULTS)|{'prompt_path','schema_path','approval_path'}
 
 
 def effective(settings=None):
     unknown=set(settings or {})-ALLOWED
     if unknown:raise ValueError(f'unsupported configuration keys: {sorted(unknown)}')
     result=deepcopy(DEFAULTS)|deepcopy(settings or {})
+    validate_endpoint(result['endpoint'])
+    validate_model(result['model'])
     for key in ['timeout','workers','max_attempts','lease_seconds']:
         if not isinstance(result[key],(int,float)) or result[key]<=0:raise ValueError(f'{key} must be positive')
     if result['requests_per_minute']<0 or result['retry_delay']<0:raise ValueError('rate and delay must be nonnegative')
@@ -35,6 +38,7 @@ def fingerprints(settings,policy_version):
     if settings.get('schema_path') is not None:
         relevant['custom_schema_sha256']=hashlib.sha256(Path(settings['schema_path']).read_bytes()).hexdigest()
     relevant['validation_sha256']=hashlib.sha256(Path(__file__).with_name('extraction.py').read_bytes()).hexdigest()
+    relevant['privacy_sha256']=hashlib.sha256(Path(__file__).with_name('privacy.py').read_bytes()+MANIFEST.read_bytes()).hexdigest()
     return fingerprint(relevant),fingerprint({'policy':policy_version,'router':Path(__file__).with_name('policy.py').read_text()})
 
 
@@ -50,8 +54,8 @@ class Engine:
             document=read_export(path)
         except (ValueError,OSError) as exc:
             raw=Path(path).read_bytes() if Path(path).exists() else b''
-            document={'document_id':Path(path).name,'source_sha256':hashlib.sha256(raw).hexdigest(),'raw':raw,'message':'','metadata':{}}
-            return self.store.save(document,failure(document,str(exc),self.provider.response_source),self.settings)
+            document=blocked_document(raw)
+            return self.store.save(document,failure(document,safe_error(exc),self.provider.response_source),self.settings)
         return self._submit(document)
 
     def _submit(self,document,force=False,settings=None,policy_version=None):
@@ -73,7 +77,7 @@ class Engine:
                 status,owner,action=route(result['extraction'],document)
                 result.update(status=status,owner=owner,next_action=action)
             except ValueError as exc:
-                result=failure(document,str(exc),previous['response_source'])
+                result=failure(document,safe_error(exc),previous['response_source'])
         else:
             self._hook('before_response')
             result=self._request(document,settings)

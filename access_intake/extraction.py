@@ -2,6 +2,8 @@
 import json
 from pathlib import Path
 from jsonschema import Draft202012Validator, SchemaError, ValidationError
+from .privacy import (SafeError, SyntheticDataError, safe_error,
+                      require_synthetic_document, blocked_document)
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT/'snapshot.schema.json'
@@ -12,7 +14,7 @@ def load_schema(path=None):
     try:
         Draft202012Validator.check_schema(schema)
     except SchemaError as exc:
-        raise ValueError(f'invalid schema: {exc.message}') from exc
+        raise SafeError('invalid schema configuration') from exc
     return schema
 
 
@@ -26,20 +28,20 @@ def validate_extraction(result, schema_path=None):
             Draft202012Validator(schema).validate(result)
     except ValidationError as exc:
         location = '.'.join(str(part) for part in exc.absolute_path) or '<root>'
-        raise ValueError(f'schema validation at {location}: {exc.message}') from exc
+        raise SafeError(f'schema validation at {location}: violates {exc.validator}') from exc
 
 
 def _unique_object(pairs):
     result = {}
     for key, value in pairs:
         if key in result:
-            raise ValueError(f'duplicate JSON field: {key}')
+            raise SafeError('duplicate JSON field')
         result[key] = value
     return result
 
 
 def _invalid_constant(value):
-    raise ValueError(f'non-JSON numeric constant: {value}')
+    raise SafeError(f'non-JSON numeric constant: {value}')
 
 
 def failure(document, error, response_source='mock'):
@@ -51,50 +53,51 @@ def failure(document, error, response_source='mock'):
 
 def parse_response(response, message, schema_path=None):
     if not isinstance(response, dict) or response.get('status') != 'completed':
-        raise ValueError('response is not completed (interrupted or failed)')
+        raise SafeError('response is not completed (interrupted or failed)')
     output = response.get('output')
     if not isinstance(output, list):
-        raise ValueError('response output must be an array')
+        raise SafeError('response output must be an array')
     texts = []
     messages = 0
     for item in output:
         if not isinstance(item, dict):
-            raise ValueError('response output item must be an object')
+            raise SafeError('response output item must be an object')
         if item.get('type') != 'message':
             continue
         messages += 1
         if item.get('status') != 'completed':
-            raise ValueError('message response is incomplete')
+            raise SafeError('message response is incomplete')
         content = item.get('content')
         if not isinstance(content, list):
-            raise ValueError('message content must be an array')
+            raise SafeError('message content must be an array')
         for part in content:
             if not isinstance(part, dict):
-                raise ValueError('message content part must be an object')
+                raise SafeError('message content part must be an object')
             if part.get('type') == 'refusal':
-                raise ValueError('provider refusal')
+                raise SafeError('provider refusal')
             if part.get('type') == 'output_text':
                 text = part.get('text')
                 if not isinstance(text, str):
-                    raise ValueError('output_text must contain a text string')
+                    raise SafeError('output_text must contain a text string')
                 texts.append(text)
             else:
-                raise ValueError('unexpected message content type')
+                raise SafeError('unexpected message content type')
     if messages != 1 or len(texts) != 1:
-        raise ValueError('response must contain exactly one extraction message and output_text')
+        raise SafeError('response must contain exactly one extraction message and output_text')
     try:
         result = json.loads(texts[0],object_pairs_hook=_unique_object,parse_constant=_invalid_constant)
     except (ValueError, TypeError) as exc:
-        raise ValueError(f'invalid JSON extraction: {exc}') from exc
+        raise SafeError('invalid JSON extraction') from exc
     validate_extraction(result,schema_path)
     if any(quote not in message for quote in result['supporting_quotes']):
-        raise ValueError('supporting quote is not a decoded-message substring')
+        raise SafeError('supporting quote is not a decoded-message substring')
     return result
 
 
 def extract(document, provider, schema_path=None):
     source = provider.response_source
     try:
+        require_synthetic_document(document)
         wire=provider.extract(document['message'], document['document_id'])
         source=provider.response_source
         if schema_path is None:
@@ -103,8 +106,10 @@ def extract(document, provider, schema_path=None):
         return {k: document[k] for k in ['document_id','source_sha256']} | {
             'extraction': extraction, 'error': None, 'response_source': source}
     except Exception as exc:
+        if isinstance(exc,SyntheticDataError):
+            document=blocked_document(document.get('raw',b''))
         redact = getattr(provider, 'redact', str)
-        result = failure(document, redact(str(exc)), source)
+        result = failure(document, redact(safe_error(exc)), source)
         from .providers import TransientError
         from urllib.error import HTTPError
         if isinstance(exc, (TransientError, TimeoutError)) or (isinstance(exc, HTTPError) and exc.code in [429,500,502,503,504]):

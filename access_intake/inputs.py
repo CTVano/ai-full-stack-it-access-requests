@@ -2,6 +2,7 @@
 import hashlib
 import json
 from pathlib import Path
+from .privacy import SafeError, require_synthetic_document
 
 
 def read_export(path):
@@ -12,10 +13,12 @@ def read_export(path):
         if not isinstance(export, dict) or not isinstance(export.get('message'), str):
             raise ValueError('expected an object with a message string')
     except (ValueError, UnicodeError) as exc:
-        raise ValueError(f'{path.name}: invalid UTF-8 JSON export: {exc}') from exc
-    return {'document_id': path.name, 'source_sha256': hashlib.sha256(raw).hexdigest(),
+        raise SafeError('invalid UTF-8 JSON export; expected an object with a message string') from exc
+    document = {'document_id': path.name, 'source_sha256': hashlib.sha256(raw).hexdigest(),
             'raw': raw, 'message': export['message'],
             'metadata': {k: v for k, v in export.items() if k != 'message'}}
+    require_synthetic_document(document)
+    return document
 
 
 def discover(path):

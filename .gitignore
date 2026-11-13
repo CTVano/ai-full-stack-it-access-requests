@@ -3,3 +3,8 @@ __pycache__/
 .venv/
 .state/
 deliverables/.export.lock
+.env
+.env.*
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm

@@ -4,6 +4,7 @@ from pathlib import Path
 from .engine import effective
 from .inputs import discover,read_export
 from .policy import process
+from .privacy import private_open
 
 SCALARS=('request_id','request_date','kind','requester','team','system','environment','permission',
          'business_purpose','start_date','end_date','manager')
@@ -68,5 +69,7 @@ def run_accuracy(inputs,synthetic,expected_path,provider,out,settings=None):
         'office-policy.md: “Use explicit facts from each message”; “Represent absent or unresolved scalar values as null and explain each missing or conflicting fact in issues”; “A later statement explicitly labelled as a correction replaces the earlier value”; “For a change request, extract the requested new permission”. Review rules apply in order: override → inspect-message; withdrawal with ID/date → confirm-withdrawal; incomplete/conflicting/mismatched/other → clarify; complete production/write/admin → review-risk-then-owner; complete staging/read → review-request.\n',
         '\n## Factual-error review\n',json.dumps(summary['mismatches'],indent=2,ensure_ascii=False)+'\n',
         '\n## Separate evidence and routing checks\n',json.dumps({'evidence':summary['evidence_checks'],'routing':summary['routing_checks']},indent=2)+'\n']
-    out=Path(out);out.parent.mkdir(parents=True,exist_ok=True);out.write_text('\n'.join(lines),encoding='utf-8')
+    out=Path(out)
+    with private_open(out,'w') as stream:
+        stream.write('\n'.join(lines))
     return summary

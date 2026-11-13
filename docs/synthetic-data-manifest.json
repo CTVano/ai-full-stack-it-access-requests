@@ -1,0 +1,330 @@
+{
+  "classification": "synthetic-training-only",
+  "basis": "CHALLENGE.md declares supplied people and requests fictional; tests/fixtures contains authored synthetic variants. Review new data outside AI tools before adding exact hashes.",
+  "exports": [
+    {
+      "path": "materials/requests/IT-001.json",
+      "document_id": "IT-001.json",
+      "source_sha256": "102a69f8fbc3779ec19fb6c761ad34b0c9a001f845b8df3c808f5a79441fbb10",
+      "message_sha256": "72bda8c5b80b678289aa0e089081aed83ae16ea115d105f141b316a841dad98c"
+    },
+    {
+      "path": "materials/requests/IT-002.json",
+      "document_id": "IT-002.json",
+      "source_sha256": "007e47d1bd662d246e6d3656b6226b1c512ca4d38d71fc5844b9690ee29c14f6",
+      "message_sha256": "c42006c3022f149adbc73c66211b857730dcccdfe0e5edfb317522b5c571817f"
+    },
+    {
+      "path": "materials/requests/IT-003.json",
+      "document_id": "IT-003.json",
+      "source_sha256": "80b64509cf82b29006492e97a2c53a165b9df7d22c78da10976a04594f829052",
+      "message_sha256": "6675a5d981f13b34cc9a796235a1b2c6e87cab7e53f1b950efc961e146e6cb2b"
+    },
+    {
+      "path": "materials/requests/IT-004.json",
+      "document_id": "IT-004.json",
+      "source_sha256": "d5de0f00c5c118e499ed27c6f779139b1b4c483158adf5fd2d86f513b1f9654e",
+      "message_sha256": "e5a783cbc6a2f4ff0990b0f27d770ce8a6229e4442248f7a0e28b8059ebfd780"
+    },
+    {
+      "path": "materials/requests/IT-005.json",
+      "document_id": "IT-005.json",
+      "source_sha256": "fb0f1d6451346e0d411204cb82375ae6f3be26e2791996d6adb5550d969c20f1",
+      "message_sha256": "9c5cc7dd21553d513388522e8d87efa028c0ddba6f066ee7b87fce26acfae98b"
+    },
+    {
+      "path": "materials/requests/IT-006.json",
+      "document_id": "IT-006.json",
+      "source_sha256": "d342c355bcf72b2d2c50e5fdf2696403bc245f5e7483722095e92b382a1991b2",
+      "message_sha256": "63ef885822b038568e1b531762a3482bf90742f62b019854fa03005b57cd0adb"
+    },
+    {
+      "path": "materials/requests/IT-007.json",
+      "document_id": "IT-007.json",
+      "source_sha256": "dd4857323b83b418755981031c2798cd95c83703d09aa5457e3c8105afba646e",
+      "message_sha256": "a1379aae049e055ecf472e31c9cda46726e0f64bef3b1f051c4b55b773ef88e9"
+    },
+    {
+      "path": "materials/requests/IT-008.json",
+      "document_id": "IT-008.json",
+      "source_sha256": "b1e1de4bd67831115149cad2f1caba73f76d0c016bfcd75bdcdefdff8705a66f",
+      "message_sha256": "1d1266ae2531ddde6730683c8d0075d2d504e8497f3e46262973c4e54aa8e8fe"
+    },
+    {
+      "path": "materials/requests/IT-009.json",
+      "document_id": "IT-009.json",
+      "source_sha256": "8aa13b91d4d163827ed609b04c4cf40db2e66e4bbe33cd2211e22c1fa35378ad",
+      "message_sha256": "25916f882dc538fff0943fc9c222a86f9e410058af1ad62fda63cfd15bdc8b56"
+    },
+    {
+      "path": "materials/requests/IT-010.json",
+      "document_id": "IT-010.json",
+      "source_sha256": "8d40a28442575c92e012ea57356a5d39b5a5724dd8e85de65118bffbf269ea2d",
+      "message_sha256": "f761b59c9e2a81525ccbf06e674035364e39cc6553414ac7221661b6bc5ca5d7"
+    },
+    {
+      "path": "materials/requests/IT-011.json",
+      "document_id": "IT-011.json",
+      "source_sha256": "0776059292b21c7e12a3c5ecf3e81b3afa9743a4bd5e67e897da9bdd15bab345",
+      "message_sha256": "b9eb990679c8ad18b53815ebc148517ab11029a69a3ebcbc72f078d8b596e58a"
+    },
+    {
+      "path": "materials/requests/IT-012.json",
+      "document_id": "IT-012.json",
+      "source_sha256": "192b72da5e74647b660d0e1226bb6a0f056fca4ec5ec53b278d7863fd397a791",
+      "message_sha256": "60dcc8335101e418ff889beafa64b2dece081209823c4cdc81048982e240cec0"
+    },
+    {
+      "path": "materials/requests/IT-013.json",
+      "document_id": "IT-013.json",
+      "source_sha256": "e477b1b1ecabb5f445dd80703e532a7ac11247220861a09f550f374dcdea240f",
+      "message_sha256": "15b32a4416b0afed1d9245246465e7fc6fb30c69f37894641c79ef15ebe6972a"
+    },
+    {
+      "path": "materials/requests/IT-014.json",
+      "document_id": "IT-014.json",
+      "source_sha256": "8f2ce7407f230ea93d334947f9fd577ef7656f5deb25c5d28b62e5930ce592a1",
+      "message_sha256": "ed0f62a54add5f86112ce8b0c2f450a026eb4c855e7c6f18e126f2f388194cfa"
+    },
+    {
+      "path": "materials/requests/IT-015.json",
+      "document_id": "IT-015.json",
+      "source_sha256": "a8beef34c01e19d3192a97d81b7a9b1a076703733d842b2eb50b002c6723cd2d",
+      "message_sha256": "8121a366488c0154e9f4f4041d386fafe7ac1f5b9a325c67dccf3fbe29d0fabc"
+    },
+    {
+      "path": "materials/requests/IT-016.json",
+      "document_id": "IT-016.json",
+      "source_sha256": "4c470e6fc498eba6b02efd4fcb9e4550b5e6229c608b20d7ceb2e529cd6282c2",
+      "message_sha256": "dc0cfe0de399564c5b46344abfb9f517715803a63c581ae649957584ce2e7bcc"
+    },
+    {
+      "path": "materials/requests/IT-017.json",
+      "document_id": "IT-017.json",
+      "source_sha256": "48c112b2079b488d1c8c52585526957f072df1d7985cf8a2d1a71624c7f08a15",
+      "message_sha256": "56ec137b7e5437280cc8398785e8e2d2097a988fa07da87963a9e88541546206"
+    },
+    {
+      "path": "materials/requests/IT-018.json",
+      "document_id": "IT-018.json",
+      "source_sha256": "0f4735183084c428b92ba37fc4247b8792222daff9395ab3feb94b866a8de1bd",
+      "message_sha256": "5c920c315fce34e00e30a7bcbef0fe174fd7b5d9a711ab6584d755d6f9ca7080"
+    },
+    {
+      "path": "materials/requests/IT-019.json",
+      "document_id": "IT-019.json",
+      "source_sha256": "a2818ebed37c50392ff66143f0f4ecea0509b40a6d42edff4168770041d8e87d",
+      "message_sha256": "a04c46cca01ea61f9ce229bf479a1355ce73c29f67c9cab11a8f1d5525133c5b"
+    },
+    {
+      "path": "materials/requests/IT-020.json",
+      "document_id": "IT-020.json",
+      "source_sha256": "05c79e5aeea9a964492143fe9e0731e7926ae987bd935482940ffde658a273ab",
+      "message_sha256": "ad2686d95f9d7d362c6dcec8cdd0f28b6774afce19c61aad1eee45964f65c623"
+    },
+    {
+      "path": "tests/fixtures/byte-only/IT-001.json",
+      "document_id": "IT-001.json",
+      "source_sha256": "d0ce1d67bff88083b3dd527be6ef10df20249fdc6f7b7d6137eeb60109008a4b",
+      "message_sha256": "72bda8c5b80b678289aa0e089081aed83ae16ea115d105f141b316a841dad98c"
+    },
+    {
+      "path": "tests/fixtures/changed/IT-001.json",
+      "document_id": "IT-001.json",
+      "source_sha256": "075a2361426e35c07014f440a74931881d5c3c6083a7239b7fbb1d478e3a4245",
+      "message_sha256": "691e14e9853cb0c2ec93c0ea02bce3a2595b83a1724657813bf1582972aec766"
+    },
+    {
+      "path": "tests/fixtures/impossible-date/IT-001.json",
+      "document_id": "IT-001.json",
+      "source_sha256": "9d145bb22b682f8b6b4a23ebd5ede5df9f9ced424f161fa0fd4bdbf8311c2660",
+      "message_sha256": "e210120f60c102e7a049c35a26ccfc746650b4d134155cd4371f1d10e20b34a6"
+    },
+    {
+      "path": "tests/fixtures/metadata-only/IT-001.json",
+      "document_id": "IT-001.json",
+      "source_sha256": "b7886c6e84797276a209c6f52a37e17af735f5e649bdf11a61555e02f670ed15",
+      "message_sha256": "72bda8c5b80b678289aa0e089081aed83ae16ea115d105f141b316a841dad98c"
+    },
+    {
+      "path": "tests/fixtures/priority-conflict/IT-005.json",
+      "document_id": "IT-005.json",
+      "source_sha256": "e955c53d0edfc43436260702573a655476731d9da1408b9c88d6e714dbd92cea",
+      "message_sha256": "9bbe9e7026e5d2818e696d77a27eda304ef3d7c132853587652058319f82139b"
+    },
+    {
+      "path": "tests/fixtures/priority-override/IT-005.json",
+      "document_id": "IT-005.json",
+      "source_sha256": "016f12f87c830ddab2691e11313dfda3f21b8ff918b7a549c1e035eeb98728a0",
+      "message_sha256": "7c4f69619943b2f2bd59ece1008cabaa8f1b95d7e4bce8f407ea9a8291febcf8"
+    },
+    {
+      "path": "tests/fixtures/requests/IT-021.json",
+      "document_id": "IT-021.json",
+      "source_sha256": "5ce79d83bf4a03c5b92ddaf30e023eca4cce925ed3854a650ec9d9e9876a32c7",
+      "message_sha256": "f4bb2807d62dfc085f8aafb6a2ade8e78ea2d346556d862a3d8b257b095821a4"
+    },
+    {
+      "path": "tests/fixtures/requests/IT-200-WORDS.json",
+      "document_id": "IT-200-WORDS.json",
+      "source_sha256": "a379f6a69ebe1b09649c5860ab58064fa7124d7d5c0a5297dfd7824c0d10de16",
+      "message_sha256": "503814f59824df5263612022ebb3bad58f2bb8a993829aa01c9fbabba10f3f33"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-CHANGE-NO-BUSINESS_PURPOSE.json",
+      "document_id": "MATRIX-CHANGE-NO-BUSINESS_PURPOSE.json",
+      "source_sha256": "af1b4ac6d48bbb346ffa5824d1fa9db5a1fc33d7c80c2f937007ac10861b866b",
+      "message_sha256": "500cc4fb8d3257cadaff4ab81c7e2232963c9b379babc6a9623b3c7538d0ebba"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-CHANGE-NO-END_DATE.json",
+      "document_id": "MATRIX-CHANGE-NO-END_DATE.json",
+      "source_sha256": "f92d4ea6abe79b8f5e2afc9e8dd95e08c4b4805e00e0b97d5578ea3bbd5e36ba",
+      "message_sha256": "e9fef883c7013705ec5b87cd680ffd3ca139594b37a3ffa1a0141ee79af276f2"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-CHANGE-NO-ENVIRONMENT.json",
+      "document_id": "MATRIX-CHANGE-NO-ENVIRONMENT.json",
+      "source_sha256": "340d13580d651acddba72fc91e0db72bf7e6a89785baf0dea87b179bba81a792",
+      "message_sha256": "bf648ad5374aabba413f26f2e5cb2296389aec927fa826ee3936af37bf634dd5"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-CHANGE-NO-MANAGER.json",
+      "document_id": "MATRIX-CHANGE-NO-MANAGER.json",
+      "source_sha256": "da8b628c94294a7ee4a417ade458ec76708a9d5eaf4b324550420868c5effa0c",
+      "message_sha256": "97f73f94d94b16ea1c5f9bc76c2da7943e924ef6b963e82942c77f2703ed7bfd"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-CHANGE-NO-PERMISSION.json",
+      "document_id": "MATRIX-CHANGE-NO-PERMISSION.json",
+      "source_sha256": "81bc552c9bd6d0b551fde932d325d91a8cb17c743b98aa5199255869d9e6432f",
+      "message_sha256": "a9d5f28112b2aa9359d3326b271f20268275de5e472db748381c00d3e59e160d"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-CHANGE-NO-REQUESTER.json",
+      "document_id": "MATRIX-CHANGE-NO-REQUESTER.json",
+      "source_sha256": "d6420cda2834703d08bc1410368927d1b81f7da54796fc51d2dbe0abe51740ae",
+      "message_sha256": "c75c10f6e398e64a478948a1eba6f668e4937f6f78cd16085a8940bd3fb2da0f"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-CHANGE-NO-REQUEST_DATE.json",
+      "document_id": "MATRIX-CHANGE-NO-REQUEST_DATE.json",
+      "source_sha256": "86ec6d2096294851b80678f758daae1bb2630f88478799ab1dbe618a5ca45a76",
+      "message_sha256": "7b2ab80baa7f3c99ace97cd6538d51a6c40b1c0c6bc660d496cc93a2e73ed297"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-CHANGE-NO-REQUEST_ID.json",
+      "document_id": "MATRIX-CHANGE-NO-REQUEST_ID.json",
+      "source_sha256": "217da0acace80fa68c01d64ab45103a03bd4219ee55e69a2070a366de0e61c62",
+      "message_sha256": "059408b8bb24ee6a0208bc59f526152cc396c3fdd1717258ee6697605ff857ed"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-CHANGE-NO-START_DATE.json",
+      "document_id": "MATRIX-CHANGE-NO-START_DATE.json",
+      "source_sha256": "87db38f4140bb383884ab2de1b02d5184e26762eaf59e6f3c28343f099a49a6d",
+      "message_sha256": "09d0d28a7888240b332d664169411142045dcf8b2e4191051882d79568a1058c"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-CHANGE-NO-SYSTEM.json",
+      "document_id": "MATRIX-CHANGE-NO-SYSTEM.json",
+      "source_sha256": "34ebcf10fccb14537dfb5306914ec6afb309febb88125c163de8b0245a13950f",
+      "message_sha256": "94a6cc4be66bc5701ee632d808ab9ce8e7f0b542c812f28469e78e1a14928e81"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-CHANGE-NO-TEAM.json",
+      "document_id": "MATRIX-CHANGE-NO-TEAM.json",
+      "source_sha256": "a4b2bc634f56bb8ff66728b6bdf90d87bdb09c4a28c1ec511f28dc7e62708796",
+      "message_sha256": "4ffbae338fe12b5c2c63530b3012e7565710126a577229c9b32a4e45c92cb199"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-NEW-NO-BUSINESS_PURPOSE.json",
+      "document_id": "MATRIX-NEW-NO-BUSINESS_PURPOSE.json",
+      "source_sha256": "357e9ff2b4b3b54d38d9f436bf0405108df22adcf39454c43891b8ec8e8b5939",
+      "message_sha256": "73e5ba30658387c0b73d36e6e9a7d9e1fc01ded8f957ce17eadcfbcd4d1969e6"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-NEW-NO-END_DATE.json",
+      "document_id": "MATRIX-NEW-NO-END_DATE.json",
+      "source_sha256": "4569cd05e78d27885bedf49637ef261048bf8e2779f66fb1e70de0499b8ce278",
+      "message_sha256": "ec885b56f6922cd1770eb295f97749a7fb50846a60055078ae0620575ea6207b"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-NEW-NO-ENVIRONMENT.json",
+      "document_id": "MATRIX-NEW-NO-ENVIRONMENT.json",
+      "source_sha256": "d3fca793142485d1737d15c8cc49f01e9ca85fc8d99002534abf6b88ac963918",
+      "message_sha256": "a559e5ed14977cbf5f2e0734b4091d004e92962a054cd4895dae65c8a2881809"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-NEW-NO-MANAGER.json",
+      "document_id": "MATRIX-NEW-NO-MANAGER.json",
+      "source_sha256": "0d82b7d185e332e65a24dead991c0990125e0329934b1e1cb89d1552781ed9d3",
+      "message_sha256": "991a26db3ff8f01b9247dbea0db6f77ec7b96a17db339b8f9569fb93852e5214"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-NEW-NO-PERMISSION.json",
+      "document_id": "MATRIX-NEW-NO-PERMISSION.json",
+      "source_sha256": "4783ffebe33072e1a1a1b24f662336c76a1f57098db7bdfcc128ba3eb1c7d9fa",
+      "message_sha256": "cf7c4996679f49916ff3f896a6d791cf22bdf2e0a33bef1b5815215a71e4299c"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-NEW-NO-REQUESTER.json",
+      "document_id": "MATRIX-NEW-NO-REQUESTER.json",
+      "source_sha256": "c49465e051a2c3a80b935d2a0039a4cbabc21b878d114e6b84cbce32cdbe6195",
+      "message_sha256": "c375fae9a0a2e428be8fbe66e18cef1868e3a9ae60bd66ec82874499f177ea2e"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-NEW-NO-REQUEST_DATE.json",
+      "document_id": "MATRIX-NEW-NO-REQUEST_DATE.json",
+      "source_sha256": "a0a417d1d35ee982d911c7dd739146c8c5a52d65ae4abb5c579b110bfec79aeb",
+      "message_sha256": "c04ffc083b928d674379b673cf0c6b8cee60cc90cffb5421c7a786dc3ac251e7"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-NEW-NO-REQUEST_ID.json",
+      "document_id": "MATRIX-NEW-NO-REQUEST_ID.json",
+      "source_sha256": "14fb2fdcabfb3554f57ce02da99f54731dab2d65cec4387d325d96fdf3f599f4",
+      "message_sha256": "29264178d88cf6667c0379cb086bdbaef576ee27edbb830c4392ca52041a5875"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-NEW-NO-START_DATE.json",
+      "document_id": "MATRIX-NEW-NO-START_DATE.json",
+      "source_sha256": "00cc85f151a7c881b42e5569e77c80083b5303ba0280fa1bd49f9461a07a0004",
+      "message_sha256": "7d8d3953ffe874ab972f270b71c6bd59faadb01703939dc345e26992c429a155"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-NEW-NO-SYSTEM.json",
+      "document_id": "MATRIX-NEW-NO-SYSTEM.json",
+      "source_sha256": "67f0d66f43fa784ff62119fcc655b976793b538ab69b8df5397de985e4864ef9",
+      "message_sha256": "0ebbe872118f32f7951ebe16d2b6511b5f1dd02e80e13be98cedaa64c6941540"
+    },
+    {
+      "path": "tests/fixtures/requests/MATRIX-NEW-NO-TEAM.json",
+      "document_id": "MATRIX-NEW-NO-TEAM.json",
+      "source_sha256": "26851b2af8f19dbb99df94fe823015d45919c2bc38d1c0c945c942a28505d0d6",
+      "message_sha256": "d8f01000cae9f4de57c62060b2d8718c57029eaa7da812dae74a6d098de6b312"
+    },
+    {
+      "path": "tests/fixtures/same-id/DOC-A.json",
+      "document_id": "DOC-A.json",
+      "source_sha256": "102a69f8fbc3779ec19fb6c761ad34b0c9a001f845b8df3c808f5a79441fbb10",
+      "message_sha256": "72bda8c5b80b678289aa0e089081aed83ae16ea115d105f141b316a841dad98c"
+    },
+    {
+      "path": "tests/fixtures/same-id/DOC-B.json",
+      "document_id": "DOC-B.json",
+      "source_sha256": "102a69f8fbc3779ec19fb6c761ad34b0c9a001f845b8df3c808f5a79441fbb10",
+      "message_sha256": "72bda8c5b80b678289aa0e089081aed83ae16ea115d105f141b316a841dad98c"
+    },
+    {
+      "path": "tests/fixtures/withdrawal-missing-date/IT-005.json",
+      "document_id": "IT-005.json",
+      "source_sha256": "02a5e1f4f5f9ea288a328002ab2b3ef0a6f27aeda2b8c4f2f3c7b87a4be3c5df",
+      "message_sha256": "ca715b3723b73304168ac8ca8afb489d9e64a0f5129e8107e1571274fb67dec1"
+    },
+    {
+      "path": "tests/fixtures/withdrawal-missing-id/WD-NO-ID.json",
+      "document_id": "WD-NO-ID.json",
+      "source_sha256": "4e62cba121b1b390bd374f5ad72cb2a55339e69d198550ba52bdc893e1712119",
+      "message_sha256": "b53a2e9f19265b5923b595750f68d8dffbd2f272fbdcab31cb86e8025c939169"
+    }
+  ]
+}

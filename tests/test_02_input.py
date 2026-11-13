@@ -31,7 +31,7 @@ class InputContract(OfflineCase):
             path = Path(tmp) / 'invalid.json'
             for data in [b'{', b'\xff', b'{"message":123}']:
                 path.write_bytes(data)
-                with self.assertRaisesRegex(ValueError, 'invalid.json'):
+                with self.assertRaisesRegex(ValueError, 'invalid UTF-8 JSON export'):
                     read_export(path)
             (Path(tmp)/'nested').mkdir()
             with self.assertRaisesRegex(ValueError, 'flat'):

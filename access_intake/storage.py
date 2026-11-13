@@ -6,6 +6,7 @@ from pathlib import Path
 import sqlite3
 import time
 import uuid
+from .privacy import private_open, require_synthetic_document, is_blocked_document
 
 
 def canonical(value):
@@ -19,7 +20,14 @@ def fingerprint(value):
 class Store:
     def __init__(self,path):
         self.path = str(path)
-        Path(path).parent.mkdir(parents=True,exist_ok=True)
+        if self.path != ':memory:':
+            with private_open(path):
+                pass
+            for suffix in ['-wal','-shm']:
+                sidecar = Path(self.path+suffix)
+                if sidecar.exists() or sidecar.is_symlink():
+                    with private_open(sidecar):
+                        pass
         with self.connection() as db:
             db.execute('PRAGMA journal_mode=WAL')
             db.executescript('''
@@ -47,6 +55,8 @@ class Store:
             db.close()
 
     def _source(self,db,doc):
+        if not is_blocked_document(doc):
+            require_synthetic_document(doc)
         return db.execute('INSERT INTO sources(document_id,sha256,raw,message,metadata) VALUES(?,?,?,?,?)',
             (doc['document_id'],doc['source_sha256'],doc['raw'],doc['message'],canonical(doc.get('metadata',{})))).lastrowid
 

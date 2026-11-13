@@ -4,10 +4,11 @@ import json
 import os
 from pathlib import Path
 import uuid
+from .privacy import private_open, private_directory
 
 
 def _write(path,text):
-    with path.open('w',encoding='utf-8') as stream:
+    with private_open(path,'w') as stream:
         stream.write(text);stream.flush();os.fsync(stream.fileno())
 
 
@@ -22,12 +23,12 @@ def resolve_generation(out):
 
 
 def publish(store,out,hook=None):
-    out=Path(out);out.mkdir(parents=True,exist_ok=True)
-    with (out/'.export.lock').open('a') as lock:
+    out=private_directory(out)
+    with private_open(out/'.export.lock') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX)
         records=store.queue()  # One SQLite read statement fixes a consistent source/attempt snapshot.
         generation=uuid.uuid4().hex
-        directory=out/'.generations'/generation;directory.mkdir(parents=True)
+        directory=private_directory(out/'.generations'/generation)
         manifest={'generation':generation,'records':len(records),'extractions':'extractions.jsonl','queue':'queue.json'}
         fields=['document_id','source_sha256','attempt_id','status','owner','next_action','error']
         queue={'generation':generation,'entries':[{k:r[k] for k in fields} for r in records]}

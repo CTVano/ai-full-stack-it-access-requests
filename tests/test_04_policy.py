@@ -61,7 +61,9 @@ class PolicyContract(OfflineCase):
     def test_T_BAD_DATE(self):
         e=expected('impossible-date.json');doc=read_export(ROOT/e['input_path'])
         result=process(doc,MockProvider(MOCKS,{'IT-001.json':['impossible-date.json']}))
-        self.assertEqual(result.get('status'),'error');self.assertIn('2026-02-30',result['error'])
+        self.assertEqual(result.get('status'),'error')
+        self.assertIn('invalid calendar date for start_date',result['error'])
+        self.assertNotIn('2026-02-30',result['error'])
         self.assertIsNone(result['extraction']);self.run_case('IT-014.json')
 
 

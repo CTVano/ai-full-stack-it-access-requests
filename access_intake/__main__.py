@@ -10,6 +10,7 @@ import time
 from .engine import Engine, DEFAULTS
 from .storage import Store
 from .providers import MockProvider, LiveProvider, TransientError
+from .privacy import safe_error
 
 
 def mock_provider(directory,scenario=None):
@@ -50,6 +51,7 @@ def parser():
         p.add_argument('--mock-dir',default='tests/mock_responses')
         p.add_argument('--scenario')
         p.add_argument('--model',default=os.getenv('MODEL_ID',DEFAULTS['model']))
+        p.add_argument('--approval-file',default=os.getenv('MODEL_APPROVAL_FILE'))
         p.add_argument('--endpoint',default=os.getenv('MODEL_BASE_URL',DEFAULTS['endpoint']))
         p.add_argument('--timeout',type=float,default=float(os.getenv('MODEL_TIMEOUT_SECONDS','30')))
         p.add_argument('--workers',type=int,default=int(os.getenv('MAX_WORKERS','4')))
@@ -89,6 +91,8 @@ def main(argv=None):
             saved=store.attempt(args.attempt)['settings'] if args.command=='retry' else None
             provider_name=args.provider or (saved['provider'] if saved else os.getenv('MODEL_PROVIDER','mock'))
             settings={'provider':provider_name,'model':args.model,'endpoint':args.endpoint,'timeout':args.timeout,'workers':args.workers,'requests_per_minute':args.requests_per_minute,'max_attempts':args.max_attempts}
+            if args.approval_file:
+                settings['approval_path']=args.approval_file
             if provider_name=='mock':provider=mock_provider(args.mock_dir,args.scenario)
             elif provider_name=='openai':provider=LiveProvider(settings)
             else:raise ValueError('MODEL_PROVIDER must be mock or openai')
@@ -101,7 +105,7 @@ def main(argv=None):
         print(json.dumps(render(records,store,args),indent=2))
         return int(any(r and r.get('status')=='error' for r in records))
     except (ValueError,OSError,sqlite3.Error) as exc:
-        print(json.dumps({'error':str(exc)}),file=sys.stderr)
+        print(json.dumps({'error':safe_error(exc)}),file=sys.stderr)
         return 2
 
 

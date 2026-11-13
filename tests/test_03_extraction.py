@@ -1,5 +1,7 @@
 from copy import deepcopy
+import hashlib
 import json
+import tempfile
 from pathlib import Path
 from access_intake.inputs import read_export
 from access_intake.extraction import parse_response, extract
@@ -81,12 +83,17 @@ class ExtractionContract(OfflineCase):
         from io import BytesIO
         from unittest.mock import patch
         # Fake the HTTP response itself to check real-adapter provenance without network or API_KEY reads.
-        with patch('urllib.request.urlopen',return_value=BytesIO(json.dumps(self.wire).encode())):
-            producer=LiveProvider({'model':'requested-alias'},credential=lambda:'dummy-token')
-            produced=extract(self.doc,producer)
+        with tempfile.TemporaryDirectory() as tmp:
+            approval=Path(tmp)/'approval.json'
+            approval.write_text(json.dumps({'endpoint':'https://api.openai.com/v1/responses',
+                'model':'requested-alias','purpose':'synthetic-training-only',
+                'prompt_sha256':hashlib.sha256((ROOT/'access_intake/prompt.txt').read_bytes()).hexdigest(),
+                'approval_reference':'OFFLINE-TEST-ONLY-NOT-AUTHORIZATION','valid_until':'2099-01-01'}))
+            with patch('access_intake.providers.open_request',return_value=BytesIO(json.dumps(self.wire).encode())):
+                producer=LiveProvider({'model':'requested-alias','approval_path':str(approval)},credential=lambda:'dummy-token')
+                produced=extract(self.doc,producer)
         self.assertEqual(produced['response_source'],'openai/'+self.wire['model'])
 
-        import tempfile
         with tempfile.TemporaryDirectory() as tmp:
             prompt=Path(tmp)/'prompt.txt';prompt.write_text('Versioned instructions from a saved configuration.')
             schema=Path(tmp)/'schema.json';contract=json.loads((ROOT/'snapshot.schema.json').read_text())
