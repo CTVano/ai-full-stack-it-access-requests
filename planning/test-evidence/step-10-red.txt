@@ -1,0 +1,14 @@
+test_T_ACCURACY (test_10_accuracy.AccuracyContract.test_T_ACCURACY) ... FAIL
+
+======================================================================
+FAIL: test_T_ACCURACY (test_10_accuracy.AccuracyContract.test_T_ACCURACY)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_10_accuracy.py", line 25, in test_T_ACCURACY
+    self.assertEqual(result.get('matched'),251)
+AssertionError: None != 251
+
+----------------------------------------------------------------------
+Ran 1 test in 0.010s
+
+FAILED (failures=1)
