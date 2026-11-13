@@ -1,0 +1,18 @@
+{
+  "id": "mock-IT-001.json",
+  "status": "completed",
+  "model": "gpt-4.1-mini",
+  "output": [
+    {
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "refusal",
+          "refusal": "Mock refusal"
+        }
+      ]
+    }
+  ],
+  "response_source": "mock"
+}

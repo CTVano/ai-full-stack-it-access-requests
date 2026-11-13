@@ -29,3 +29,11 @@ class MockProvider:
         if filename.name != str(filename):
             raise ValueError('mock reply must be a filename')
         return json.loads((self.mock_dir / filename).read_text(encoding='utf-8'))
+
+
+class LiveProvider:
+    def __init__(self, settings, transport=None, credential=None):
+        pass
+
+    def extract(self, message, document_id):
+        return None

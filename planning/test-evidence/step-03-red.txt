@@ -1,0 +1,63 @@
+test_T_INTERRUPTED (test_03_extraction.ExtractionContract.test_T_INTERRUPTED) ... 
+  test_T_INTERRUPTED (test_03_extraction.ExtractionContract.test_T_INTERRUPTED) (reply='incomplete.json') ... FAIL
+  test_T_INTERRUPTED (test_03_extraction.ExtractionContract.test_T_INTERRUPTED) (reply='cut-off.txt') ... FAIL
+test_T_PROVIDER_ERROR (test_03_extraction.ExtractionContract.test_T_PROVIDER_ERROR) ... FAIL
+test_T_REFUSAL (test_03_extraction.ExtractionContract.test_T_REFUSAL) ... FAIL
+test_T_SCHEMA (test_03_extraction.ExtractionContract.test_T_SCHEMA) ... FAIL
+test_T_TRANSPORT (test_03_extraction.ExtractionContract.test_T_TRANSPORT) ... FAIL
+
+======================================================================
+FAIL: test_T_INTERRUPTED (test_03_extraction.ExtractionContract.test_T_INTERRUPTED) (reply='incomplete.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_03_extraction.py", line 44, in test_T_INTERRUPTED
+    self.assertEqual(result.get('status'),'error');self.assertIsNone(result['extraction'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != 'error'
+
+======================================================================
+FAIL: test_T_INTERRUPTED (test_03_extraction.ExtractionContract.test_T_INTERRUPTED) (reply='cut-off.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_03_extraction.py", line 44, in test_T_INTERRUPTED
+    self.assertEqual(result.get('status'),'error');self.assertIsNone(result['extraction'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != 'error'
+
+======================================================================
+FAIL: test_T_PROVIDER_ERROR (test_03_extraction.ExtractionContract.test_T_PROVIDER_ERROR)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_03_extraction.py", line 32, in test_T_PROVIDER_ERROR
+    self.assertEqual(result.get('status'),'error')
+AssertionError: None != 'error'
+
+======================================================================
+FAIL: test_T_REFUSAL (test_03_extraction.ExtractionContract.test_T_REFUSAL)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_03_extraction.py", line 38, in test_T_REFUSAL
+    self.assertEqual(result.get('status'),'error');self.assertIn('refusal',result['error'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != 'error'
+
+======================================================================
+FAIL: test_T_SCHEMA (test_03_extraction.ExtractionContract.test_T_SCHEMA)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_03_extraction.py", line 17, in test_T_SCHEMA
+    with self.assertRaisesRegex(ValueError, 'JSON'):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_T_TRANSPORT (test_03_extraction.ExtractionContract.test_T_TRANSPORT)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/ai-full-stack-it-access-requests/tests/test_03_extraction.py", line 53, in test_T_TRANSPORT
+    self.assertEqual(wire,self.wire)
+AssertionError: None != {'id': 'mock-IT-001.json', 'status': 'com[1076 chars]ock'}
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.004s
+
+FAILED (failures=6)
