@@ -1,0 +1,13 @@
+entire status
+
+---
+
+Please do a final review of the spec.md and ensure no requirements are missing.  Make sure no requirements are merged into one.  Be sure to the policy, challenge.md, and requirements.md.  Update the open open questions references if needed.  Check the policy for the following:
+
+   - every fact the policy says to extract, and the rules for missing, conflicting and corrected values;
+   - each of the five review-queue rules, in the policy's order;
+   - each processing and recovery rule: errors, retries, hashes, reruns, changed input, history;
+
+---
+
+Please commit the spec.md
