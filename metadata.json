@@ -1,0 +1,61 @@
+{
+  "cli_version": "0.13.3",
+  "checkpoint_id": "01M7B2XC0T5GGXWM0K4N2X9VDA",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 4,
+  "files_touched": [
+    ".gitignore",
+    "README.md",
+    "access_intake/__main__.py",
+    "access_intake/accuracy.py",
+    "access_intake/engine.py",
+    "access_intake/exports.py",
+    "access_intake/extraction.py",
+    "access_intake/inputs.py",
+    "access_intake/policy.py",
+    "access_intake/privacy.py",
+    "access_intake/providers.py",
+    "access_intake/storage.py",
+    "docs/privacy.md",
+    "docs/synthetic-data-manifest.json",
+    "feedback/submission_1.txt",
+    "feedback/submission_2_plan.md",
+    "planning/spec.md",
+    "planning/test-evidence/privacy-green.txt",
+    "tests/test_02_input.py",
+    "tests/test_03_extraction.py",
+    "tests/test_04_policy.py",
+    "tests/test_privacy.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 51303,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 3735808,
+    "output_tokens": 24456,
+    "api_call_count": 35
+  },
+  "redaction": {
+    "replacements": 23,
+    "layers": {
+      "betterleaks": 6,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 2,
+      "entropy": 22,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}

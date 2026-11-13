@@ -1,0 +1,53 @@
+And now can we push?
+
+---
+
+Can you review feedback/submission_1.txt and create a submission_2_plan to address the feedback to improve my score.  Please provide very actionable tasks that I can do with a brief summary if possible of why.  If you don't understand the feedback don't attempt to provide an explanation and instead please say "Suggestion unavailable"
+
+---
+
+Can you move the feedback folder and files to the project root and can you move the submission_2_plan to be in this folder?
+
+---
+
+Can you review providers.py, extraction.py and other areas where the model is defined and change the model to GPT 4.1 instead of mini?
+
+---
+
+Please commit this change
+
+---
+
+Does the requirements state the snapshot.schema.json should be followed for output or used?
+
+---
+
+Can you ensure the schema is tightly enforced in the code?
+
+---
+
+Commit please
+
+---
+
+IRS policy dictates any PII, taxpayer data, and sensitive info be restricted.  Can you review the link on IRS policy and update the code if needed for security and privacy? https://talent.catalyte.ai/courses/irs-bpa-to6/week-01/#day-1
+
+---
+
+<send_user_message_question_reply>
+[{"answer":"Synthetic training data only","question":"Is this app intended to remain a synthetic training project, or will it process real IRS data? The linked course prohibits restricted data in unauthorized AI tools; I’m proceeding with synthetic-only safeguards and will not assume this OpenAI integration is approved for real IRS information.","questionItemId":"[\"request_user_input_async\",\"call_7d1c5363ddde4aad8e5399e0223515d8\",0]"}]
+</send_user_message_question_reply>
+
+---
+
+Can we add a requirement to the spec for the following:
+
+Intake completion does not approve access. This application prepares a review queue. A named manager is a contact. The System Owner makes the access decision; Security Review first assesses risk and forwards its recommendation when the policy requires it.
+
+---
+
+Are you still working on anything else?
+
+---
+
+Let's commit changes so far
